@@ -663,21 +663,19 @@ section:not(:first-of-type)::before {
 .demo-section {
   background: rgba(17, 24, 39, 0.5);
   backdrop-filter: blur(10px);
+  padding: var(--spacing-xl) 0;
 }
 
-.video-container {
+.video-wrapper {
   max-width: 900px;
   margin: 0 auto;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-  border: 2px solid rgba(0, 212, 170, 0.2);
+  display: flex;
+  justify-content: center;
 }
 
-.video-container iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  display: block;
+.video-wrapper video {
+  box-shadow: var(--shadow-card);
+  border: 2px solid rgba(0, 212, 170, 0.2);
 }
 
 .video-placeholder {
