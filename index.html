@@ -4,14 +4,43 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Linggen - Your personal knowledge cultivation system powered by AI" />
+    <meta name="description" content="Linggen - Your local-first memory layer for vibe coding. Index your projects, documents, and notes locally, then search and chat with AI." />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://linggen.dev/" />
+    <meta property="og:title" content="Linggen - Local-First AI Knowledge Management" />
+    <meta property="og:description" content="Your local-first memory layer for vibe coding. Index your projects, documents, and notes on your own machine, then search and chat with AI – with your data staying completely local." />
+    <meta property="og:image" content="https://linggen.dev/og-image.png" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://linggen.dev/" />
+    <meta name="twitter:title" content="Linggen - Local-First AI Knowledge Management" />
+    <meta name="twitter:description" content="Your local-first memory layer for vibe coding. Index your projects, documents, and notes locally, then search and chat with AI." />
+    <meta name="twitter:image" content="https://linggen.dev/og-image.png" />
+    
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#1a1f2e" />
+    <meta name="keywords" content="knowledge management, AI, local-first, coding, vibe coding, semantic search, RAG, Rust, Tauri" />
+    <link rel="canonical" href="https://linggen.dev/" />
+    
     <title>Linggen - AI-Powered Knowledge Management</title>
 </head>
 
 <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Cloudflare Web Analytics -->
+    <!-- To enable analytics:
+         1. Go to Cloudflare Dashboard → Analytics & Logs → Web Analytics
+         2. Click "Add a site" and select linggen.dev
+         3. Copy the token and replace below
+    -->
+    <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_ANALYTICS_TOKEN"}'></script> -->
 </body>
 
 </html>
