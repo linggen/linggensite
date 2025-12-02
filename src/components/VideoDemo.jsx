@@ -1,4 +1,6 @@
 function VideoDemo() {
+    const videoUrl = "https://pub-b35854246e8345fcb7ddb99cd02ebcae.r2.dev/linggensite/linggendemo.mp4";
+    
     return (
         <section className="demo-section" id="demo">
             <div className="container">
@@ -11,20 +13,19 @@ function VideoDemo() {
                     A short walkthrough of how Linggen helps you index and search your code and docs.
                 </p>
 
-                <div className="video-container">
-                    <div className="video-placeholder">
-                        <div className="video-icon">▶</div>
-                        <p>Demo video coming soon</p>
-                        <small>In the meantime, download the beta and try it yourself!</small>
-                    </div>
-                    {/* Uncomment and add your video URL when ready:
-                    <iframe 
-                        src="YOUR_YOUTUBE_OR_LOOM_URL" 
-                        frameBorder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowFullScreen>
-                    </iframe>
-                    */}
+                <div className="video-wrapper">
+                    <video 
+                        controls 
+                        playsInline
+                        src={videoUrl}
+                        style={{
+                            width: '100%',
+                            height: 'auto',
+                            maxWidth: '900px',
+                            borderRadius: '12px',
+                            background: '#000'
+                        }}
+                    />
                 </div>
             </div>
         </section>
