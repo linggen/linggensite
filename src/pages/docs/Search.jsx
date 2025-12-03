@@ -30,6 +30,22 @@ function Search() {
             <section className="doc-section">
                 <h2>Search Tips</h2>
                 <p>For best results:</p>
+
+                <h3>Mention "Linggen" in MCP</h3>
+                <p>
+                    When using Linggen via MCP (e.g. in Cursor), <strong>mention "linggen"</strong> in your prompt 
+                    so the LLM knows to use the Linggen MCP server for searching your indexed sources.
+                </p>
+                <div className="doc-compare">
+                    <div className="doc-bad">
+                        <span className="label">❌ LLM may not use Linggen</span>
+                        <p>"How does auth work?"</p>
+                    </div>
+                    <div className="doc-good">
+                        <span className="label">✅ Triggers Linggen MCP</span>
+                        <p>"Use linggen to find how auth works in my project"</p>
+                    </div>
+                </div>
                 
                 <h3>Be Specific</h3>
                 <div className="doc-compare">
