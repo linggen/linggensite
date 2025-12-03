@@ -3,7 +3,7 @@ function MCPSetup() {
         <article className="doc-article">
             <h1>🔌 MCP Server Setup</h1>
             <p className="doc-intro">
-                Connect Linggen to AI coding tools like Cursor IDE via the Model Context Protocol.
+                Connect Linggen to AI coding tools like Cursor, Zed, and Windsurf via the Model Context Protocol.
             </p>
 
             <section className="doc-section">
@@ -20,24 +20,61 @@ function MCPSetup() {
 
             <section className="doc-section">
                 <h2>Connect Cursor IDE</h2>
-                <ol className="doc-steps">
-                    <li>Make sure Linggen is running</li>
-                    <li>Open <strong>Cursor → Settings → MCP</strong></li>
-                    <li>Click <strong>"Add Server"</strong></li>
-                    <li>Enter the following:</li>
-                </ol>
+                <p>
+                    Add the following to your Cursor MCP configuration file 
+                    (<code>~/.cursor/mcp.json</code> on macOS/Linux):
+                </p>
                 
-                <pre className="doc-code"><code>{`Name: linggen
-URL: http://localhost:8787/mcp/sse`}</code></pre>
+                <pre className="doc-code"><code>{`{
+  "mcpServers": {
+    "linggen": {
+      "url": "http://localhost:8787/mcp/sse"
+    }
+  }
+}`}</code></pre>
 
-                <ol className="doc-steps" start="5">
-                    <li>Save and restart Cursor</li>
-                </ol>
+                <p>Then restart Cursor to apply the changes.</p>
 
                 <div className="doc-note">
                     <strong>Verify:</strong> In Cursor, the MCP indicator should show "linggen" as connected. 
                     You can test by asking Cursor about code in your indexed sources.
                 </div>
+            </section>
+
+            <section className="doc-section">
+                <h2>Connect Zed</h2>
+                <p>
+                    Add the following to your Zed settings file 
+                    (<code>~/.config/zed/settings.json</code> on macOS/Linux):
+                </p>
+                
+                <pre className="doc-code"><code>{`{
+  "context_servers": {
+    "linggen": {
+      "url": "http://localhost:8787/mcp/sse"
+    }
+  }
+}`}</code></pre>
+
+                <p>Then restart Zed to apply the changes.</p>
+            </section>
+
+            <section className="doc-section">
+                <h2>Connect Windsurf</h2>
+                <p>
+                    Add the following to your Windsurf MCP configuration file 
+                    (<code>~/.codeium/windsurf/mcp_config.json</code> on macOS/Linux):
+                </p>
+                
+                <pre className="doc-code"><code>{`{
+  "mcpServers": {
+    "linggen": {
+      "serverUrl": "http://localhost:8787/mcp/sse"
+    }
+  }
+}`}</code></pre>
+
+                <p>Then restart Windsurf to apply the changes.</p>
             </section>
 
             <section className="doc-section">
@@ -55,9 +92,14 @@ URL: http://localhost:8787/mcp/sse`}</code></pre>
                 </ol>
 
                 <h3>On Team Members' Machines</h3>
-                <p>Configure Cursor to point to the shared server:</p>
-                <pre className="doc-code"><code>{`Name: linggen-team
-URL: http://192.168.1.100:8787/mcp/sse`}</code></pre>
+                <p>Configure Cursor to point to the shared server in <code>~/.cursor/mcp.json</code>:</p>
+                <pre className="doc-code"><code>{`{
+  "mcpServers": {
+    "linggen": {
+      "url": "http://192.168.1.100:8787/mcp/sse"
+    }
+  }
+}`}</code></pre>
 
                 <div className="doc-note">
                     <strong>Security:</strong> The MCP server has no authentication by default. 
