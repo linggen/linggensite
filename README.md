@@ -1,55 +1,71 @@
-# Linggen Landing Page
+`<p align="center">
+  <img src="./src/assets/logo.svg" alt="Linggen Logo" width="120" />
+  <br />
+  <a href="https://linggen.dev">https://linggen.dev</a>
+</p>
 
-The official landing page for Linggen - a local-first memory layer for AI coding.
+## Linggen
 
-Built with React, Vite, and deployed on Cloudflare Pages.
+**Linggen** is a **local-first RAG + MCP memory layer** for AI coding assistants.  
+It runs entirely on your machine, is **free for individuals and teams**, and is built for:
 
-## 🚀 Quick Start
+- **Working across many projects** with one shared memory layer
+- **Navigating huge codebases and documentation sets**
+- **Connecting multiple IDEs/agents via MCP** (Cursor, Zed, Windsurf, etc.)
+
+Nothing leaves your machine by default: embeddings, indexes, and search all run locally.
+
+![Linggen app – Sources view](./src/assets/sources.png)
+
+---
+
+## What You Can Do
+
+- **Index your world**: local folders, codebases, docs, and notes
+- **Semantic search + AI chat** over everything you’ve indexed
+- **Expose an MCP server** at `http://localhost:8787/mcp/sse` for compatible tools
+- **Run it for a team** on a shared machine and point everyone’s MCP config at it
+
+See the full product docs at **[linggen.dev](https://linggen.dev)**.
+
+---
+
+## Install (App)
+
+- Download the latest macOS build from GitHub Releases:  
+  `https://github.com/linggen/linggen-releases/releases`
+- Open the `.dmg` and drag **Linggen** into `Applications`.
+- On first launch, it downloads an embedding model (~100MB) and starts a local backend at `http://localhost:8787`.
+
+> Currently macOS only. Windows & Linux are planned.
+
+---
+
+## MCP Setup (Cursor)
+
+Linggen starts an MCP server at `http://localhost:8787/mcp/sse`.
+Add this to `~/.cursor/mcp.json` to connect Cursor:
+
+```json
+{
+  "mcpServers": {
+    "linggen": {
+      "url": "http://localhost:8787/mcp/sse"
+    }
+  }
+}
+```
+
+Restart Cursor and you should see `linggen` as a connected MCP server.
+
+---
+
+## This Repo
+
+This repo is the **Linggen landing page and docs site**, built with **React** and **Vite**, deployed to **Cloudflare Pages**.
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
 ```
-
-## 📁 Project Structure
-
-```
-linggensite/
-├── public/          # Static assets and _redirects file
-├── src/
-│   ├── components/ # React components
-│   ├── pages/      # Page components and docs
-│   ├── assets/     # Images and logos
-│   ├── constants.js # Global constants (e.g., DOWNLOAD_URL)
-│   ├── App.jsx     # Main app with routing
-│   └── main.jsx    # Entry point
-├── dist/           # Build output (generated)
-└── package.json
-```
-
-## 🌐 Deployment
-
-This site is automatically deployed to [Cloudflare Pages](https://pages.cloudflare.com/) on push to the `main` branch.
-
-### Manual Deployment
-
-See [cloudflare-pages.md](./cloudflare-pages.md) for detailed deployment instructions.
-
-## 🔧 Configuration
-
-- **Download URL**: Update `src/constants.js` to change the download link
-- **Routing**: React Router handles client-side routing
-- **SPA Support**: `public/_redirects` ensures all routes work on Cloudflare Pages
-
-## 📝 License
-
-Copyright 2024 Linggen. All rights reserved.
+`

@@ -2,10 +2,6 @@ import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import DocsLayout from './pages/DocsLayout'
-import QuickStart from './pages/docs/QuickStart'
-import Sources from './pages/docs/Sources'
-import MCPSetup from './pages/docs/MCPSetup'
-import Search from './pages/docs/Search'
 import './App.css'
 
 function AppContent() {
@@ -45,12 +41,7 @@ function AppContent() {
       <div className="spiritual-energy"></div>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/docs" element={<DocsLayout />}>
-          <Route index element={<QuickStart />} />
-          <Route path="sources" element={<Sources />} />
-          <Route path="mcp" element={<MCPSetup />} />
-          <Route path="search" element={<Search />} />
-        </Route>
+        <Route path="/docs" element={<DocsLayout />} />
       </Routes>
     </div>
   )
