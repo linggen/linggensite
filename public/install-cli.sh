@@ -7,53 +7,59 @@ if [ -n "${FISH_VERSION:-}" ]; then
   exit 1
 fi
 
-MANIFEST_URL="${LINGGEN_MANIFEST_URL:-https://github.com/linggen/linggen-releases/releases/latest/download/manifest.json}"
 INSTALL_DIR_DEFAULT="/usr/local/bin"
 FALLBACK_DIR="$HOME/.local/bin"
 
-detect_platform() {
-  local os arch key
+LOCAL_PATH=""
+VERSION_ARG=""
+
+usage() {
+  cat <<EOF
+Usage: $(basename "$0") [--version <ver>] [--local-path <file://...tar.gz>]
+
+Options:
+  --version <ver>    Install a specific version (expects asset naming with v<ver>). If omitted, installs latest.
+  --local-path <url> Install from a local file URL or local path (file://...). Skips network fetch.
+
+If neither is provided, installs from the latest published tarball for this platform.
+EOF
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --version)
+      VERSION_ARG="$2"; shift 2 ;;
+    --local-path)
+      LOCAL_PATH="$2"; shift 2 ;;
+    -h|--help)
+      usage; exit 0 ;;
+    *)
+      echo "Unknown option: $1" >&2
+      usage; exit 1 ;;
+  esac
+done
+
+detect_slug() {
+  local os arch
   os="$(uname -s | tr '[:upper:]' '[:lower:]')"
   arch="$(uname -m)"
   case "$os" in
     darwin)
-      key="cli-macos-universal"
+      case "$arch" in
+        arm64|aarch64) echo "macos-aarch64" ;;
+        x86_64|amd64)  echo "macos-x86_64" ;;
+        *) echo "Unsupported architecture: $arch" >&2; exit 1 ;;
+      esac
       ;;
     linux)
       case "$arch" in
-        x86_64|amd64) key="cli-linux-x86_64" ;;
-        aarch64|arm64) key="cli-linux-aarch64" ;;
+        x86_64|amd64) echo "linux-x86_64" ;;
+        arm64|aarch64) echo "linux-arm64" ;;
         *) echo "Unsupported architecture: $arch" >&2; exit 1 ;;
       esac
       ;;
     *) echo "Unsupported OS: $os" >&2; exit 1 ;;
   esac
-  echo "$key"
-}
-
-fetch_url_from_manifest() {
-  local key="$1"
-  local manifest_json url
-
-  echo "➡️  Fetching manifest: $MANIFEST_URL"
-  manifest_json="$(curl -fsSL "$MANIFEST_URL")" || { echo "Failed to download manifest" >&2; exit 1; }
-
-  # Use python (commonly available) to extract the URL
-  url="$(python - <<'PY' "$key" "$manifest_json"
-import json, sys
-key = sys.argv[1]
-data = json.loads(sys.argv[2])
-art = data.get("artifacts", {}).get(key)
-if art and "url" in art:
-    print(art["url"])
-PY
-)" || true
-
-  if [ -z "$url" ]; then
-    echo "Artifact not found in manifest for key: $key" >&2
-    exit 1
-  fi
-  echo "$url"
 }
 
 ensure_dir() {
@@ -96,14 +102,32 @@ install_binary() {
 }
 
 main() {
-  local key url tarball dest="$INSTALL_DIR_DEFAULT"
+  local slug url tarball dest="$INSTALL_DIR_DEFAULT"
+  local version="${VERSION_ARG:-latest}"
 
-  key="$(detect_platform)"
-  url="$(fetch_url_from_manifest "$key")"
+  slug="$(detect_slug)"
+
+  if [ -n "$LOCAL_PATH" ]; then
+    # Accept file:// or plain path
+    if [[ "$LOCAL_PATH" == file://* ]]; then
+      url="${LOCAL_PATH#file://}"
+      url="file://$url"
+    else
+      url="file://$LOCAL_PATH"
+    fi
+  elif [ "$version" = "latest" ]; then
+    url="https://github.com/linggen/linggen-releases/releases/latest/download/linggen-cli-${slug}-latest.tar.gz"
+  else
+    url="https://github.com/linggen/linggen-releases/releases/download/v${version}/linggen-cli-${slug}-v${version}.tar.gz"
+  fi
 
   echo "➡️  Downloading $url"
   tarball="$(mktemp)"
-  curl -fsSL "$url" -o "$tarball"
+  if [[ "$url" == file://* ]]; then
+    cp "${url#file://}" "$tarball"
+  else
+    curl -fsSL "$url" -o "$tarball"
+  fi
 
   if ! ensure_dir "$dest"; then
     echo "Using fallback install dir: $FALLBACK_DIR"
