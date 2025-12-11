@@ -127,7 +127,33 @@ main() {
   if [[ "$url" == file://* ]]; then
     cp "${url#file://}" "$tarball"
   else
-    curl -fsSL "$url" -o "$tarball"
+    # Try primary URL first
+    if ! curl -fsSL "$url" -o "$tarball" 2>/dev/null; then
+      # If /latest/download/ fails with 503, fetch latest tag from GitHub API
+      if [[ "$url" == *"/latest/download/"* ]]; then
+        echo "⚠️  Primary URL failed, fetching latest release tag..."
+        REPO="linggen/linggen-releases"
+        LATEST_TAG=$(curl -s "https://api.github.com/repos/${REPO}/releases/latest" | grep -o '"tag_name": "[^"]*' | cut -d'"' -f4 || echo "")
+        if [ -n "$LATEST_TAG" ]; then
+          # Remove 'v' prefix if present
+          LATEST_TAG="${LATEST_TAG#v}"
+          FALLBACK_URL="https://github.com/${REPO}/releases/download/v${LATEST_TAG}/linggen-cli-${slug}.tar.gz"
+          echo "   Trying fallback URL with tag ${LATEST_TAG}..."
+          if curl -fsSL "$FALLBACK_URL" -o "$tarball" 2>/dev/null; then
+            url="$FALLBACK_URL"
+          else
+            echo "❌ Failed to download from both primary and fallback URLs" >&2
+            exit 1
+          fi
+        else
+          echo "❌ Failed to fetch latest release tag from GitHub API" >&2
+          exit 1
+        fi
+      else
+        echo "❌ Failed to download from $url" >&2
+        exit 1
+      fi
+    fi
   fi
 
   if ! ensure_dir "$dest"; then
