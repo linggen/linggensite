@@ -127,30 +127,31 @@ main() {
   if [[ "$url" == file://* ]]; then
     cp "${url#file://}" "$tarball"
   else
-    # Try primary URL first
     if ! curl -fsSL "$url" -o "$tarball" 2>/dev/null; then
-      # If /latest/download/ fails with 503, fetch latest tag from GitHub API
-      if [[ "$url" == *"/latest/download/"* ]]; then
-        echo "⚠️  Primary URL failed, fetching latest release tag..."
-        REPO="linggen/linggen-releases"
-        LATEST_TAG=$(curl -s "https://api.github.com/repos/${REPO}/releases/latest" | grep -o '"tag_name": "[^"]*' | cut -d'"' -f4 || echo "")
+      # If /latest/download/ fails with 503/404, fetch actual latest tag from GitHub API
+      if [[ "$version" = "latest" ]] && [[ "$url" == *"/latest/download/"* ]]; then
+        echo "⚠️  /latest/download/ failed, fetching actual latest release tag..." >&2
+        LATEST_TAG=$(curl -s "https://api.github.com/repos/linggen/linggen-releases/releases/latest" | grep -o '"tag_name": "[^"]*' | cut -d'"' -f4 || echo "")
         if [ -n "$LATEST_TAG" ]; then
-          # Remove 'v' prefix if present
+          # Remove 'v' prefix if present for consistency
           LATEST_TAG="${LATEST_TAG#v}"
-          FALLBACK_URL="https://github.com/${REPO}/releases/download/v${LATEST_TAG}/linggen-cli-${slug}.tar.gz"
-          echo "   Trying fallback URL with tag ${LATEST_TAG}..."
+          FALLBACK_URL="https://github.com/linggen/linggen-releases/releases/download/v${LATEST_TAG}/linggen-cli-${slug}.tar.gz"
+          echo "   Using versioned URL: $FALLBACK_URL" >&2
           if curl -fsSL "$FALLBACK_URL" -o "$tarball" 2>/dev/null; then
             url="$FALLBACK_URL"
           else
             echo "❌ Failed to download from both primary and fallback URLs" >&2
+            echo "   This may be a temporary GitHub CDN issue. Please try again in a few moments." >&2
             exit 1
           fi
         else
           echo "❌ Failed to fetch latest release tag from GitHub API" >&2
+          echo "   This may be a temporary GitHub CDN issue. Please try again in a few moments." >&2
           exit 1
         fi
       else
         echo "❌ Failed to download from $url" >&2
+        echo "   This may be a temporary GitHub CDN issue. Please try again in a few moments." >&2
         exit 1
       fi
     fi
