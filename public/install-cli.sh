@@ -86,7 +86,9 @@ install_binary() {
   local tarball="$1" dest_dir="$2"
   local tmpdir binpath
   tmpdir="$(mktemp -d)"
-  tar -xzf "$tarball" -C "$tmpdir"
+  # Prevent environment overrides (e.g. TAR_OPTIONS='-O') from dumping binary contents to stdout.
+  # Also suppress stdout to avoid any binary garbage in terminals.
+  env -u TAR_OPTIONS tar -xzf "$tarball" -C "$tmpdir" >/dev/null
   binpath="$tmpdir/linggen"
   if [ ! -f "$binpath" ]; then
     echo "linggen binary not found in tarball" >&2
@@ -95,10 +97,11 @@ install_binary() {
 
   if [ -w "$dest_dir" ]; then
     cp "$binpath" "$dest_dir/"
+    chmod +x "$dest_dir/linggen"
   else
     sudo cp "$binpath" "$dest_dir/"
+    sudo chmod +x "$dest_dir/linggen"
   fi
-  chmod +x "$dest_dir/linggen"
 }
 
 main() {
@@ -116,7 +119,18 @@ main() {
       url="file://$LOCAL_PATH"
     fi
   elif [ "$version" = "latest" ]; then
-    url="https://github.com/linggen/linggen-releases/releases/latest/download/linggen-cli-${slug}.tar.gz"
+    # Always fetch latest tag from GitHub API to avoid CDN cache issues
+    echo "📡 Fetching latest release tag from GitHub..." >&2
+    LATEST_TAG=$(curl -s "https://api.github.com/repos/linggen/linggen-releases/releases/latest" | grep -o '"tag_name": "[^"]*' | cut -d'"' -f4 || echo "")
+    if [ -n "$LATEST_TAG" ]; then
+      # Remove 'v' prefix if present for consistency
+      LATEST_TAG="${LATEST_TAG#v}"
+      url="https://github.com/linggen/linggen-releases/releases/download/v${LATEST_TAG}/linggen-cli-${slug}.tar.gz"
+      echo "   Latest version: ${LATEST_TAG}" >&2
+    else
+      echo "⚠️  Failed to fetch latest tag from API, falling back to /latest/download/" >&2
+      url="https://github.com/linggen/linggen-releases/releases/latest/download/linggen-cli-${slug}.tar.gz"
+    fi
   else
     # Use versioned release tag but base filename (single asset naming)
     url="https://github.com/linggen/linggen-releases/releases/download/v${version}/linggen-cli-${slug}.tar.gz"
@@ -127,33 +141,10 @@ main() {
   if [[ "$url" == file://* ]]; then
     cp "${url#file://}" "$tarball"
   else
-    if ! curl -fsSL "$url" -o "$tarball" 2>/dev/null; then
-      # If /latest/download/ fails with 503/404, fetch actual latest tag from GitHub API
-      if [[ "$version" = "latest" ]] && [[ "$url" == *"/latest/download/"* ]]; then
-        echo "⚠️  /latest/download/ failed, fetching actual latest release tag..." >&2
-        LATEST_TAG=$(curl -s "https://api.github.com/repos/linggen/linggen-releases/releases/latest" | grep -o '"tag_name": "[^"]*' | cut -d'"' -f4 || echo "")
-        if [ -n "$LATEST_TAG" ]; then
-          # Remove 'v' prefix if present for consistency
-          LATEST_TAG="${LATEST_TAG#v}"
-          FALLBACK_URL="https://github.com/linggen/linggen-releases/releases/download/v${LATEST_TAG}/linggen-cli-${slug}.tar.gz"
-          echo "   Using versioned URL: $FALLBACK_URL" >&2
-          if curl -fsSL "$FALLBACK_URL" -o "$tarball" 2>/dev/null; then
-            url="$FALLBACK_URL"
-          else
-            echo "❌ Failed to download from both primary and fallback URLs" >&2
-            echo "   This may be a temporary GitHub CDN issue. Please try again in a few moments." >&2
-            exit 1
-          fi
-        else
-          echo "❌ Failed to fetch latest release tag from GitHub API" >&2
-          echo "   This may be a temporary GitHub CDN issue. Please try again in a few moments." >&2
-          exit 1
-        fi
-      else
-        echo "❌ Failed to download from $url" >&2
-        echo "   This may be a temporary GitHub CDN issue. Please try again in a few moments." >&2
-        exit 1
-      fi
+    if ! curl -fsSL "$url" -o "$tarball"; then
+      echo "❌ Failed to download from $url" >&2
+      echo "   This may be a temporary GitHub CDN issue. Please try again in a few moments." >&2
+      exit 1
     fi
   fi
 
