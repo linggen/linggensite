@@ -32,6 +32,10 @@ function Sources() {
                         <span className="doc-badge coming">Coming Soon</span>
                     </div>
                 </div>
+
+                <div className="doc-note">
+                    <strong>CLI tip:</strong> You can index a local folder directly via <code>linggen index /path --wait</code>.
+                </div>
             </section>
 
             <section className="doc-section">

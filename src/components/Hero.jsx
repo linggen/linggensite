@@ -1,6 +1,6 @@
 import logo from '../assets/logo.svg'
 import appScreenshot from '../assets/sources.png'
-import { DOWNLOAD_URL } from '../constants'
+import { INSTALL_ONE_LINER, INSTALL_COMMAND } from '../constants'
 
 function Hero() {
     return (
@@ -10,25 +10,31 @@ function Hero() {
                 <h1 className="hero-title">
                     <span className="brand-name">Linggen</span>
                 </h1>
-                <p className="hero-subtitle">Your local-first memory layer for vibe coding</p>
+                <p className="hero-subtitle">Local-first project memory + system map for AI-assisted coding</p>
                 <p className="hero-description">
-                    <strong>Linggen</strong> indexes your projects, documents, and notes on your own machine,
-                    then lets you search and chat with them using AI – with your data staying completely local.
+                    <strong>Linggen</strong> runs locally and helps you (and your IDE/LLM) understand a codebase via
+                    <strong> search</strong>, an <strong>IDE-like UI</strong>, and a <strong>dependency graph view</strong>—with your data staying completely local.
                 </p>
                 <div className="cta-buttons">
-                    <a href={DOWNLOAD_URL} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                        Download for macOS (Beta)
+                    <a href="#get-started" className="btn btn-primary">
+                        Install in 30s
                     </a>
-                    <a href="#features" className="btn btn-secondary">Explore Features</a>
+                    <a href="/docs" className="btn btn-secondary">Read Docs</a>
                 </div>
                 <p className="hero-note">
-                    Windows &amp; Linux support coming soon.
+                    macOS works today. Windows &amp; Linux coming soon.
                 </p>
+
+                <div className="hero-install-snippet">
+                    <pre className="hero-code">
+                        <code>{`${INSTALL_ONE_LINER}\n${INSTALL_COMMAND}`}</code>
+                    </pre>
+                </div>
 
                 <div className="app-preview">
                     <img 
                         src={appScreenshot} 
-                        alt="Linggen App - Sources View" 
+                        alt="Linggen App - Sources / Resource Management" 
                         className="app-screenshot"
                     />
                 </div>

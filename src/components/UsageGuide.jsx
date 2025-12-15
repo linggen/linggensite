@@ -85,9 +85,10 @@ URL: http://localhost:8787/mcp/sse`
                     heading: 'Available Tools',
                     content: `The MCP server exposes these tools to your AI:`,
                     list: [
-                        'search — Semantic search across all indexed sources',
-                        'list_sources — View available knowledge sources',
-                        'get_context — Retrieve relevant context for a query'
+                        'search_codebase — Search for relevant code/doc snippets',
+                        'enhance_prompt — Enhance your prompt with relevant context',
+                        'list_sources — View available indexed sources',
+                        'get_status — Check Linggen server status'
                     ]
                 }
             ]

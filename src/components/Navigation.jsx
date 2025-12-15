@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import logo from '../assets/logo.svg'
-import { DOWNLOAD_URL } from '../constants'
 
 function Navigation() {
     const [scrolled, setScrolled] = useState(false)
@@ -50,14 +49,18 @@ function Navigation() {
                 </div>
 
                 <div className="nav-actions">
-                    <a 
-                        href={DOWNLOAD_URL} 
-                        className="nav-download-btn"
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                    >
-                        Download
-                    </a>
+                    {isHomePage ? (
+                        <a
+                            className="nav-download-btn"
+                            onClick={() => scrollToSection('get-started')}
+                        >
+                            Install
+                        </a>
+                    ) : (
+                        <Link className="nav-download-btn" to="/#get-started">
+                            Install
+                        </Link>
+                    )}
                     <button
                         className="mobile-menu-toggle"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

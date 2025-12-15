@@ -598,6 +598,32 @@ section:not(:first-of-type)::before {
   font-style: italic;
 }
 
+/* Hero install snippet */
+.hero-install-snippet {
+  margin: var(--spacing-md) auto 0;
+  max-width: 720px;
+}
+
+.hero-code {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: rgba(2, 6, 23, 0.55);
+  box-shadow: 0 14px 45px rgba(2, 6, 23, 0.45);
+  overflow-x: auto;
+}
+
+.hero-code code {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(226, 232, 240, 0.92);
+  white-space: pre;
+}
+
 /* App Preview Screenshot */
 .app-preview {
   margin-top: var(--spacing-xl);

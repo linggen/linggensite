@@ -120,16 +120,20 @@ function MCPSetup() {
                     </thead>
                     <tbody>
                         <tr>
-                            <td><code>search</code></td>
-                            <td>Semantic search across all indexed sources</td>
+                            <td><code>search_codebase</code></td>
+                            <td>Search for relevant code/doc snippets across indexed sources</td>
                         </tr>
                         <tr>
                             <td><code>list_sources</code></td>
                             <td>List available knowledge sources</td>
                         </tr>
                         <tr>
-                            <td><code>get_context</code></td>
-                            <td>Retrieve relevant context for a query</td>
+                            <td><code>enhance_prompt</code></td>
+                            <td>Enhance a prompt with relevant context</td>
+                        </tr>
+                        <tr>
+                            <td><code>get_status</code></td>
+                            <td>Check Linggen server status</td>
                         </tr>
                     </tbody>
                 </table>

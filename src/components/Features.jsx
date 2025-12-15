@@ -2,8 +2,8 @@ function Features() {
     const features = [
         {
             icon: '🧠',
-            title: 'RAG-Powered Memory Layer',
-            description: 'Linggen uses Retrieval-Augmented Generation (RAG) to give your AI tools deep context about your codebase and documents.',
+            title: 'Project Memory (RAG)',
+            description: 'Index code + docs locally and retrieve the right context for you and your AI tools.',
             items: [
                 'Semantic search across all your files',
                 'Vector embeddings stored locally',
@@ -12,12 +12,34 @@ function Features() {
             ]
         },
         {
+            icon: '🗺️',
+            title: 'Graph View (System Map)',
+            description: 'Explore a dependency graph to understand “what depends on what” before refactors or onboarding.',
+            items: [
+                'File/module dependency graph per source',
+                'Zoom/search/filter like an IDE',
+                'Spot hotspots and blast radius quickly',
+                'Built for architecture + change planning'
+            ]
+        },
+        {
+            icon: '⌨️',
+            title: 'CLI + Local Server',
+            description: 'A CLI-first workflow to install, run, index, and check status—works for desktop or team servers.',
+            items: [
+                'Start server: `linggen serve`',
+                'Index projects: `linggen index <path>`',
+                'Jobs/status: `linggen status`',
+                'Install/update: `linggen install` / `linggen update`'
+            ]
+        },
+        {
             icon: '🔌',
-            title: 'MCP Server Integration',
-            description: 'Connect Linggen to AI coding tools like Cursor via the Model Context Protocol (MCP). One server, all your context.',
+            title: 'MCP Integration (Cursor/Zed/Windsurf)',
+            description: 'Expose Linggen context to IDE assistants via MCP—one endpoint, all your sources.',
             items: [
                 'Built-in MCP server at localhost:8787',
-                'Works with Cursor IDE out of the box',
+                'Works with Cursor out of the box',
                 'Team support: share one server across devs',
                 'Extensible for other MCP-compatible tools'
             ]

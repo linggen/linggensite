@@ -3,9 +3,11 @@ import QuickStart from './docs/QuickStart'
 import Sources from './docs/Sources'
 import MCPSetup from './docs/MCPSetup'
 import Search from './docs/Search'
+import GraphAndCLI from './docs/GraphAndCLI'
 
 const DOC_SECTIONS = [
     { id: 'quick-start', label: 'Quick Start' },
+    { id: 'graph-cli', label: 'Graph & CLI' },
     { id: 'sources', label: 'Adding Sources' },
     { id: 'mcp', label: 'MCP Setup' },
     { id: 'search', label: 'Search & Chat' },
@@ -29,6 +31,9 @@ function DocsLayout() {
 
                 <section id="quick-start" className="docs-section-wrapper">
                     <QuickStart />
+                </section>
+                <section id="graph-cli" className="docs-section-wrapper">
+                    <GraphAndCLI />
                 </section>
                 <section id="sources" className="docs-section-wrapper">
                     <Sources />

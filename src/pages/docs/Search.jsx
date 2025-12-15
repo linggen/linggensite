@@ -31,19 +31,19 @@ function Search() {
                 <h2>Search Tips</h2>
                 <p>For best results:</p>
 
-                <h3>Mention "Linggen" in MCP</h3>
+                <h3>Ask your IDE assistant to use Linggen</h3>
                 <p>
-                    When using Linggen via MCP (e.g. in Cursor), <strong>mention "linggen"</strong> in your prompt 
-                    so the LLM knows to use the Linggen MCP server for searching your indexed sources.
+                    When using Linggen via MCP (e.g. in Cursor), ask explicitly to use Linggen tools like
+                    <code>search_codebase</code> so the assistant pulls real context instead of guessing.
                 </p>
                 <div className="doc-compare">
                     <div className="doc-bad">
-                        <span className="label">❌ LLM may not use Linggen</span>
+                        <span className="label">❌ May skip retrieval</span>
                         <p>"How does auth work?"</p>
                     </div>
                     <div className="doc-good">
-                        <span className="label">✅ Triggers Linggen MCP</span>
-                        <p>"Use linggen to find how auth works in my project"</p>
+                        <span className="label">✅ Uses Linggen context</span>
+                        <p>"Use Linggen `search_codebase` to find how auth works in my project"</p>
                     </div>
                 </div>
                 
@@ -81,9 +81,8 @@ function Search() {
             <section className="doc-section">
                 <h2>AI Assistant</h2>
                 <p>
-                    The <strong>AI Assistant</strong> tab lets you have a conversation with context 
-                    from your indexed sources. The AI automatically searches your knowledge base 
-                    to answer questions.
+                    Linggen can be used directly via its UI, and also via MCP-connected IDE assistants (Cursor/Zed/Windsurf)
+                    which can retrieve context from your indexed sources.
                 </p>
 
                 <h3>Local LLM</h3>
@@ -95,6 +94,7 @@ function Search() {
                 <h3>Example Questions</h3>
                 <ul className="doc-examples">
                     <li>"Explain the architecture of this project"</li>
+                    <li>"Use the graph view to identify what depends on the auth module"</li>
                     <li>"What design patterns are used in the authentication module?"</li>
                     <li>"How do I add a new API endpoint?"</li>
                     <li>"What's the purpose of the ConfigManager class?"</li>

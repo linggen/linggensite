@@ -1,3 +1,8 @@
 // Global constants for Linggen site
 
-export const DOWNLOAD_URL = 'https://github.com/linggen/linggen-releases/releases/download/0.1.0/Linggen_0.1.0_aarch64.dmg'
+// Prefer "latest" so the website doesn't need frequent updates when releases change.
+export const DOWNLOAD_URL = 'https://github.com/linggen/linggen-releases/releases/latest'
+
+// CLI-first entry (recommended)
+export const INSTALL_ONE_LINER = 'curl -fsSL https://linggen.dev/install-cli.sh | bash'
+export const INSTALL_COMMAND = 'linggen install'
