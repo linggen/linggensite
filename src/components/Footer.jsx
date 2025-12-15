@@ -6,12 +6,12 @@ function Footer() {
                     <strong>Linggen</strong> – Local-first memory layer for your code and knowledge
                 </p>
                 <p className="footer-links">
-                    <a href="mailto:hello@linggen.dev">Contact</a>
+                    <a href="mailto:linggen77@gmail.com">Contact</a>
                     <span className="separator">·</span>
-                    <a href="#get-started">Get Started</a>
+                    <a href="/docs">Docs</a>
                 </p>
                 <p className="footer-credit">
-                    Built with Rust &amp; Tauri
+                    Built with Rust 
                 </p>
             </div>
         </footer>

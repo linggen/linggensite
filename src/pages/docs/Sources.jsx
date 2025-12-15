@@ -8,60 +8,45 @@ function Sources() {
 
             <section className="doc-section">
                 <h2>Source Types</h2>
-                <p>Linggen supports multiple source types:</p>
-                
+                <p>Currently, Linggen supports indexing local folders:</p>
+
                 <div className="doc-grid">
                     <div className="doc-card-small">
                         <h3>📁 Local Folder</h3>
                         <p>Index any directory on your machine. Perfect for codebases, documentation, and notes.</p>
                         <span className="doc-badge available">Available</span>
                     </div>
-                    <div className="doc-card-small">
-                        <h3>📤 Uploads</h3>
-                        <p>Drag & drop PDFs, Word docs, text files, and more. Great for reference materials.</p>
-                        <span className="doc-badge available">Available</span>
-                    </div>
-                    <div className="doc-card-small">
-                        <h3>🔗 Git Repository</h3>
-                        <p>Clone and index a Git repo by URL.</p>
-                        <span className="doc-badge coming">Coming Soon</span>
-                    </div>
-                    <div className="doc-card-small">
-                        <h3>🌐 Web URL</h3>
-                        <p>Crawl and index web pages and documentation sites.</p>
-                        <span className="doc-badge coming">Coming Soon</span>
-                    </div>
                 </div>
 
                 <div className="doc-note">
-                    <strong>CLI tip:</strong> You can index a local folder directly via <code>linggen index /path --wait</code>.
+                    <strong>CLI tip:</strong> You can index the current folder via <code>linggen index --wait</code> (or a specific folder via <code>linggen index /path --wait</code>).
                 </div>
             </section>
 
             <section className="doc-section">
                 <h2>File Patterns</h2>
                 <p>
-                    Control which files get indexed using glob patterns. This is useful for excluding 
+                    Control which files get indexed using glob patterns. This is useful for excluding
                     build artifacts, dependencies, and other noise.
                 </p>
-                
+
                 <h3>Include Patterns</h3>
                 <p>Specify which files to include (if empty, all files are included):</p>
                 <pre className="doc-code"><code>*.ts, *.tsx, *.js, *.jsx
-*.md, *.mdx
-*.json, *.yaml, *.yml</code></pre>
-                
+                    *.md, *.mdx
+                    *.json, *.yaml, *.yml</code></pre>
+
                 <h3>Exclude Patterns</h3>
                 <p>Specify which files to skip:</p>
                 <pre className="doc-code"><code>node_modules/**
-dist/**
-build/**
-*.min.js
-*.map
-.git/**</code></pre>
+                    dist/**
+                    build/**
+                    *.min.js
+                    *.map
+                    .git/**</code></pre>
 
                 <div className="doc-note">
-                    <strong>Tip:</strong> Linggen automatically respects <code>.gitignore</code> patterns, 
+                    <strong>Tip:</strong> Linggen automatically respects <code>.gitignore</code> patterns,
                     so you usually don't need to manually exclude common directories.
                 </div>
             </section>
@@ -69,11 +54,11 @@ build/**
             <section className="doc-section">
                 <h2>Re-indexing</h2>
                 <p>
-                    Click <strong>"Update"</strong> on any source to re-index after changes. 
+                    Click <strong>"Update"</strong> on any source to re-index after changes.
                     Linggen uses incremental indexing for speed — only changed files are reprocessed.
                 </p>
                 <p>
-                    You can also rename sources and edit patterns without re-indexing. 
+                    You can also rename sources and edit patterns without re-indexing.
                     The index will use the new settings on the next update.
                 </p>
             </section>

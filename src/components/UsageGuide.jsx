@@ -15,14 +15,15 @@ function UsageGuide() {
             title: 'Quick Start Guide',
             sections: [
                 {
-                    heading: '1. Download & Install',
-                    content: `Download Linggen from GitHub Releases. Open the .dmg file and drag Linggen to your Applications folder.`,
-                    code: null
+                    heading: '1. Install the CLI',
+                    content: `Install Linggen CLI with a one-liner, then install the runtime:`,
+                    code: `curl -fsSL https://linggen.dev/install-cli.sh | bash
+linggen install`
                 },
                 {
-                    heading: '2. First Launch',
-                    content: `On first launch, Linggen will download the embedding model (~100MB). This only happens once. The app runs a local backend at localhost:8787.`,
-                    code: null
+                    heading: '2. Start the Server',
+                    content: `Start the Linggen backend server. On first run, it will download the embedding model (~100MB). The server runs at localhost:8787.`,
+                    code: `linggen serve`
                 },
                 {
                     heading: '3. Add Your First Source',

@@ -36,31 +36,16 @@ function Navigation() {
 
                 <div className={`nav-links ${mobileMenuOpen ? 'mobile-open' : ''}`}>
                     {isHomePage ? (
-                        <a onClick={() => scrollToSection('features')}>Features</a>
+                        <a onClick={() => scrollToSection('get-started')}>Features</a>
                     ) : (
-                        <Link to="/#features">Features</Link>
+                        <Link to="/#get-started">Features</Link>
                     )}
                     <Link to="/docs">Docs</Link>
-                    {isHomePage ? (
-                        <a onClick={() => scrollToSection('beta')}>Beta</a>
-                    ) : (
-                        <Link to="/#beta">Beta</Link>
-                    )}
+                    
                 </div>
 
                 <div className="nav-actions">
-                    {isHomePage ? (
-                        <a
-                            className="nav-download-btn"
-                            onClick={() => scrollToSection('get-started')}
-                        >
-                            Install
-                        </a>
-                    ) : (
-                        <Link className="nav-download-btn" to="/#get-started">
-                            Install
-                        </Link>
-                    )}
+                    
                     <button
                         className="mobile-menu-toggle"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

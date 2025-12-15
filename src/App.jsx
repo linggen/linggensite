@@ -25,7 +25,7 @@ function AppContent() {
     // Small delay to ensure DOM is ready after route change
     const timeoutId = setTimeout(() => {
       // Observe all animatable elements
-      document.querySelectorAll('.feature-card, .guide-card').forEach(el => {
+      document.querySelectorAll('.feature-card, .guide-card, .step').forEach(el => {
         observer.observe(el)
       })
     }, 100)

@@ -1,7 +1,8 @@
 `<p align="center">
-  <img src="./src/assets/logo.svg" alt="Linggen Logo" width="120" />
-  <br />
-  <a href="https://linggen.dev">https://linggen.dev</a>
+<img src="./src/assets/logo.svg" alt="Linggen Logo" width="120" />
+<br />
+<a href="https://linggen.dev">https://linggen.dev</a>
+
 </p>
 
 ## Linggen
@@ -30,12 +31,21 @@ See the full product docs at **[linggen.dev](https://linggen.dev)**.
 
 ---
 
-## Install (App)
+## Install
 
-- Download the latest macOS build from GitHub Releases:  
-  `https://github.com/linggen/linggen-releases/releases`
-- Open the `.dmg` and drag **Linggen** into `Applications`.
-- On first launch, it downloads an embedding model (~100MB) and starts a local backend at `http://localhost:8787`.
+- Install the CLI:
+  ```bash
+  curl -fsSL https://linggen.dev/install-cli.sh | bash
+  ```
+- Install the runtime:
+  ```bash
+  linggen install
+  ```
+- Start the server:
+  ```bash
+  linggen serve
+  ```
+- On first run, it downloads an embedding model (~100MB) and starts a local backend at `http://localhost:8787`.
 
 > Currently macOS only. Windows & Linux are planned.
 
@@ -68,4 +78,5 @@ This repo is the **Linggen landing page and docs site**, built with **React** an
 npm install
 npm run dev
 ```
+
 `

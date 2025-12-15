@@ -1,9 +1,8 @@
 import Navigation from '../components/Navigation'
 import Hero from '../components/Hero'
 import Features from '../components/Features'
-import GettingStarted from '../components/GettingStarted'
+import DocEditor from '../components/DocEditor'
 import VideoDemo from '../components/VideoDemo'
-import BetaDisclaimer from '../components/BetaDisclaimer'
 import Footer from '../components/Footer'
 
 function HomePage() {
@@ -12,9 +11,8 @@ function HomePage() {
             <Navigation />
             <Hero />
             <Features />
-            <GettingStarted />
-            <VideoDemo />
-            <BetaDisclaimer />
+            {/* <DocEditor /> */}
+            {/* <VideoDemo /> */}
             <Footer />
         </>
     )

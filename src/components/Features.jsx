@@ -1,36 +1,25 @@
 function Features() {
     const features = [
         {
+            icon: '🔒',
+            title: 'Privacy-First & Local',
+            description: 'Your code stays on your machine. No cloud, no telemetry, no data leaving your device.',
+            items: [
+                'macOS ; Windows & Linux coming soon',
+                'Fast Rust backend (local-first)',
+                'Local vector database',
+                'Bring your own LLM via MCP clients'
+            ]
+        },
+        {
             icon: '🧠',
-            title: 'Project Memory (RAG)',
-            description: 'Index code + docs locally and retrieve the right context for you and your AI tools.',
+            title: 'Cross-Project Memory',
+            description: 'Maintain separate memories for each project. Switch between codebases without losing context—perfect for developers juggling multiple repos.',
             items: [
-                'Semantic search across all your files',
+                'Separate project memories per workspace',
+                'Semantic search across all indexed projects',
                 'Vector embeddings stored locally',
-                'Automatic chunking & indexing',
-                'Works offline once models downloaded'
-            ]
-        },
-        {
-            icon: '🗺️',
-            title: 'Graph View (System Map)',
-            description: 'Explore a dependency graph to understand “what depends on what” before refactors or onboarding.',
-            items: [
-                'File/module dependency graph per source',
-                'Zoom/search/filter like an IDE',
-                'Spot hotspots and blast radius quickly',
-                'Built for architecture + change planning'
-            ]
-        },
-        {
-            icon: '⌨️',
-            title: 'CLI + Local Server',
-            description: 'A CLI-first workflow to install, run, index, and check status—works for desktop or team servers.',
-            items: [
-                'Start server: `linggen serve`',
-                'Index projects: `linggen index <path>`',
-                'Jobs/status: `linggen status`',
-                'Install/update: `linggen install` / `linggen update`'
+                'Automatic context switching when you change projects'
             ]
         },
         {
@@ -45,20 +34,43 @@ function Features() {
             ]
         },
         {
-            icon: '🔒',
-            title: 'Privacy-First & Local',
-            description: 'Your code stays on your machine. No cloud, no telemetry, no data leaving your device.',
+            icon: '🗺️',
+            title: 'Graph View for Onboarding',
+            description: 'Explore a dependency graph to understand “what depends on what” before refactors or onboarding.',
             items: [
-                'macOS desktop app (beta)',
-                'High-performance Rust backend',
-                'Local LanceDB vector store',
-                'Windows & Linux coming soon'
+                'File/module dependency graph per repo',
+                'Visual system map for large codebases',
+                'Search + jump to code from graph nodes',
+                'Perfect for onboarding new team members'
             ]
-        }
+        },
+        {
+            icon: '⌨️',
+            title: 'CLI-first Indexing & Updates',
+            description: 'A CLI-first workflow to run Linggen anywhere, index repos, and keep sources up to date.',
+            items: [
+                'Start server: `linggen start`',
+                'Index projects: `linggen index`',
+                'Fast updates: incremental indexing by default',
+                'Jobs/status: `linggen status`',
+                'Install/update: `linggen install` / `linggen update`'
+            ]
+        },
+        {
+            icon: '📝',
+            title: 'Doc-First Workflow',
+            description: 'Document your projects with the built-in markdown editor. Capture decisions, architecture notes, and gotchas—then let AI use this context.',
+            items: [
+                'Built-in markdown editor for project docs',
+                'Link documentation to code via graph',
+                'Auto-generate project profiles from code',
+                'Export LLM-ready briefs for implementation'
+            ]
+        }   
     ]
 
     return (
-        <section className="features-section" id="features">
+        <section className="features-section" id="get-started">
             <div className="container">
                 <h2 className="section-title">
                     <span className="title-decoration">◆</span>

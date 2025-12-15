@@ -4,9 +4,9 @@ function Documentation() {
     const docs = [
         {
             icon: '📖',
-            title: 'Download',
-            description: 'Get the latest Linggen release for macOS.',
-            url: DOWNLOAD_URL,
+            title: 'Install CLI',
+            description: 'Install Linggen CLI with a one-liner.',
+            url: 'https://linggen.dev/install-cli.sh',
             external: true
         },
         {
