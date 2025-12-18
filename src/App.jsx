@@ -10,25 +10,37 @@ function AppContent() {
   useEffect(() => {
     // Scroll-triggered animations - run after route change
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0, // Trigger as soon as even 1 pixel is visible
+      rootMargin: '0px 0px 200px 0px' // Trigger 200px before it enters viewport
     }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
           entry.target.classList.add('animate-in')
+          observer.unobserve(entry.target)
         }
       })
     }, observerOptions)
 
-    // Small delay to ensure DOM is ready after route change
-    const timeoutId = setTimeout(() => {
-      // Observe all animatable elements
-      document.querySelectorAll('.feature-card, .guide-card, .step').forEach(el => {
-        observer.observe(el)
-      })
-    }, 100)
+    const setupObserver = () => {
+      const elements = document.querySelectorAll('.feature-card, .guide-card, .step, .use-case-card, .advantage-card, .doc-card, .video-container');
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        // If element is already in view or has been passed, animate immediately
+        if (rect.top < window.innerHeight + 100) {
+          el.classList.add('animate-in');
+        } else {
+          observer.observe(el);
+        }
+      });
+    };
+
+    // Initial setup
+    setupObserver();
+
+    // Re-run after a short delay just in case
+    const timeoutId = setTimeout(setupObserver, 200);
 
     return () => {
       clearTimeout(timeoutId)

@@ -5,23 +5,47 @@ function GraphAndCLI() {
         <article className="doc-article">
             <h1>🗺️ Graph View &amp; CLI</h1>
             <p className="doc-intro">
-                Linggen 0.2+ is CLI-first: run a local server, index/update sources, and use a system map (dependency graph) in VSCode.
+                Linggen is CLI-first: run a local server, index/update sources, and use a system map (dependency graph) in VSCode.
             </p>
 
             <section className="doc-section">
-                <h2>Graph View (System Map) in VSCode</h2>
+                <h2>VS Code Extension</h2>
                 <p>
-                    The graph view helps you answer: <strong>"what depends on what?"</strong> before you refactor, rename modules,
-                    or onboard to an unfamiliar codebase.
+                    The Linggen VS Code extension provides seamless integration between your editor and the Linggen backend. 
+                    It allows you to visualize your architecture and manage your knowledge base without leaving your IDE.
                 </p>
-                <ol className="doc-steps">
-                    <li>Install the Linggen VSCode extension: <a href={VSCODE_EXTENSION_URL} target="_blank" rel="noopener noreferrer">Linggen for VSCode</a></li>
-                    <li>Index a project via the CLI</li>
-                    <li>Open the <strong>Graph</strong> view in VSCode, search for a file/module, then inspect neighbors (imports/uses)</li>
-                </ol>
+
+                <h3>Key Features</h3>
+                <ul className="doc-list">
+                    <li>
+                        <strong>System Map (Graph View):</strong> Visualize file and module dependencies. 
+                        Answer "what depends on what?" before you refactor or onboard.
+                    </li>
+                    <li>
+                        <strong>Explain Across Projects:</strong> Right-click code to get context-aware explanations using knowledge from all your indexed projects.
+                    </li>
+                    <li>
+                        <strong>Pin to Memory:</strong> Highlight important code snippets and pin them to Linggen's memory for future AI retrieval.
+                    </li>
+                    <li>
+                        <strong>Automatic MCP:</strong> Linggen automatically registers itself with Cursor's MCP system—no manual config files required.
+                    </li>
+                </ul>
+
+                <h3>Available Commands</h3>
+                <p>Open the Command Palette (<code>Cmd+Shift+P</code>) and search for "Linggen":</p>
+                <ul className="doc-commands">
+                    <li><code>🌀 Linggen: Show Graph</code> — Open the interactive dependency graph in a side panel</li>
+                    <li><code>🌀 Linggen: Index Current Project</code> — Start indexing the current workspace</li>
+                    <li><code>🌀 Linggen: Explain Across Projects</code> — Get AI insights across all your repos</li>
+                    <li><code>🌀 Linggen: Pin to Memory</code> — Save the current selection to Linggen's context</li>
+                    <li><code>🌀 Linggen: Open Frequent Prompts</code> — Quick access to common AI workflows</li>
+                    <li><code>🌀 Linggen: Install Linggen CLI</code> — Helper to install the CLI runtime</li>
+                </ul>
+
                 <div className="doc-note">
                     <strong>Tip:</strong> Use the graph as a “blast radius” tool: find the node, then check incoming/outgoing edges
-                    to see who will break.
+                    to see who will break before you make a change.
                 </div>
             </section>
 

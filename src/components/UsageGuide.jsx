@@ -7,7 +7,7 @@ function UsageGuide() {
         { id: 'quickstart', label: '🚀 Quick Start' },
         { id: 'sources', label: '📂 Adding Sources' },
         { id: 'mcp', label: '🔌 MCP Setup' },
-        { id: 'search', label: '🔍 Search & Chat' },
+        { id: 'memory', label: '🧠 Memory & Prompts' },
     ]
 
     const content = {
@@ -28,11 +28,6 @@ linggen install`
                 {
                     heading: '3. Add Your First Source',
                     content: `Go to the Sources tab and click "Add Source". Choose "Local Folder" and select a project directory. Click "Index" to start building the vector index.`,
-                    code: null
-                },
-                {
-                    heading: '4. Start Searching',
-                    content: `Once indexing completes, go to the AI Assistant tab. Ask questions about your codebase in natural language.`,
                     code: null
                 }
             ]
@@ -67,58 +62,46 @@ Exclude: node_modules/**, *.min.js, dist/**`
             title: 'MCP Server Setup',
             sections: [
                 {
-                    heading: 'What is MCP?',
-                    content: `Model Context Protocol (MCP) lets AI tools like Cursor access Linggen's knowledge base. Linggen runs an MCP server automatically.`,
+                    heading: 'Automatic Connection',
+                    content: `The Linggen VS Code extension uses the Cursor API to register the MCP server automatically. It doesn't modify your mcp.json file and requires zero manual configuration.`,
                     code: null
                 },
                 {
-                    heading: 'Connect Cursor IDE',
-                    content: `Open Cursor Settings → MCP → Add Server:`,
+                    heading: 'Manual Connection (No Extension)',
+                    content: `If you don't use the VS Code extension, you can manually add Linggen to Cursor Settings → MCP → Add Server:`,
                     code: `Name: linggen
 URL: http://localhost:8787/mcp/sse`
                 },
                 {
-                    heading: 'Team Setup',
-                    content: `For team use, run Linggen on a shared machine and point team members' Cursor to that IP:`,
-                    code: `URL: http://192.168.1.100:8787/mcp/sse`
-                },
-                {
-                    heading: 'Available Tools',
-                    content: `The MCP server exposes these tools to your AI:`,
+                    heading: 'Latest Tools',
+                    content: `The MCP server provides a suite of tools for your AI:`,
                     list: [
                         'search_codebase — Search for relevant code/doc snippets',
-                        'enhance_prompt — Enhance your prompt with relevant context',
+                        'memory_create — Save architectural decisions to memory',
+                        'memory_search_semantic — Recall tribal knowledge via vector search',
                         'list_sources — View available indexed sources',
-                        'get_status — Check Linggen server status'
+                        'enhance_prompt — Auto-inject context into prompts'
                     ]
                 }
             ]
         },
-        search: {
-            title: 'Search & AI Assistant',
+        memory: {
+            title: 'Persistent Memory & Prompts',
             sections: [
                 {
-                    heading: 'Semantic Search',
-                    content: `Linggen uses vector embeddings to find relevant content by meaning, not just keywords. Ask questions like:`,
-                    list: [
-                        '"How does authentication work in this project?"',
-                        '"Where is the database connection configured?"',
-                        '"Show me examples of error handling"'
-                    ]
-                },
-                {
-                    heading: 'AI Chat',
-                    content: `The AI Assistant tab lets you have a conversation with context from your indexed sources. Enable the local LLM in Settings for fully offline operation.`,
+                    heading: 'Persistent Memory',
+                    content: `Capture decisions and conventions in .linggen/memory. These are indexed separately so AI can recall them specifically when needed.`,
                     code: null
                 },
                 {
-                    heading: 'Search Tips',
-                    content: `For best results:`,
-                    list: [
-                        'Be specific about what you\'re looking for',
-                        'Mention file types or areas of the codebase',
-                        'Use domain-specific terminology from your project'
-                    ]
+                    heading: 'Frequent Prompts',
+                    content: `Use templates like "Init my day" or "Save summary to memory" to automate repetitive AI workflows.`,
+                    code: null
+                },
+                {
+                    heading: 'Zero-Pollution Indexing',
+                    content: `Internal content is stored in a dedicated LanceDB table, keeping your main code index clean and fast.`,
+                    code: null
                 }
             ]
         }

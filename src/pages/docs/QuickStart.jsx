@@ -59,18 +59,6 @@ linggen index /path/to/your/project`}</code></pre>
             </section>
 
             <section className="doc-section">
-                <h2>4. Start Searching</h2>
-                <p>
-                    Once indexing completes, use the Linggen UI (or an MCP-connected IDE) to search and ask questions:
-                </p>
-                <ul className="doc-examples">
-                    <li>"How does authentication work in this project?"</li>
-                    <li>"Where is the database connection configured?"</li>
-                    <li>"Show me examples of error handling"</li>
-                </ul>
-            </section>
-
-            <section className="doc-section">
                 <h2>Next Steps</h2>
                 <ul>
                     <li>
@@ -80,6 +68,8 @@ linggen index /path/to/your/project`}</code></pre>
                     </li>
                     <li>Add more sources (projects, documents, notes)</li>
                     <li>Set up <a href="/docs/mcp">MCP integration</a> with Cursor IDE</li>
+                    <li>Capture architectural decisions with <a href="/docs/memory">Persistent Memory</a></li>
+                    <li>Automate workflows with <a href="/docs/prompts">Frequent Prompts</a></li>
                     <li>Learn about <a href="/docs/sources">file patterns</a> to control what gets indexed</li>
                 </ul>
             </section>

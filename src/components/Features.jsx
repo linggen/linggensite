@@ -13,12 +13,12 @@ function Features() {
         },
         {
             icon: '🧠',
-            title: 'Cross-Project Memory',
-            description: 'Maintain separate memories for each project. Switch between codebases without losing context—perfect for developers juggling multiple repos.',
+            title: 'Cross-Project Context',
+            description: 'Maintain separate context for each project. Switch between codebases without losing relevant info—perfect for developers juggling multiple repos.',
             items: [
-                'Separate project memories per workspace',
-                'Semantic search across all indexed projects',
-                'Vector embeddings stored locally',
+                'Separate project context per workspace',
+                'Expose relevant files to MCP assistants',
+                'Local vector indexing for fast retrieval',
                 'Automatic context switching when you change projects'
             ]
         },
@@ -40,7 +40,7 @@ function Features() {
             items: [
                 'File/module dependency graph per repo',
                 'Visual system map for large codebases',
-                'Search + jump to code from graph nodes',
+                'Explore + jump to code from graph nodes',
                 'Perfect for onboarding new team members'
             ]
         },

@@ -21,8 +21,25 @@ function MCPSetup() {
             <section className="doc-section">
                 <h2>Connect Cursor IDE</h2>
                 <p>
-                    Add the following to your Cursor MCP configuration file 
-                    (<code>~/.cursor/mcp.json</code> on macOS/Linux):
+                    Linggen integrates seamlessly with Cursor. When you install the <strong>Linggen VS Code extension</strong>, 
+                    it automatically registers the Linggen MCP server with Cursor using the 
+                    <a href="https://cursor.com/docs/context/mcp-extension-api" target="_blank" rel="noopener noreferrer">MCP Extension API</a>.
+                </p>
+                
+                <div className="doc-note">
+                    <strong>Zero Config:</strong> You no longer need to manually edit <code>mcp.json</code>. 
+                    The extension handles the connection programmatically, and it will not modify your <code>mcp.json</code> file.
+                </div>
+
+                <p>
+                    If the connection doesn't happen automatically, you can trigger it via the Command Palette:
+                    <br /><code>🌀 Linggen: Connect to Linggen</code>
+                </p>
+
+                <h3>Manual Configuration (No Extension)</h3>
+                <p>
+                    If you prefer not to install the VS Code extension, you can still manually connect Cursor to Linggen 
+                    by adding the server to your Cursor MCP configuration file (<code>~/.cursor/mcp.json</code>):
                 </p>
                 
                 <pre className="doc-code"><code>{`{
@@ -32,13 +49,6 @@ function MCPSetup() {
     }
   }
 }`}</code></pre>
-
-                <p>Then restart Cursor to apply the changes.</p>
-
-                <div className="doc-note">
-                    <strong>Verify:</strong> In Cursor, the MCP indicator should show "linggen" as connected. 
-                    You can test by asking Cursor about code in your indexed sources.
-                </div>
             </section>
 
             <section className="doc-section">
@@ -124,37 +134,39 @@ function MCPSetup() {
                             <td>Search for relevant code/doc snippets across indexed sources</td>
                         </tr>
                         <tr>
-                            <td><code>list_sources</code></td>
-                            <td>List available knowledge sources</td>
+                            <td><code>enhance_prompt</code></td>
+                            <td>Enhance a prompt with relevant context automatically</td>
                         </tr>
                         <tr>
-                            <td><code>enhance_prompt</code></td>
-                            <td>Enhance a prompt with relevant context</td>
+                            <td><code>list_sources</code></td>
+                            <td>List all indexed sources and their statistics</td>
                         </tr>
                         <tr>
                             <td><code>get_status</code></td>
-                            <td>Check Linggen server status</td>
+                            <td>Check Linggen server and indexing health</td>
+                        </tr>
+                        <tr>
+                            <td><code>memory_create</code></td>
+                            <td>Create a new persistent memory snippet with citations</td>
+                        </tr>
+                        <tr>
+                            <td><code>memory_search_semantic</code></td>
+                            <td>Search for conceptually related memories using vector embeddings</td>
+                        </tr>
+                        <tr>
+                            <td><code>query_codebase</code></td>
+                            <td>Directly query the vector database for matching chunks</td>
+                        </tr>
+                        <tr>
+                            <td><code>memory_update</code></td>
+                            <td>Update an existing memory entry</td>
+                        </tr>
+                        <tr>
+                            <td><code>memory_delete</code></td>
+                            <td>Remove a memory from the persistent store</td>
                         </tr>
                     </tbody>
                 </table>
-            </section>
-
-            <section className="doc-section">
-                <h2>Troubleshooting</h2>
-                
-                <h3>Cursor doesn't connect</h3>
-                <ul>
-                    <li>Ensure Linggen is running (check <code>localhost:8787</code> in browser)</li>
-                    <li>Restart Cursor after adding the MCP server</li>
-                    <li>Check Cursor's MCP logs for error messages</li>
-                </ul>
-
-                <h3>Search results are empty</h3>
-                <ul>
-                    <li>Make sure you've indexed at least one source</li>
-                    <li>Check that the source has completed indexing (not stuck at 0%)</li>
-                    <li>Try a broader search query</li>
-                </ul>
             </section>
         </article>
     )
