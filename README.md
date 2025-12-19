@@ -1,82 +1,84 @@
-`<p align="center">
-<img src="./src/assets/logo.svg" alt="Linggen Logo" width="120" />
-<br />
-<a href="https://linggen.dev">https://linggen.dev</a>
-
+<p align="center">
+  <img src="src/assets/logo.svg" width="120" alt="Linggen Logo">
 </p>
 
-## Linggen
+# Linggen: Stop re-explaining to AI.
 
-**Linggen** is a **local-first RAG + MCP memory layer** for AI coding assistants.  
-It runs entirely on your machine, is **free for individuals and teams**, and is built for:
+**The free and local app for your AI’s memory.**
 
-- **Working across many projects** with one shared memory layer
-- **Navigating huge codebases and documentation sets**
-- **Connecting multiple IDEs/agents via MCP** (Cursor, Zed, Windsurf, etc.)
+Linggen indexes your codebases and tribal knowledge so your AI (Cursor, Zed, Claude, etc.) can actually understand your architecture, cross-project dependencies, and long-term decisions.
 
-Nothing leaves your machine by default: embeddings, indexes, and search all run locally.
-
-![Linggen app – Sources view](./src/assets/sources.png)
+[Website](https://linggen.dev) • [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=linggen.linggen-vscode) • [Documentation](https://linggen.dev/docs) • [Pricing](https://linggen.dev/pricing)
 
 ---
 
-## What You Can Do
+## 🌀 Why Linggen?
 
-- **Index your world**: local folders, codebases, docs, and notes
-- **Semantic search + AI chat** over everything you’ve indexed
-- **Expose an MCP server** at `http://localhost:8787/mcp/sse` for compatible tools
-- **Run it for a team** on a shared machine and point everyone’s MCP config at it
+Traditional AI chat is "blind" to anything you haven't manually copy-pasted. Linggen bridges this "context gap" by providing:
 
-See the full product docs at **[linggen.dev](https://linggen.dev)**.
-
----
-
-## Install
-
-- Install the CLI:
-  ```bash
-  curl -fsSL https://linggen.dev/install-cli.sh | bash
-  ```
-- Install the runtime:
-  ```bash
-  linggen install
-  ```
-- Start the server:
-  ```bash
-  linggen serve
-  ```
-- On first run, it downloads an embedding model (~100MB) and starts a local backend at `http://localhost:8787`.
-
-> Currently macOS only. Windows & Linux are planned.
+- **🧠 Persistent Memory:** Store architectural decisions in `.linggen/memory` as Markdown. AI recalls them via semantic search.
+- **🌐 Cross-Project Intelligence:** Work on Project A while your AI learns design patterns or auth logic from Project B.
+- **📊 System Map (Graph):** Visualize file dependencies and "blast radius" before you refactor.
+- **🔒 Local-First:** All indexing and vector search (via LanceDB) happens on your machine. Your code never leaves your side.
 
 ---
 
-## MCP Setup (Cursor)
+## 🚀 Quick Start (macOS)
 
-Linggen starts an MCP server at `http://localhost:8787/mcp/sse`.
-Add this to `~/.cursor/mcp.json` to connect Cursor:
+Install the CLI in seconds and start indexing:
 
-```json
-{
-  "mcpServers": {
-    "linggen": {
-      "url": "http://localhost:8787/mcp/sse"
-    }
-  }
-}
+```bash
+curl -sSL https://linggen.dev/install-cli.sh | bash
+linggen start
+linggen index .
 ```
 
-Restart Cursor and you should see `linggen` as a connected MCP server.
+_Windows & Linux support coming soon._
 
 ---
 
-## This Repo
+## 💬 How to use it with your AI
 
-This repo is the **Linggen landing page and docs site**, built with **React** and **Vite**, deployed to **Cloudflare Pages**.
+Once Linggen is running and your project is indexed, simply talk to your MCP-enabled IDE (like Cursor or Zed):
+
+> "Call Linggen MCP, find out how project-sender sends out messages, and ingest it."
+
+> "Call Linggen MCP, load memory from Project-B, learn its code style and design pattern."
+
+> "Load memory from Linggen, find out what is the goal of this piece of code."
+
+---
+
+## 📂 The Linggen Ecosystem
+
+- **[linggen](https://github.com/your-org/linggen):** The core engine and CLI runtime.
+- **[linggen-vscode](https://github.com/your-org/linggen-vscode):** VS Code extension for Graph View and automatic MCP setup.
+- **[linggensite](https://github.com/your-org/linggensite):** (This Repo) The landing page and documentation site.
+- **[linggen-releases](https://github.com/your-org/linggen-releases):** Pre-built binaries and distribution scripts.
+
+---
+
+## 🛠 This Repo: `linggensite`
+
+This repository contains the source for [linggen.dev](https://linggen.dev). It is built with **React**, **Vite**, and **Tailwind CSS**, and deployed via **Cloudflare Pages**.
+
+### Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-`
+---
+
+## 📜 License & Commercial Use
+
+Linggen is open-source under the **MIT License**.
+
+- **Individuals & Small Teams (<5 users):** 100% Free.
+- **Open Source Projects:** 100% Free.
+- **Commercial Use:** Teams of 5+ or companies using Linggen in a professional environment are required to purchase a **Commercial License**.
+
+For more details on licensing and enterprise features, visit our [Pricing Page](https://linggen.dev/pricing).
+
+MIT © [Linggen](https://linggen.dev)

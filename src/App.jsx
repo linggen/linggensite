@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import DocsLayout from './pages/DocsLayout'
+import PricingPage from './pages/PricingPage'
 import './App.css'
 
 function AppContent() {
@@ -54,6 +55,7 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/docs" element={<DocsLayout />} />
+        <Route path="/pricing" element={<PricingPage />} />
       </Routes>
     </div>
   )

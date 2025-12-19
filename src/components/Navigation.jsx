@@ -41,7 +41,7 @@ function Navigation() {
                         <Link to="/#get-started">Features</Link>
                     )}
                     <Link to="/docs">Docs</Link>
-                    
+                    <Link to="/pricing">Pricing</Link>
                 </div>
 
                 <div className="nav-actions">
