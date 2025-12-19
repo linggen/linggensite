@@ -42,6 +42,7 @@ function Navigation() {
                     )}
                     <Link to="/docs">Docs</Link>
                     <Link to="/pricing">Pricing</Link>
+                    <a href="https://github.com/linggen/linggen" target="_blank" rel="noopener noreferrer" className="github-link">GitHub</a>
                 </div>
 
                 <div className="nav-actions">

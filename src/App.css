@@ -2174,3 +2174,27 @@ section:not(:first-of-type)::before {
   color: var(--color-spirit-jade);
   margin-left: 8px;
 }
+
+.github-link {
+  color: var(--color-spirit-jade);
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+.github-link:hover {
+  opacity: 0.8;
+}
+
+.hero-github-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--color-spirit-jade);
+  text-decoration: underline;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.hero-github-link:hover {
+  color: var(--color-spirit-jade);
+  filter: brightness(1.2);
+}

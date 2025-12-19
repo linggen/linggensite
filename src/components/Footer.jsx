@@ -6,6 +6,8 @@ function Footer() {
                     <strong>Linggen</strong> – Local-first memory layer for your code and knowledge
                 </p>
                 <p className="footer-links">
+                    <a href="https://github.com/linggen/linggen" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <span className="separator">·</span>
                     <a href="mailto:linggen77@gmail.com">Contact</a>
                     <span className="separator">·</span>
                     <a href="/docs">Docs</a>

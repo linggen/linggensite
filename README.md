@@ -51,10 +51,10 @@ Once Linggen is running and your project is indexed, simply talk to your MCP-ena
 
 ## 📂 The Linggen Ecosystem
 
-- **[linggen](https://github.com/your-org/linggen):** The core engine and CLI runtime.
-- **[linggen-vscode](https://github.com/your-org/linggen-vscode):** VS Code extension for Graph View and automatic MCP setup.
-- **[linggensite](https://github.com/your-org/linggensite):** (This Repo) The landing page and documentation site.
-- **[linggen-releases](https://github.com/your-org/linggen-releases):** Pre-built binaries and distribution scripts.
+- **[linggen](https://github.com/linggen/linggen):** The core engine and CLI runtime.
+- **[linggen-vscode](https://github.com/linggen/linggen-vscode):** VS Code extension for Graph View and automatic MCP setup.
+- **[linggensite](https://github.com/linggen/linggensite):** (This Repo) The landing page and documentation site.
+- **[linggen-releases](https://github.com/linggen/linggen-releases):** Pre-built binaries and distribution scripts.
 
 ---
 

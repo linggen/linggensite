@@ -31,6 +31,10 @@ function Hero() {
                                 </pre>
                                 <p className="hero-note">
                                     macOS works today. Windows &amp; Linux coming soon.
+                                    <br />
+                                    <a href="https://github.com/linggen/linggen" target="_blank" rel="noopener noreferrer" className="hero-github-link">
+                                        View Source on GitHub
+                                    </a>
                                 </p>
                             </div>
 
