@@ -525,6 +525,83 @@ section:not(:first-of-type)::before {
   font-family: var(--font-primary); /* Non-mono for easier reading in marketing */
 }
 
+.hero-anchor {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(0, 212, 170, 0.12);
+}
+
+.hero-anchor-header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-anchor-icon {
+  font-size: 1.1rem;
+  filter: drop-shadow(0 0 5px rgba(0, 212, 170, 0.3));
+}
+
+.hero-anchor-title {
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.hero-anchor-subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.hero-anchor-code {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(0, 212, 170, 0.22);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  margin: 0 0 0.75rem 0;
+  overflow-x: auto;
+}
+
+.hero-anchor-code code {
+  color: var(--color-spirit-green);
+  font-family: "Monaco", "Courier New", monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  white-space: pre;
+}
+
+.hero-anchor-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--color-text-secondary);
+  font-size: 0.92rem;
+}
+
+.hero-anchor-bullets span {
+  padding-left: 1.35rem;
+  position: relative;
+}
+
+.hero-anchor-bullets span::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  color: var(--color-qi-gold);
+  font-size: 0.75rem;
+  top: 0.2rem;
+}
+
+.hero-anchor-bullets code {
+  background: rgba(0, 212, 170, 0.12);
+  color: var(--color-spirit-green);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-family: "Monaco", "Courier New", monospace;
+  font-size: 0.85em;
+}
+
 /* App Showcase - Side by Side */
 .app-showcase {
   display: grid;

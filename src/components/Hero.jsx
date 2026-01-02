@@ -8,6 +8,7 @@ function Hero() {
         "Call Linggen MCP, load memory from project-B, learn its code style and design pattern.",
         "Load memory from linggen, find out what is the goal of this piece of code."
     ]
+    const anchoredMemoryExample = `// linggen memory: rust-conventions-7b2e | Project Coding Rules`
 
     return (
         <section className="hero" id="home">
@@ -47,6 +48,24 @@ function Hero() {
                                             <code>{text}</code>
                                         </div>
                                     ))}
+                                </div>
+
+                                <div className="hero-anchor">
+                                    <div className="hero-anchor-header">
+                                        <span className="hero-anchor-icon">🧠</span>
+                                        <span className="hero-anchor-title">Anchored Memory (v0.4.0)</span>
+                                        <span className="hero-anchor-subtitle">One source of truth for rules & context</span>
+                                    </div>
+
+                                    <pre className="hero-anchor-code">
+                                        <code>{anchoredMemoryExample}</code>
+                                    </pre>
+
+                                    <div className="hero-anchor-bullets">
+                                        <span>Human-readable in code (CodeLens)</span>
+                                        <span>LLM can fetch by ID via MCP</span>
+                                        <span>Replaces scattered <code>cursor.rules</code> / <code>claude.md</code> / <code>agents.md</code></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

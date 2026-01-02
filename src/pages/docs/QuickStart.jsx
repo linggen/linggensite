@@ -62,6 +62,9 @@ linggen index /path/to/your/project`}</code></pre>
                 <h2>Next Steps</h2>
                 <ul>
                     <li>
+                        <strong>Try Anchored Memory (v0.4.0):</strong> Highlight code in VS Code, right-click, and select "Linggen: Pin to Memory". See it anchored right in your code!
+                    </li>
+                    <li>
                         Install the VSCode extension and open the <strong>Graph</strong> view (
                         <a href={VSCODE_EXTENSION_URL} target="_blank" rel="noopener noreferrer">Linggen for VSCode</a>
                         )

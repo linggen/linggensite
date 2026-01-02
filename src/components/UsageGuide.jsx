@@ -74,11 +74,11 @@ URL: http://localhost:8787/mcp/sse`
                 },
                 {
                     heading: 'Latest Tools',
-                    content: `The MCP server provides a suite of tools for your AI:`,
+                    content: `The MCP server provides specialized tools for context retrieval:`,
                     list: [
                         'search_codebase — Search for relevant code/doc snippets',
-                        'memory_create — Save architectural decisions to memory',
                         'memory_search_semantic — Recall tribal knowledge via vector search',
+                        'memory_fetch_by_meta — Retrieve anchored memories by ID',
                         'list_sources — View available indexed sources',
                         'enhance_prompt — Auto-inject context into prompts'
                     ]
@@ -89,18 +89,18 @@ URL: http://localhost:8787/mcp/sse`
             title: 'Persistent Memory & Prompts',
             sections: [
                 {
-                    heading: 'Persistent Memory',
-                    content: `Capture decisions and conventions in .linggen/memory. These are indexed separately so AI can recall them specifically when needed.`,
+                    heading: 'Anchored Memory (v0.4.0)',
+                    content: `Pin important code snippets to create "anchors". These are stored as Markdown in .linggen/memory and linked via code comments.`,
+                    code: `// linggen memory: auth-flow-9d2f | Auth implementation rules`
+                },
+                {
+                    heading: 'Unified Context',
+                    content: `Replace fragmented files like claude.md or cursor.rules with centralized anchored memories that both humans and LLMs can maintain.`,
                     code: null
                 },
                 {
                     heading: 'Frequent Prompts',
                     content: `Use templates like "Init my day" or "Save summary to memory" to automate repetitive AI workflows.`,
-                    code: null
-                },
-                {
-                    heading: 'Zero-Pollution Indexing',
-                    content: `Internal content is stored in a dedicated LanceDB table, keeping your main code index clean and fast.`,
                     code: null
                 }
             ]

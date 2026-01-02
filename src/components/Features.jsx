@@ -23,6 +23,17 @@ function Features() {
             ]
         },
         {
+            icon: '🔗',
+            title: 'Anchored Memory (Maintainable)',
+            description: 'Stop fighting fragmented AI rule files. Anchor decisions and conventions directly in code, backed by versioned Markdown in `.linggen/memory`.',
+            items: [
+                'Readable by humans (CodeLens + inline anchors)',
+                'LLM retrieves exact memory via anchor ID',
+                'YAML frontmatter metadata (tags, title, IDs)',
+                'Works across tools: Cursor / Claude / agent setups'
+            ]
+        },
+        {
             icon: '🔌',
             title: 'MCP Integration (Cursor/Zed/Windsurf)',
             description: 'Expose Linggen context to IDE assistants via MCP—one endpoint, all your sources.',
@@ -55,18 +66,7 @@ function Features() {
                 'Jobs/status: `linggen status`',
                 'Install/update: `linggen install` / `linggen update`'
             ]
-        },
-        {
-            icon: '📝',
-            title: 'Doc-First Workflow',
-            description: 'Document your projects with the built-in markdown editor. Capture decisions, architecture notes, and gotchas—then let AI use this context.',
-            items: [
-                'Built-in markdown editor for project docs',
-                'Link documentation to code via graph',
-                'Auto-generate project profiles from code',
-                'Export LLM-ready briefs for implementation'
-            ]
-        }   
+        }
     ]
 
     return (

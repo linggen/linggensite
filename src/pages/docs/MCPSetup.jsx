@@ -146,25 +146,18 @@ function MCPSetup() {
                             <td>Check Linggen server and indexing health</td>
                         </tr>
                         <tr>
-                            <td><code>memory_create</code></td>
-                            <td>Create a new persistent memory snippet with citations</td>
-                        </tr>
-                        <tr>
                             <td><code>memory_search_semantic</code></td>
                             <td>Search for conceptually related memories using vector embeddings</td>
+                        </tr>
+                        <tr>
+                            <td><code>memory_fetch_by_meta</code></td>
+                            <td>Fetch the full content of a specific memory using metadata (e.g., ID from a code anchor)</td>
                         </tr>
                         <tr>
                             <td><code>query_codebase</code></td>
                             <td>Directly query the vector database for matching chunks</td>
                         </tr>
-                        <tr>
-                            <td><code>memory_update</code></td>
-                            <td>Update an existing memory entry</td>
-                        </tr>
-                        <tr>
-                            <td><code>memory_delete</code></td>
-                            <td>Remove a memory from the persistent store</td>
-                        </tr>
+                     
                     </tbody>
                 </table>
             </section>

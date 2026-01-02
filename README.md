@@ -8,6 +8,8 @@
 
 Linggen indexes your codebases and tribal knowledge so your AI (Cursor, Zed, Claude, etc.) can actually understand your architecture, cross-project dependencies, and long-term decisions.
 
+**New in v0.4.0: Anchored Memory.** Stop managing fragmented rules in `cursor.rules`, `claude.md`, or `agents.md`. Anchor your architectural decisions directly in the code with Linggen.
+
 [Website](https://linggen.dev) • [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=linggen.linggen-vscode) • [Documentation](https://linggen.dev/docs) • [Pricing](https://linggen.dev/pricing)
 
 ---
@@ -16,7 +18,7 @@ Linggen indexes your codebases and tribal knowledge so your AI (Cursor, Zed, Cla
 
 Traditional AI chat is "blind" to anything you haven't manually copy-pasted. Linggen bridges this "context gap" by providing:
 
-- **🧠 Persistent Memory:** Store architectural decisions in `.linggen/memory` as Markdown. AI recalls them via semantic search.
+- **🧠 Anchored Persistent Memory:** Store decisions in `.linggen/memory` and link them via code anchors. AI fetches context by ID via MCP.
 - **🌐 Cross-Project Intelligence:** Work on Project A while your AI learns design patterns or auth logic from Project B.
 - **📊 System Map (Graph):** Visualize file dependencies and "blast radius" before you refactor.
 - **🔒 Local-First:** All indexing and vector search (via LanceDB) happens on your machine. Your code never leaves your side.

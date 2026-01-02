@@ -25,7 +25,9 @@ function GraphAndCLI() {
                         <strong>Explain Across Projects:</strong> Right-click code to get context-aware explanations using knowledge from all your indexed projects.
                     </li>
                     <li>
-                        <strong>Pin to Memory:</strong> Highlight important code snippets and pin them to Linggen's memory for future AI retrieval.
+                        <strong>Pin to Memory (Anchored):</strong> Highlight code and pin it. Linggen creates a code anchor 
+                        and saves the context to <code>.linggen/memory</code>, allowing both you and your AI to "follow" 
+                        the link to the full documentation.
                     </li>
                     <li>
                         <strong>Automatic MCP:</strong> Linggen automatically registers itself with Cursor's MCP system—no manual config files required.
