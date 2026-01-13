@@ -23,6 +23,17 @@ function Features() {
             ]
         },
         {
+            icon: '🧩',
+            title: 'Skills (v0.5.0)',
+            description: 'Define how your AI should work in this repo—then reuse the same “way of working” across projects and teams.',
+            items: [
+                'Store as Markdown in `.linggen/skills/`',
+                'Enforce code style, testing rules, and refactor approach',
+                'Share curated skill packs from your Linggen Library',
+                'Works with MCP-connected assistants (Cursor/Zed/Windsurf)'
+            ]
+        },
+        {
             icon: '🔗',
             title: 'Anchored Memory (Maintainable)',
             description: 'Stop fighting fragmented AI rule files. Anchor decisions and conventions directly in code, backed by versioned Markdown in `.linggen/memory`.',
@@ -53,18 +64,6 @@ function Features() {
                 'Visual system map for large codebases',
                 'Explore + jump to code from graph nodes',
                 'Perfect for onboarding new team members'
-            ]
-        },
-        {
-            icon: '⌨️',
-            title: 'CLI-first Indexing & Updates',
-            description: 'A CLI-first workflow to run Linggen anywhere, index repos, and keep sources up to date.',
-            items: [
-                'Start server: `linggen start`',
-                'Index projects: `linggen index`',
-                'Fast updates: incremental indexing by default',
-                'Jobs/status: `linggen status`',
-                'Install/update: `linggen install` / `linggen update`'
             ]
         }
     ]

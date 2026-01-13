@@ -4,7 +4,8 @@ import Sources from './docs/Sources'
 import MCPSetup from './docs/MCPSetup'
 import GraphAndCLI from './docs/GraphAndCLI'
 import Memory from './docs/Memory'
-import FrequentPrompts from './docs/FrequentPrompts'
+import Skills from './docs/Skills'
+import Library from './docs/Library'
 
 const DOC_SECTIONS = [
     { id: 'quick-start', label: 'Quick Start' },
@@ -12,7 +13,8 @@ const DOC_SECTIONS = [
     { id: 'sources', label: 'Adding Sources' },
     { id: 'mcp', label: 'MCP Setup' },
     { id: 'memory', label: 'Persistent Memory' },
-    { id: 'prompts', label: 'Frequent Prompts' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'library', label: 'Library' },
 ]
 
 function DocsLayout() {
@@ -46,8 +48,11 @@ function DocsLayout() {
                 <section id="memory" className="docs-section-wrapper">
                     <Memory />
                 </section>
-                <section id="prompts" className="docs-section-wrapper">
-                    <FrequentPrompts />
+                <section id="skills" className="docs-section-wrapper">
+                    <Skills />
+                </section>
+                <section id="library" className="docs-section-wrapper">
+                    <Library />
                 </section>
             </main>
 

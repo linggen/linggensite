@@ -41,7 +41,7 @@ function GraphAndCLI() {
                     <li><code>🌀 Linggen: Index Current Project</code> — Start indexing the current workspace</li>
                     <li><code>🌀 Linggen: Explain Across Projects</code> — Get AI insights across all your repos</li>
                     <li><code>🌀 Linggen: Pin to Memory</code> — Save the current selection to Linggen's context</li>
-                    <li><code>🌀 Linggen: Open Frequent Prompts</code> — Quick access to common AI workflows</li>
+                    <li><code>🌀 Linggen: Library</code> — Browse Skills/Policies and install packs into your repo</li>
                     <li><code>🌀 Linggen: Install Linggen CLI</code> — Helper to install the CLI runtime</li>
                 </ul>
 

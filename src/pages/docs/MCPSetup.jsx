@@ -157,6 +157,26 @@ function MCPSetup() {
                             <td><code>query_codebase</code></td>
                             <td>Directly query the vector database for matching chunks</td>
                         </tr>
+                        <tr>
+                            <td><code>list_library_packs</code></td>
+                            <td>List available skill/policy packs in your global Linggen Library</td>
+                        </tr>
+                        <tr>
+                            <td><code>get_library_pack</code></td>
+                            <td>Fetch a specific Library pack’s content (skills/policies) by pack_id</td>
+                        </tr>
+                        <tr>
+                            <td><code>create_library_pack</code></td>
+                            <td>Create a new skill/policy pack in your global Linggen Library</td>
+                        </tr>
+                        <tr>
+                            <td><code>rename_library_pack</code></td>
+                            <td>Rename an existing Library pack</td>
+                        </tr>
+                        <tr>
+                            <td><code>delete_library_pack</code></td>
+                            <td>Delete a Library pack</td>
+                        </tr>
                      
                     </tbody>
                 </table>

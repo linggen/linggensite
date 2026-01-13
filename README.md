@@ -8,7 +8,8 @@
 
 Linggen indexes your codebases and tribal knowledge so your AI (Cursor, Zed, Claude, etc.) can actually understand your architecture, cross-project dependencies, and long-term decisions.
 
-**New in v0.4.0: Anchored Memory.** Stop managing fragmented rules in `cursor.rules`, `claude.md`, or `agents.md`. Anchor your architectural decisions directly in the code with Linggen.
+**New in v0.5.0: Skills.** Keep reusable AI “ways of working” in `.linggen/skills/` and share them across projects.  
+**Also in v0.4.0+: Anchored Memory.** Stop managing fragmented rules in `cursor.rules`, `claude.md`, or `agents.md`. Anchor your architectural decisions directly in the code with Linggen.
 
 [Website](https://linggen.dev) • [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=linggen.linggen-vscode) • [Documentation](https://linggen.dev/docs) • [Pricing](https://linggen.dev/pricing)
 
@@ -56,7 +57,6 @@ Once Linggen is running and your project is indexed, simply talk to your MCP-ena
 - **[linggen](https://github.com/linggen/linggen):** The core engine and CLI runtime.
 - **[linggen-vscode](https://github.com/linggen/linggen-vscode):** VS Code extension for Graph View and automatic MCP setup.
 - **[linggensite](https://github.com/linggen/linggensite):** (This Repo) The landing page and documentation site.
-- **[linggen-releases](https://github.com/linggen/linggen-releases):** Pre-built binaries and distribution scripts.
 
 ---
 

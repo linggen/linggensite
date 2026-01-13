@@ -65,6 +65,9 @@ linggen index /path/to/your/project`}</code></pre>
                         <strong>Try Anchored Memory (v0.4.0):</strong> Highlight code in VS Code, right-click, and select "Linggen: Pin to Memory". See it anchored right in your code!
                     </li>
                     <li>
+                        <strong>Try Skills (v0.5.0):</strong> Add <code>.linggen/skills/*.md</code> to define how your AI should work in this repo. See <a href="#skills">Skills</a>.
+                    </li>
+                    <li>
                         Install the VSCode extension and open the <strong>Graph</strong> view (
                         <a href={VSCODE_EXTENSION_URL} target="_blank" rel="noopener noreferrer">Linggen for VSCode</a>
                         )
@@ -72,7 +75,7 @@ linggen index /path/to/your/project`}</code></pre>
                     <li>Add more sources (projects, documents, notes)</li>
                     <li>Set up <a href="/docs/mcp">MCP integration</a> with Cursor IDE</li>
                     <li>Capture architectural decisions with <a href="/docs/memory">Persistent Memory</a></li>
-                    <li>Automate workflows with <a href="/docs/prompts">Frequent Prompts</a></li>
+                    <li>Browse and install skill packs with <a href="#library">Library</a> (<code>🌀 Linggen: Library</code>)</li>
                     <li>Learn about <a href="/docs/sources">file patterns</a> to control what gets indexed</li>
                 </ul>
             </section>

@@ -7,7 +7,7 @@ function UsageGuide() {
         { id: 'quickstart', label: '🚀 Quick Start' },
         { id: 'sources', label: '📂 Adding Sources' },
         { id: 'mcp', label: '🔌 MCP Setup' },
-        { id: 'memory', label: '🧠 Memory & Prompts' },
+        { id: 'memory', label: '🧠 Memory & Library' },
     ]
 
     const content = {
@@ -80,13 +80,13 @@ URL: http://localhost:8787/mcp/sse`
                         'memory_search_semantic — Recall tribal knowledge via vector search',
                         'memory_fetch_by_meta — Retrieve anchored memories by ID',
                         'list_sources — View available indexed sources',
-                        'enhance_prompt — Auto-inject context into prompts'
+                        'enhance_prompt — Auto-inject relevant context'
                     ]
                 }
             ]
         },
         memory: {
-            title: 'Persistent Memory & Prompts',
+            title: 'Persistent Memory & Library',
             sections: [
                 {
                     heading: 'Anchored Memory (v0.4.0)',
@@ -99,8 +99,8 @@ URL: http://localhost:8787/mcp/sse`
                     code: null
                 },
                 {
-                    heading: 'Frequent Prompts',
-                    content: `Use templates like "Init my day" or "Save summary to memory" to automate repetitive AI workflows.`,
+                    heading: 'Library (Skills & Policies)',
+                    content: `Browse curated packs and install them into your repo. Use VS Code Command Palette → "Linggen: Library" to view Skills/Policies and install them into .linggen/skills or .linggen/policies.`,
                     code: null
                 }
             ]
