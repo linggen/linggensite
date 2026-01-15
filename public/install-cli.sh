@@ -54,7 +54,7 @@ detect_slug() {
     linux)
       case "$arch" in
         x86_64|amd64) echo "linux-x86_64" ;;
-        arm64|aarch64) echo "linux-arm64" ;;
+        arm64|aarch64) echo "linux-aarch64" ;;
         *) echo "Unsupported architecture: $arch" >&2; exit 1 ;;
       esac
       ;;
