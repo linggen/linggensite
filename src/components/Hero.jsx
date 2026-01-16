@@ -74,10 +74,10 @@ function Hero() {
                             {/* Terminal Content */}
                                 <div className="p-6 space-y-4">
                                     <div className="space-y-2">
-                                        <div className="text-slate-500"># 1. Install CLI (via VS Code Command Palette)</div>
+                                        <div className="text-slate-500"># 1. Install CLI</div>
                                         <div className="flex items-center gap-2">
                                             <span className="text-jade-500">❯</span>
-                                            <code className="text-jade-500 font-bold break-all">Linggen: Install Linggen CLI</code>
+                                            <code className="text-jade-500 font-bold break-all">curl -fsSL https://linggen.dev/install-cli.sh | bash</code>
                                         </div>
                                     </div>
                                     <div className="space-y-2">
