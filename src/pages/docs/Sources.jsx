@@ -1,90 +1,66 @@
 function Sources() {
     return (
-        <article className="doc-article">
-            <h1>📂 Adding & Managing Sources</h1>
-            <p className="doc-intro">
-                Sources are the knowledge bases that Linggen indexes and searches.
-            </p>
+        <div className="space-y-12">
+            <header className="space-y-4">
+                <div className="flex items-center gap-2 text-jade-500 font-mono text-xs font-bold uppercase tracking-widest">
+                    <span className="p-1 bg-jade-500/10 rounded">📂</span> Infrastructure
+                </div>
+                <h1 className="text-4xl font-bold font-display text-white">
+                    Managing Sources
+                </h1>
+                <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
+                    Sources are the raw materials for your AI Mentor. Index local folders, uploads, 
+                    or remote repos to build a comprehensive knowledge base.
+                </p>
+            </header>
 
-            <section className="doc-section">
-                <h2>Source Types</h2>
-                <p>Currently, Linggen supports indexing local folders:</p>
-
-                <div className="doc-grid">
-                    <div className="doc-card-small">
-                        <h3>📁 Local Folder</h3>
-                        <p>Index any directory on your machine. Perfect for codebases, documentation, and notes.</p>
-                        <span className="doc-badge available">Available</span>
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-white">File Patterns</h2>
+                <p className="text-slate-400 leading-relaxed">
+                    Control which files get indexed using glob patterns. Linggen automatically respects 
+                    your <code className="px-1.5 py-0.5 bg-obsidian-800 rounded font-mono text-sm text-white">.gitignore</code>, 
+                    but you can further refine context.
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-3">
+                        <h4 className="text-xs font-bold uppercase tracking-widest text-obsidian-700 font-mono">Include</h4>
+                        <div className="p-4 bg-obsidian-900 rounded-xl border border-dev-border font-mono text-[10px] text-jade-500">
+                            *.ts, *.tsx, *.rs, *.py<br />
+                            *.md, *.mdx, *.json
+                        </div>
+                    </div>
+                    <div className="space-y-3">
+                        <h4 className="text-xs font-bold uppercase tracking-widest text-obsidian-700 font-mono">Exclude</h4>
+                        <div className="p-4 bg-obsidian-900 rounded-xl border border-dev-border font-mono text-[10px] text-slate-500">
+                            node_modules/**, dist/**<br />
+                            *.map, .git/**, build/**
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div className="doc-note">
-                    <strong>CLI tip:</strong> You can index the current folder via <code>linggen index --wait</code> (or a specific folder via <code>linggen index /path --wait</code>).
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-white">Incremental Indexing</h2>
+                <div className="p-6 bg-obsidian-800/50 rounded-2xl border border-dev-border">
+                    <p className="text-sm text-slate-400 leading-relaxed">
+                        Linggen only re-processes files that have changed since the last index operation. 
+                        A typical codebase with 10,000 files can be updated in seconds.
+                    </p>
                 </div>
             </section>
 
-            <section className="doc-section">
-                <h2>File Patterns</h2>
-                <p>
-                    Control which files get indexed using glob patterns. This is useful for excluding
-                    build artifacts, dependencies, and other noise.
-                </p>
-
-                <h3>Include Patterns</h3>
-                <p>Specify which files to include (if empty, all files are included):</p>
-                <pre className="doc-code"><code>*.ts, *.tsx, *.js, *.jsx
-                    *.md, *.mdx
-                    *.json, *.yaml, *.yml</code></pre>
-
-                <h3>Exclude Patterns</h3>
-                <p>Specify which files to skip:</p>
-                <pre className="doc-code"><code>node_modules/**
-                    dist/**
-                    build/**
-                    *.min.js
-                    *.map
-                    .git/**</code></pre>
-
-                <div className="doc-note">
-                    <strong>Tip:</strong> Linggen automatically respects <code>.gitignore</code> patterns,
-                    so you usually don't need to manually exclude common directories.
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-white">Supported Types</h2>
+                <div className="flex flex-wrap gap-2">
+                    {['TypeScript', 'Rust', 'Python', 'Go', 'React', 'Markdown', 'PDF', 'Docx', 'YAML', 'TOML'].map((type) => (
+                        <span key={type} className="px-3 py-1 bg-obsidian-800 border border-dev-border rounded-full text-[10px] font-bold text-slate-400 font-mono uppercase tracking-tighter">
+                            {type}
+                        </span>
+                    ))}
                 </div>
             </section>
-
-            <section className="doc-section">
-                <h2>Re-indexing</h2>
-                <p>
-                    Click <strong>"Update"</strong> on any source to re-index after changes.
-                    Linggen uses incremental indexing for speed — only changed files are reprocessed.
-                </p>
-                <p>
-                    You can also rename sources and edit patterns without re-indexing.
-                    The index will use the new settings on the next update.
-                </p>
-            </section>
-
-            <section className="doc-section">
-                <h2>Source Stats</h2>
-                <p>Each source shows statistics after indexing:</p>
-                <ul>
-                    <li><strong>Files</strong> — Number of files indexed</li>
-                    <li><strong>Chunks</strong> — Number of text chunks (each file is split into searchable chunks)</li>
-                    <li><strong>Size</strong> — Total size of source content</li>
-                    <li><strong>Last Indexed</strong> — When the source was last updated</li>
-                </ul>
-            </section>
-
-            <section className="doc-section">
-                <h2>Supported File Types</h2>
-                <p>Linggen can extract text from:</p>
-                <ul>
-                    <li><strong>Code:</strong> .js, .ts, .py, .rs, .go, .java, .c, .cpp, .cs, .rb, .php, etc.</li>
-                    <li><strong>Markup:</strong> .md, .mdx, .html, .xml, .rst</li>
-                    <li><strong>Data:</strong> .json, .yaml, .yml, .toml, .csv</li>
-                    <li><strong>Documents:</strong> .pdf, .docx, .doc, .txt</li>
-                </ul>
-            </section>
-        </article>
+        </div>
     )
 }
 

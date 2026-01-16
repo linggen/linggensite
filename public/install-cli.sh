@@ -159,8 +159,26 @@ main() {
   install_binary "$tarball" "$dest"
 
   echo "✅ Installed linggen to $dest"
-  echo "Version:"
-  "$dest/linggen" --version || true
+  
+  # Verification and PATH check
+  INSTALLED_VERSION=$("$dest/linggen" --version | awk '{print $2}' || echo "unknown")
+  echo "Version: $INSTALLED_VERSION"
+  
+  CURRENT_IN_PATH=$(command -v linggen || echo "")
+  if [ -n "$CURRENT_IN_PATH" ]; then
+    PATH_VERSION=$("linggen" --version | awk '{print $2}' || echo "unknown")
+    if [ "$CURRENT_IN_PATH" != "$dest/linggen" ]; then
+      echo ""
+      echo "⚠️  Warning: A different linggen binary was found in your PATH at $CURRENT_IN_PATH"
+      echo "   It reports version $PATH_VERSION, while the new version is $INSTALLED_VERSION at $dest/linggen"
+      echo "   To use the new version, you may need to remove the old one or adjust your PATH."
+    elif [ "$PATH_VERSION" != "$INSTALLED_VERSION" ]; then
+      # This happens if a shell cache (like bash hash) is stale
+      echo ""
+      echo "ℹ️  Note: Your shell may have cached the location of the old 'linggen' binary."
+      echo "   Run 'hash -r' (bash) or 'rehash' (zsh) to refresh it."
+    fi
+  fi
   
   if [[ "$(uname -s)" == "Linux" ]]; then
     echo ""

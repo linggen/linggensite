@@ -1,55 +1,51 @@
 function Library() {
     return (
-        <article className="doc-article">
-            <h1>📚 Library</h1>
-            <p className="doc-intro">
-                Browse Linggen&apos;s curated <strong>Skills</strong> and <strong>Policies</strong>, and install them into your local repo.
-            </p>
-
-            <section className="doc-section">
-                <h2>What is the Library?</h2>
-                <p>
-                    The Library is a collection of reusable packs (for example: coding conventions, refactor workflows, security
-                    guardrails). Packs are designed to be shared across projects and teams.
-                </p>
-            </section>
-
-            <section className="doc-section">
-                <h2>Open the Library</h2>
-                <p>
-                    In VS Code, open the Command Palette (<code>Cmd+Shift+P</code>) and run:
-                </p>
-                <div className="doc-code-example">
-                    <code>🌀 Linggen: Library</code>
+        <div className="space-y-12">
+            <header className="space-y-4">
+                <div className="flex items-center gap-2 text-jade-500 font-mono text-xs font-bold uppercase tracking-widest">
+                    <span className="p-1 bg-jade-500/10 rounded">📚</span> Ecosystem
                 </div>
-
-                <p>
-                    You&apos;ll see a Library view in the left sidebar where you can browse available packs and their content.
+                <h1 className="text-4xl font-bold font-display text-white">
+                    Library Packs
+                </h1>
+                <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
+                    Browse curated Skills and Policies to instantly upgrade your AI Mentor's capabilities.
                 </p>
-            </section>
+            </header>
 
-            <section className="doc-section">
-                <h2>Install into a Repo</h2>
-                <p>
-                    Installing a pack copies it into your project under <code>.linggen/</code>, so it&apos;s versioned with your
-                    code and applied consistently by your AI assistant.
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-white">What is a Pack?</h2>
+                <p className="text-slate-400 leading-relaxed">
+                    A <strong>Library Pack</strong> is a collection of reusable instructions—coding conventions, 
+                    refactor workflows, or security guardrails—that can be shared across projects.
                 </p>
-                <ul className="doc-list">
-                    <li>
-                        <strong>Skills</strong>: installed into <code>.linggen/skills/</code>
-                    </li>
-                    <li>
-                        <strong>Policies</strong>: installed into <code>.linggen/policies/</code>
-                    </li>
-                </ul>
-
-                <div className="doc-note">
-                    <strong>Tip:</strong> Skills are “how to work” guidance. Policies are hard constraints / guardrails.
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="p-6 bg-obsidian-800/50 rounded-2xl border border-dev-border">
+                        <h4 className="font-bold text-white mb-2 italic">Skills</h4>
+                        <p className="text-xs text-slate-400">Behavioral guidance on "how" to work. Examples: Test-driven development, minimal diffs, atomic commits.</p>
+                    </div>
+                    <div className="p-6 bg-obsidian-800/50 rounded-2xl border border-dev-border">
+                        <h4 className="font-bold text-white mb-2 italic">Policies</h4>
+                        <p className="text-xs text-slate-400">Hard constraints and guardrails. Examples: Security standards, forbidden libraries, naming conventions.</p>
+                    </div>
                 </div>
             </section>
-        </article>
+
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-white">Installation</h2>
+                <div className="bg-obsidian-900 rounded-xl border border-dev-border overflow-hidden">
+                    <div className="bg-obsidian-800 px-4 py-2 text-[10px] uppercase font-bold text-obsidian-700 font-mono">VS Code Command</div>
+                    <pre className="p-6 text-sm font-mono text-jade-500 font-bold">
+                        Linggen: Library
+                    </pre>
+                </div>
+                <p className="text-sm text-slate-400 italic">
+                    Open the Library from the Command Palette to browse and install packs into <code className="font-mono text-jade-600">.linggen/</code>.
+                </p>
+            </section>
+        </div>
     )
 }
 
 export default Library
-

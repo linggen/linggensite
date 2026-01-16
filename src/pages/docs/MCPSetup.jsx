@@ -1,187 +1,88 @@
 function MCPSetup() {
     return (
-        <article className="doc-article">
-            <h1>🔌 MCP Server Setup</h1>
-            <p className="doc-intro">
-                Connect Linggen to AI coding tools like Cursor, Zed, and Windsurf via the Model Context Protocol.
-            </p>
-
-            <section className="doc-section">
-                <h2>What is MCP?</h2>
-                <p>
-                    <strong>Model Context Protocol (MCP)</strong> is a standard that lets AI tools 
-                    access external context sources. When you connect Cursor to Linggen's MCP server, 
-                    the AI can search your indexed knowledge base to provide better answers.
-                </p>
-                <p>
-                    Linggen runs an MCP server automatically at <code>localhost:8787/mcp/sse</code>.
-                </p>
-            </section>
-
-            <section className="doc-section">
-                <h2>Connect Cursor IDE</h2>
-                <p>
-                    Linggen integrates seamlessly with Cursor. When you install the <strong>Linggen VS Code extension</strong>, 
-                    it automatically registers the Linggen MCP server with Cursor using the 
-                    <a href="https://cursor.com/docs/context/mcp-extension-api" target="_blank" rel="noopener noreferrer">MCP Extension API</a>.
-                </p>
-                
-                <div className="doc-note">
-                    <strong>Zero Config:</strong> You no longer need to manually edit <code>mcp.json</code>. 
-                    The extension handles the connection programmatically, and it will not modify your <code>mcp.json</code> file.
+        <div className="space-y-12">
+            <header className="space-y-4">
+                <div className="flex items-center gap-2 text-jade-500 font-mono text-xs font-bold uppercase tracking-widest">
+                    <span className="p-1 bg-jade-500/10 rounded">🔌</span> Integration
                 </div>
-
-                <p>
-                    If the connection doesn't happen automatically, you can trigger it via the Command Palette:
-                    <br /><code>🌀 Linggen: Connect to Linggen</code>
+                <h1 className="text-4xl font-bold font-display text-white">
+                    Optional MCP Setup
+                </h1>
+                <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
+                    For advanced context retrieval, you can enable MCP to connect Linggen to AI coding tools 
+                    like Cursor, Zed, and Windsurf.
                 </p>
+            </header>
 
-                <h3>Manual Configuration (No Extension)</h3>
-                <p>
-                    If you prefer not to install the VS Code extension, you can still manually connect Cursor to Linggen 
-                    by adding the server to your Cursor MCP configuration file (<code>~/.cursor/mcp.json</code>):
-                </p>
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-white">Enabling MCP</h2>
+                <div className="p-6 bg-amber-900/10 border-l-4 border-amber-500 rounded-r-2xl">
+                    <p className="text-sm text-amber-200 leading-relaxed">
+                        In the latest version, MCP is <strong>disabled by default</strong> to optimize for speed 
+                        and token usage via the Skills workflow.
+                    </p>
+                </div>
                 
-                <pre className="doc-code"><code>{`{
-  "mcpServers": {
-    "linggen": {
-      "url": "http://localhost:8787/mcp/sse"
-    }
-  }
-}`}</code></pre>
-            </section>
-
-            <section className="doc-section">
-                <h2>Connect Zed</h2>
-                <p>
-                    Add the following to your Zed settings file 
-                    (<code>~/.config/zed/settings.json</code> on macOS/Linux):
-                </p>
-                
-                <pre className="doc-code"><code>{`{
-  "context_servers": {
-    "linggen": {
-      "url": "http://localhost:8787/mcp/sse"
-    }
-  }
-}`}</code></pre>
-
-                <p>Then restart Zed to apply the changes.</p>
-            </section>
-
-            <section className="doc-section">
-                <h2>Connect Windsurf</h2>
-                <p>
-                    Add the following to your Windsurf MCP configuration file 
-                    (<code>~/.codeium/windsurf/mcp_config.json</code> on macOS/Linux):
-                </p>
-                
-                <pre className="doc-code"><code>{`{
-  "mcpServers": {
-    "linggen": {
-      "serverUrl": "http://localhost:8787/mcp/sse"
-    }
-  }
-}`}</code></pre>
-
-                <p>Then restart Windsurf to apply the changes.</p>
-            </section>
-
-            <section className="doc-section">
-                <h2>Team Setup</h2>
-                <p>
-                    For team use, run Linggen on a shared machine (or server) and have team members 
-                    connect to that instance instead of localhost.
-                </p>
-                
-                <h3>On the Server</h3>
-                <ol className="doc-steps">
-                    <li>Install and run Linggen on a machine accessible to your team</li>
-                    <li>Index your shared codebase and documentation</li>
-                    <li>Note the machine's IP address (e.g., <code>192.168.1.100</code>)</li>
+                <ol className="space-y-4">
+                    {[
+                        'Open VS Code Settings.',
+                        'Search for "Linggen: Enable MCP".',
+                        'Check the box to start the local MCP server.',
+                        'The extension will automatically register the server with Cursor/Zed.'
+                    ].map((step, i) => (
+                        <li key={i} className="flex gap-4">
+                            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-jade-500 text-white text-xs font-bold flex items-center justify-center font-mono">
+                                {i + 1}
+                            </span>
+                            <p className="text-slate-400 text-sm">{step}</p>
+                        </li>
+                    ))}
                 </ol>
+            </section>
 
-                <h3>On Team Members' Machines</h3>
-                <p>Configure Cursor to point to the shared server in <code>~/.cursor/mcp.json</code>:</p>
-                <pre className="doc-code"><code>{`{
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-white">Manual Connection</h2>
+                <p className="text-slate-400 leading-relaxed text-sm">
+                    If you prefer not to use the VS Code extension, add Linggen manually to your IDE's MCP configuration:
+                </p>
+                <div className="bg-obsidian-900 rounded-xl border border-dev-border p-6">
+                    <pre className="text-[10px] md:text-xs font-mono text-white leading-relaxed overflow-x-auto">
+                        <code>{`{
   "mcpServers": {
     "linggen": {
-      "url": "http://192.168.1.100:8787/mcp/sse"
+      "url": "http://localhost:8787/mcp/sse"
     }
   }
-}`}</code></pre>
-
-                <div className="doc-note">
-                    <strong>Security:</strong> The MCP server has no authentication by default. 
-                    Only expose it on trusted networks or behind a VPN.
+}`}</code>
+                    </pre>
                 </div>
             </section>
 
-            <section className="doc-section">
-                <h2>Available MCP Tools</h2>
-                <p>The MCP server exposes these tools to connected AI clients:</p>
-                
-                <table className="doc-table">
-                    <thead>
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-white">Advanced Tools</h2>
+                <table className="w-full text-left text-xs">
+                    <thead className="bg-obsidian-800/50">
                         <tr>
-                            <th>Tool</th>
-                            <th>Description</th>
+                            <th className="px-4 py-3 font-bold font-mono text-jade-500 uppercase tracking-widest">Tool</th>
+                            <th className="px-4 py-3 font-bold font-mono text-obsidian-700 uppercase tracking-widest">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>search_codebase</code></td>
-                            <td>Search for relevant code/doc snippets across indexed sources</td>
-                        </tr>
-                        <tr>
-                            <td><code>enhance_prompt</code></td>
-                            <td>Enhance a prompt with relevant context automatically</td>
-                        </tr>
-                        <tr>
-                            <td><code>list_sources</code></td>
-                            <td>List all indexed sources and their statistics</td>
-                        </tr>
-                        <tr>
-                            <td><code>get_status</code></td>
-                            <td>Check Linggen server and indexing health</td>
-                        </tr>
-                        <tr>
-                            <td><code>memory_search_semantic</code></td>
-                            <td>Search for conceptually related memories using vector embeddings</td>
-                        </tr>
-                        <tr>
-                            <td><code>memory_fetch_by_meta</code></td>
-                            <td>Fetch the full content of a specific memory using metadata (e.g., ID from a code anchor)</td>
-                        </tr>
-                        <tr>
-                            <td><code>query_codebase</code></td>
-                            <td>Directly query the vector database for matching chunks</td>
-                        </tr>
-                        <tr>
-                            <td><code>list_library_packs</code></td>
-                            <td>List available skill/policy packs in your global Linggen Library</td>
-                        </tr>
-                        <tr>
-                            <td><code>get_library_pack</code></td>
-                            <td>Fetch a specific Library pack’s content (skills/policies) by pack_id</td>
-                        </tr>
-                        <tr>
-                            <td><code>create_library_pack</code></td>
-                            <td>Create a new skill/policy pack in your global Linggen Library</td>
-                        </tr>
-                        <tr>
-                            <td><code>rename_library_pack</code></td>
-                            <td>Rename an existing Library pack</td>
-                        </tr>
-                        <tr>
-                            <td><code>delete_library_pack</code></td>
-                            <td>Delete a Library pack</td>
-                        </tr>
-                     
+                    <tbody className="divide-y divide-dev-border">
+                        {[
+                            { name: 'search_codebase', desc: 'Semantic search across all sources' },
+                            { name: 'enhance_prompt', desc: 'Auto-inject relevant context' },
+                            { name: 'memory_fetch', desc: 'Retrieve anchored spec content' },
+                            { name: 'list_library', desc: 'Browse available Skill Packs' }
+                        ].map((tool) => (
+                            <tr key={tool.name} className="hover:bg-obsidian-800/30 transition-colors">
+                                <td className="px-4 py-3 font-mono text-jade-600">{tool.name}</td>
+                                <td className="px-4 py-3 text-slate-400 italic">{tool.desc}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </section>
-        </article>
+        </div>
     )
 }
 

@@ -1,125 +1,127 @@
 import { Link } from 'react-router-dom'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
+import { motion } from 'framer-motion'
 
 function PricingPage() {
     return (
-        <div className="pricing-page">
+        <div className="bg-obsidian-900 min-h-screen transition-colors">
             <Navigation />
             
-            <main className="pricing-main">
-                <section className="pricing-hero">
-                    <div className="container">
-                        <h1 className="hero-headline">Simple, Trust-Based Pricing</h1>
-                        <p className="hero-subtitle">
-                            Free for individuals. Commercial licenses for teams and enterprises.
-                        </p>
-                    </div>
+            <main className="pt-32 pb-24">
+                <section className="container mx-auto px-6 text-center mb-20">
+                    <motion.h1 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-4xl md:text-6xl font-bold font-display text-white mb-6"
+                    >
+                        Simple, Trust-Based Pricing
+                    </motion.h1>
+                    <motion.p 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed"
+                    >
+                        Free for individuals. Commercial licenses for teams and enterprises. 
+                        No credit card required to get started.
+                    </motion.p>
                 </section>
 
-                <section className="pricing-grid-section">
-                    <div className="container">
-                        <div className="pricing-grid">
-                            {/* Individual Plan */}
-                            <div className="pricing-card individual">
-                                <div className="card-tag">Open Source</div>
-                                <h2 className="plan-name">Individual</h2>
-                                <div className="plan-price">
-                                    <span className="amount">$0</span>
-                                    <span className="period">/ forever</span>
-                                </div>
-                                <p className="plan-desc">
-                                    Perfect for solo developers, students, and open-source contributors.
-                                </p>
-                                <ul className="plan-features">
-                                    <li>Full local indexing</li>
-                                    <li>Persistent Memory (.linggen/memory)</li>
-                                    <li>Visual System Map (Graph)</li>
-                                    <li>Local Vector Search (LanceDB)</li>
-                                    <li>Cursor & Zed MCP Integration</li>
-                                </ul>
-                                <Link 
-                                    to="/docs" 
-                                    className="pricing-btn secondary"
-                                    style={{ textDecoration: 'none', textAlign: 'center', display: 'block' }}
-                                >
-                                    Get Started
-                                </Link>
+                <section className="container mx-auto px-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+                        {/* Individual Plan */}
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="p-10 bg-obsidian-800/30 rounded-3xl border border-dev-border flex flex-col h-full"
+                        >
+                            <div className="text-[10px] font-bold uppercase tracking-widest text-obsidian-700 font-mono mb-6">Open Source</div>
+                            <h2 className="text-3xl font-bold text-white mb-4 font-display">Individual</h2>
+                            <div className="text-4xl font-bold text-white mb-6">$0<span className="text-sm font-normal text-slate-500">/ forever</span></div>
+                            <p className="text-slate-400 mb-8 text-sm">
+                                Perfect for solo developers, students, and open-source contributors.
+                            </p>
+                            <ul className="space-y-4 mb-10 flex-1">
+                                {['Full local indexing', 'Persistent Memory', 'Visual System Map', 'Local Vector Search', 'Cursor & Zed Integration'].map((f, i) => (
+                                    <li key={i} className="flex items-center gap-3 text-sm text-slate-300">
+                                        <span className="text-jade-500">✓</span> {f}
+                                    </li>
+                                ))}
+                            </ul>
+                            <Link to="/docs" className="w-full py-3 bg-white text-obsidian-900 text-center font-bold rounded-xl hover:scale-[1.02] transition-transform">
+                                Get Started
+                            </Link>
+                        </motion.div>
+
+                        {/* Commercial Plan */}
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 }}
+                            className="p-10 bg-obsidian-800 rounded-3xl border-2 border-jade-500 shadow-2xl shadow-jade-500/10 flex flex-col h-full relative"
+                        >
+                            <div className="absolute top-0 right-0 p-4">
+                                <span className="px-3 py-1 bg-jade-500 text-white text-[10px] font-bold uppercase tracking-widest rounded-full">Recommended</span>
                             </div>
+                            <div className="text-[10px] font-bold uppercase tracking-widest text-jade-500 font-mono mb-6">For Professionals</div>
+                            <h2 className="text-3xl font-bold text-white mb-4 font-display">Commercial</h2>
+                            <div className="text-4xl font-bold text-white mb-6">$50<span className="text-sm font-normal text-slate-500">/ user / year</span></div>
+                            <p className="text-slate-300 mb-8 text-sm">
+                                For professional teams (5+) and companies using Linggen in commercial environments.
+                            </p>
+                            <ul className="space-y-4 mb-10 flex-1">
+                                {['All Individual features', 'Commercial Use Rights', 'Priority Technical Support', 'Team Memory Sync (Soon)', 'Shared Knowledge Graph'].map((f, i) => (
+                                    <li key={i} className="flex items-center gap-3 text-sm text-slate-200 font-semibold">
+                                        <span className="text-jade-500">✓</span> {f}
+                                    </li>
+                                ))}
+                            </ul>
+                            <a href="mailto:linggen77@gmail.com" className="w-full py-3 bg-jade-500 text-white text-center font-bold rounded-xl hover:scale-[1.02] transition-transform">
+                                Contact for License
+                            </a>
+                        </motion.div>
 
-                            {/* Commercial Plan */}
-                            <div className="pricing-card commercial featured">
-                                <div className="card-tag primary">Recommended</div>
-                                <h2 className="plan-name">Commercial</h2>
-                                <div className="plan-price">
-                                    <span className="amount">$50</span>
-                                    <span className="period">/ user / year</span>
-                                </div>
-                                <p className="plan-desc">
-                                    For professional teams (5+) and companies using Linggen in commercial environments.
-                                </p>
-                                <ul className="plan-features">
-                                    <li><strong>All Individual features</strong></li>
-                                    <li>Commercial Use Rights</li>
-                                    <li>Team Memory Sync (Coming Soon)</li>
-                                    <li>Priority Technical Support</li>
-                                    <li>Shared Knowledge Graph (Coming Soon)</li>
-                                </ul>
-                                <a 
-                                    href="mailto:linggen77@gmail.com?subject=Commercial License Inquiry" 
-                                    className="pricing-btn primary"
-                                    style={{ textDecoration: 'none', textAlign: 'center', display: 'block' }}
-                                >
-                                    Contact for License
-                                </a>
-                            </div>
+                        {/* Enterprise Plan */}
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
+                            className="p-10 bg-obsidian-800/30 rounded-3xl border border-dev-border flex flex-col h-full"
+                        >
+                            <div className="text-[10px] font-bold uppercase tracking-widest text-obsidian-700 font-mono mb-6">High Control</div>
+                            <h2 className="text-3xl font-bold text-white mb-4 font-display">Enterprise</h2>
+                            <div className="text-4xl font-bold text-white mb-6">Custom</div>
+                            <p className="text-slate-400 mb-8 text-sm">
+                                For large organizations requiring centralized control, security, and governance.
+                            </p>
+                            <ul className="space-y-4 mb-10 flex-1">
+                                {['SSO / SAML Support', 'RBAC & Audit Logs', 'On-Prem Deployment', 'Dedicated Account Manager', 'Custom SLA'].map((f, i) => (
+                                    <li key={i} className="flex items-center gap-3 text-sm text-slate-300">
+                                        <span className="text-jade-500">✓</span> {f}
+                                    </li>
+                                ))}
+                            </ul>
+                            <a href="mailto:linggen77@gmail.com" className="w-full py-3 border border-dev-border text-white text-center font-bold rounded-xl hover:bg-obsidian-800 transition-colors">
+                                Contact Sales
+                            </a>
+                        </motion.div>
+                    </div>
 
-                            {/* Enterprise Plan */}
-                            <div className="pricing-card enterprise">
-                                <div className="card-tag">High Control</div>
-                                <h2 className="plan-name">Enterprise</h2>
-                                <div className="plan-price">
-                                    <span className="amount">Custom</span>
-                                </div>
-                                <p className="plan-desc">
-                                    For large organizations requiring centralized control, security, and governance.
-                                </p>
-                                <ul className="plan-features">
-                                    <li><strong>All Commercial features</strong></li>
-                                    <li>Single Sign-On (SSO)</li>
-                                    <li>Role-Based Access Control (RBAC)</li>
-                                    <li>Security & Audit Logs</li>
-                                    <li>On-Prem / Private Cloud Deployment</li>
-                                    <li>SLA & Dedicated Account Manager</li>
-                                </ul>
-                                <a 
-                                    href="mailto:linggen77@gmail.com?subject=Enterprise Inquiry" 
-                                    className="pricing-btn secondary"
-                                    style={{ textDecoration: 'none', textAlign: 'center', display: 'block' }}
-                                >
-                                    Contact Sales
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="pricing-contact-manual">
-                            <p>Prefer to copy? Contact us at: <strong>linggen77@gmail.com</strong></p>
-                        </div>
-
-                        <div className="pricing-faq">
-                            <h3>FAQ</h3>
-                            <div className="faq-item">
-                                <h4>Do I need a license for a team of 2?</h4>
-                                <p>
-                                    No. Linggen is free for small teams up to 5 users. Once your team grows beyond 5, 
-                                    we ask you to purchase a commercial license to support the project.
+                    <div className="max-w-3xl mx-auto space-y-12">
+                        <h3 className="text-2xl font-bold font-display text-center text-white">Frequently Asked Questions</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 className="font-bold text-white mb-2 italic">Do I need a license for a team of 2?</h4>
+                                <p className="text-sm text-slate-400">
+                                    No. Linggen is free for small teams up to 5 users. Once you grow, we ask for support.
                                 </p>
                             </div>
-                            <div className="faq-item">
-                                <h4>Is there a SaaS version?</h4>
-                                <p>
-                                    Linggen is primarily local-first to ensure your code stays private. We are working on 
-                                    a managed team sync service for teams that want zero-devops shared memory.
+                            <div>
+                                <h4 className="font-bold text-white mb-2 italic">Is there a SaaS version?</h4>
+                                <p className="text-sm text-slate-400">
+                                    Linggen is local-first for privacy. We're working on managed sync for effortless team collaboration.
                                 </p>
                             </div>
                         </div>
@@ -133,4 +135,3 @@ function PricingPage() {
 }
 
 export default PricingPage
-

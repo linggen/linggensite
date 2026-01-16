@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import DocsLayout from './pages/DocsLayout'
 import PricingPage from './pages/PricingPage'
-import './App.css'
 
 function AppContent() {
   const location = useLocation()
@@ -50,11 +49,11 @@ function AppContent() {
   }, [location.pathname])
 
   return (
-    <div className="App">
-      <div className="spiritual-energy"></div>
+    <div className="App min-h-screen bg-obsidian-900 text-slate-200 transition-colors duration-300">
+      <div className="grain-overlay" />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/docs" element={<DocsLayout />} />
+        <Route path="/docs/*" element={<DocsLayout />} />
         <Route path="/pricing" element={<PricingPage />} />
       </Routes>
     </div>

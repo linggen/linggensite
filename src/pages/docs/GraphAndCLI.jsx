@@ -2,84 +2,72 @@ import { VSCODE_EXTENSION_URL } from '../../constants'
 
 function GraphAndCLI() {
     return (
-        <article className="doc-article">
-            <h1>🗺️ Graph View &amp; CLI</h1>
-            <p className="doc-intro">
-                Linggen is CLI-first: run a local server, index/update sources, and use a system map (dependency graph) in VSCode.
-            </p>
-
-            <section className="doc-section">
-                <h2>VS Code Extension</h2>
-                <p>
-                    The Linggen VS Code extension provides seamless integration between your editor and the Linggen backend. 
-                    It allows you to visualize your architecture and manage your knowledge base without leaving your IDE.
+        <div className="space-y-12">
+            <header className="space-y-4">
+                <div className="flex items-center gap-2 text-jade-500 font-mono text-xs font-bold uppercase tracking-widest">
+                    <span className="p-1 bg-jade-500/10 rounded">🗺️</span> Ecosystem
+                </div>
+                <h1 className="text-4xl font-bold font-display text-white">
+                    Graph View & CLI
+                </h1>
+                <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
+                    Linggen is CLI-first: run a local server, index sources, and visualize your architecture in VS Code.
                 </p>
+            </header>
 
-                <h3>Key Features</h3>
-                <ul className="doc-list">
-                    <li>
-                        <strong>System Map (Graph View):</strong> Visualize file and module dependencies. 
-                        Answer "what depends on what?" before you refactor or onboard.
-                    </li>
-                    <li>
-                        <strong>Explain Across Projects:</strong> Right-click code to get context-aware explanations using knowledge from all your indexed projects.
-                    </li>
-                    <li>
-                        <strong>Pin to Memory (Anchored):</strong> Highlight code and pin it. Linggen creates a code anchor 
-                        and saves the context to <code>.linggen/memory</code>, allowing both you and your AI to "follow" 
-                        the link to the full documentation.
-                    </li>
-                    <li>
-                        <strong>Automatic MCP:</strong> Linggen automatically registers itself with Cursor's MCP system—no manual config files required.
-                    </li>
-                </ul>
-
-                <h3>Available Commands</h3>
-                <p>Open the Command Palette (<code>Cmd+Shift+P</code>) and search for "Linggen":</p>
-                <ul className="doc-commands">
-                    <li><code>🌀 Linggen: Show Graph</code> — Open the interactive dependency graph in a side panel</li>
-                    <li><code>🌀 Linggen: Index Current Project</code> — Start indexing the current workspace</li>
-                    <li><code>🌀 Linggen: Explain Across Projects</code> — Get AI insights across all your repos</li>
-                    <li><code>🌀 Linggen: Pin to Memory</code> — Save the current selection to Linggen's context</li>
-                    <li><code>🌀 Linggen: Library</code> — Browse Skills/Policies and install packs into your repo</li>
-                    <li><code>🌀 Linggen: Install Linggen CLI</code> — Helper to install the CLI runtime</li>
-                </ul>
-
-                <div className="doc-note">
-                    <strong>Tip:</strong> Use the graph as a “blast radius” tool: find the node, then check incoming/outgoing edges
-                    to see who will break before you make a change.
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-white">VS Code Extension</h2>
+                <p className="text-slate-400 leading-relaxed">
+                    The official extension provides seamless integration between your editor and the Linggen backend. 
+                    Manage your project's knowledge base without leaving your IDE.
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {[
+                        { title: 'System Map', desc: 'Visualize file and module dependencies. Answer "what depends on what?" before refactors.' },
+                        { title: 'Cross-Project Explain', desc: 'Right-click code to get insights using knowledge from all indexed projects.' },
+                        { title: 'Pin to Memory', desc: 'Highlight code and anchor it directly to .linggen/memory with one click.' },
+                        { title: 'Library Access', desc: 'Browse and install Skill Packs directly from the Command Palette.' }
+                    ].map((feature, i) => (
+                        <div key={i} className="p-6 bg-obsidian-800 rounded-2xl border border-dev-border shadow-sm group hover:border-jade-500/30 transition-colors">
+                            <h4 className="font-bold text-white mb-2 flex items-center gap-2">
+                                <span className="text-jade-500 italic font-mono text-xs">0{i+1}</span> {feature.title}
+                            </h4>
+                            <p className="text-xs text-slate-400 leading-relaxed">{feature.desc}</p>
+                        </div>
+                    ))}
                 </div>
             </section>
 
-            <section className="doc-section">
-                <h2>CLI Basics</h2>
-                <p>
-                    The CLI is the fastest way to run Linggen as a background service, index projects, and share one instance on a LAN.
-                </p>
-                <h3>Install</h3>
-                <pre className="doc-code"><code>{`# One-liner (recommended)
-curl -fsSL https://linggen.dev/install-cli.sh | bash`}</code></pre>
-
-                <h3>Start the server</h3>
-                <pre className="doc-code"><code>{`# Default: http://127.0.0.1:8787
-linggen start`
-                }</code></pre>
-
-                <h3>Index / Update a project</h3>
-                <pre className="doc-code"><code>{`# Incremental (fast) vs full rebuild
-linggen index /path/to/project
-`}</code></pre>
-
-                <h3>Status</h3>
-                <pre className="doc-code"><code>{`linggen status
-`}</code></pre>
-                <h3>Update</h3>
-                <pre className="doc-code"><code>{`linggen update
-`}</code></pre>
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-white">CLI Reference</h2>
+                <div className="space-y-4">
+                    {[
+                        { cmd: 'linggen', desc: 'Start the background orchestration service' },
+                        { cmd: 'linggen install', desc: 'Install or update the core runtime' },
+                        { cmd: 'linggen index .', desc: 'Index the current directory manually' },
+                        { cmd: 'linggen status', desc: 'Check health and indexing progress' }
+                    ].map((item, i) => (
+                        <div key={i} className="flex items-center justify-between p-4 bg-obsidian-800/50 rounded-xl border border-dev-border group hover:bg-obsidian-800 transition-colors">
+                            <code className="text-sm font-mono text-jade-500 font-bold">{item.cmd}</code>
+                            <span className="text-xs text-obsidian-700 font-medium italic group-hover:text-slate-400">{item.desc}</span>
+                        </div>
+                    ))}
+                </div>
             </section>
-        </article>
+
+            <div className="p-6 bg-obsidian-900 rounded-2xl border border-dev-border">
+                <div className="flex items-center gap-3 mb-4">
+                    <span className="text-jade-500">💡</span>
+                    <span className="text-sm font-bold text-white font-display">Pro Tip: Blast Radius</span>
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                    Use the Graph View as a "blast radius" tool: find a module node, then check incoming/outgoing edges 
+                    to identify potential regressions before committing changes.
+                </p>
+            </div>
+        </div>
     )
 }
 
 export default GraphAndCLI
-

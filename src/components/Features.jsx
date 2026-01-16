@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 function Features() {
     const features = [
         {
@@ -5,89 +7,101 @@ function Features() {
             title: 'Privacy-First & Local',
             description: 'Your code stays on your machine. No cloud, no telemetry, no data leaving your device.',
             items: [
-                'macOS ; Windows & Linux coming soon',
                 'Fast Rust backend (local-first)',
                 'Local vector database',
-                'Bring your own LLM via MCP clients'
+                'macOS & Linux versions published'
+            ]
+        },
+        {
+            icon: '🧩',
+            title: 'AI Tutor & Skills',
+            description: 'The default way to use Linggen. Faster, token-efficient instruction sets that define your repo’s “way of working”.',
+            items: [
+                'Saves tokens by providing targeted context',
+                'AI Mentor: guides you through project architecture',
+                'Share curated packs from Linggen Library'
+            ]
+        },
+        {
+            icon: '🔗',
+            title: 'Spec Holder (Memory)',
+            description: 'Stop fighting fragmented AI rule files. Anchor decisions and specs directly in code, backed by versioned Markdown.',
+            items: [
+                'Versioned specs for your features',
+                'Team Mode: share decisions across developers',
+                'Human-readable (CodeLens + inline anchors)'
+            ]
+        },
+        {
+            icon: '🔌',
+            title: 'Optional MCP Setup',
+            description: 'For advanced users: expose Linggen context to IDE assistants via MCP. Disabled by default to save resources.',
+            items: [
+                'Enable in extension settings',
+                'Works with Cursor, Zed, and Windsurf',
+                'Extensible for custom MCP clients'
             ]
         },
         {
             icon: '🧠',
             title: 'Cross-Project Context',
-            description: 'Maintain separate context for each project. Switch between codebases without losing relevant info—perfect for developers juggling multiple repos.',
+            description: 'Maintain separate context for each project. Switch codebases without losing relevant info.',
             items: [
                 'Separate project context per workspace',
-                'Expose relevant files to MCP assistants',
-                'Local vector indexing for fast retrieval',
-                'Automatic context switching when you change projects'
-            ]
-        },
-        {
-            icon: '🧩',
-            title: 'Skills (v0.5.0)',
-            description: 'Define how your AI should work in this repo—then reuse the same “way of working” across projects and teams.',
-            items: [
-                'Store as Markdown in `.linggen/skills/`',
-                'Enforce code style, testing rules, and refactor approach',
-                'Share curated skill packs from your Linggen Library',
-                'Works with MCP-connected assistants (Cursor/Zed/Windsurf)'
-            ]
-        },
-        {
-            icon: '🔗',
-            title: 'Anchored Memory (Maintainable)',
-            description: 'Stop fighting fragmented AI rule files. Anchor decisions and conventions directly in code, backed by versioned Markdown in `.linggen/memory`.',
-            items: [
-                'Readable by humans (CodeLens + inline anchors)',
-                'LLM retrieves exact memory via anchor ID',
-                'YAML frontmatter metadata (tags, title, IDs)',
-                'Works across tools: Cursor / Claude / agent setups'
-            ]
-        },
-        {
-            icon: '🔌',
-            title: 'MCP Integration (Cursor/Zed/Windsurf)',
-            description: 'Expose Linggen context to IDE assistants via MCP—one endpoint, all your sources.',
-            items: [
-                'Built-in MCP server at localhost:8787',
-                'Works with Cursor out of the box',
-                'Team support: share one server across devs',
-                'Extensible for other MCP-compatible tools'
+                'Automatic context switching',
+                'Fast local vector retrieval'
             ]
         },
         {
             icon: '🗺️',
-            title: 'Graph View for Onboarding',
+            title: 'Graph View',
             description: 'Explore a dependency graph to understand “what depends on what” before refactors or onboarding.',
             items: [
-                'File/module dependency graph per repo',
+                'File/module dependency graph',
                 'Visual system map for large codebases',
-                'Explore + jump to code from graph nodes',
-                'Perfect for onboarding new team members'
+                'Jump to code from graph nodes'
             ]
         }
     ]
 
     return (
-        <section className="features-section" id="get-started">
-            <div className="container">
-                <h2 className="section-title">
-                    <span className="title-decoration">◆</span>
-                    Core Features
-                    <span className="title-decoration">◆</span>
-                </h2>
+        <section className="py-24 bg-obsidian-900" id="get-started">
+            <div className="container mx-auto px-6">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-4">
+                        Built for Production AI Workflows
+                    </h2>
+                    <p className="text-slate-400 max-w-2xl mx-auto">
+                        Linggen removes the friction of managing AI context, so you can focus on building features.
+                    </p>
+                </div>
 
-                <div className="features-grid">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     {features.map((feature, index) => (
-                        <div key={index} className="feature-card">
-                            <div className="feature-icon">{feature.icon}</div>
-                            <h3>{feature.title}</h3>
-                            <p>{feature.description}</p>
-                            <ul className="feature-list">
-                                {feature.items.map((item, i) => (
-                                    <li key={i}>{item}</li>
-                                ))}
-                            </ul>
+                        <div key={index} className="flex">
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                className="p-8 bg-obsidian-800 rounded-2xl border border-dev-border hover:border-jade-500/50 transition-colors shadow-sm flex-1 flex flex-col"
+                            >
+                                <div className="text-4xl mb-6">{feature.icon}</div>
+                                <h3 className="text-xl font-bold text-white mb-4 font-display">
+                                    {feature.title}
+                                </h3>
+                                <p className="text-slate-400 mb-6 text-sm leading-relaxed flex-1">
+                                    {feature.description}
+                                </p>
+                                <ul className="space-y-3">
+                                    {feature.items.map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-xs text-slate-400">
+                                            <span className="text-jade-500 mt-0.5">✶</span>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </motion.div>
                         </div>
                     ))}
                 </div>
