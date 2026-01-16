@@ -1,9 +1,18 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import appScreenshot from '../assets/sources.png'
 import mdEditorScreenshot from '../assets/md-editor.png'
 import { INSTALL_ONE_LINER, INSTALL_COMMAND } from '../constants'
 
 function Hero() {
+    const [copied, setCopied] = useState(false)
+
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(INSTALL_ONE_LINER)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+    }
+
     const useCases = [
         { role: "User", text: "How does this project handle auth?" },
         { role: "Linggen", text: "Reading .linggen/memory/auth-flow.md... Orchestrating context..." },
@@ -75,9 +84,31 @@ function Hero() {
                                 <div className="p-6 space-y-4">
                                     <div className="space-y-2">
                                         <div className="text-slate-500"># 1. Install CLI</div>
-                                        <div className="flex items-center gap-2">
-                                            <span className="text-jade-500">❯</span>
-                                            <code className="text-jade-500 font-bold break-all">curl -fsSL https://linggen.dev/install-cli.sh | bash</code>
+                                        <div className="flex items-center justify-between gap-4 group/cmd">
+                                            <div className="flex items-center gap-2 overflow-hidden">
+                                                <span className="text-jade-500 flex-shrink-0">❯</span>
+                                                <code className="text-jade-500 font-bold break-all truncate">{INSTALL_ONE_LINER}</code>
+                                            </div>
+                                            <button 
+                                                onClick={copyToClipboard}
+                                                className={`flex-shrink-0 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tighter transition-all flex items-center gap-1.5 ${
+                                                    copied 
+                                                        ? 'bg-jade-500 text-white opacity-100' 
+                                                        : 'bg-obsidian-700 text-slate-400 hover:bg-obsidian-600 opacity-50 hover:opacity-100'
+                                                }`}
+                                            >
+                                                {copied ? (
+                                                    <>
+                                                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
+                                                        Copied
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                                        Copy
+                                                    </>
+                                                )}
+                                            </button>
                                         </div>
                                     </div>
                                     <div className="space-y-2">
