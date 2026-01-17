@@ -49,7 +49,7 @@ function AppContent() {
   }, [location.pathname])
 
   return (
-    <div className="App min-h-screen bg-obsidian-900 text-slate-200 transition-colors duration-300">
+    <div className="App min-h-screen bg-white text-slate-900 dark:bg-obsidian-900 dark:text-slate-200 transition-colors duration-300">
       <div className="grain-overlay" />
       <Routes>
         <Route path="/" element={<HomePage />} />

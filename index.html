@@ -28,6 +28,25 @@
     <link rel="canonical" href="https://linggen.dev/" />
     
     <title>Linggen | Your AI Tutor & Mentor</title>
+
+    <!-- Prevent theme flash: daytime forces light; nighttime follows system. -->
+    <script>
+      (function () {
+        try {
+          var DAY_START_HOUR = 7;   // inclusive
+          var DAY_END_HOUR = 19;    // exclusive
+          var now = new Date();
+          var h = now.getHours();
+          var daytime = h >= DAY_START_HOUR && h < DAY_END_HOUR;
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = daytime ? 'light' : (prefersDark ? 'dark' : 'light');
+          document.documentElement.classList.toggle('dark', theme === 'dark');
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          // ignore
+        }
+      })();
+    </script>
 </head>
 
 <body>

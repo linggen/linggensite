@@ -65,13 +65,13 @@ function Features() {
     ]
 
     return (
-        <section className="py-24 bg-obsidian-900" id="get-started">
+        <section className="py-24 bg-white dark:bg-obsidian-900" id="get-started">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-4">
+                    <h2 className="text-3xl md:text-5xl font-bold font-display text-slate-900 dark:text-white mb-4">
                         Built for Production AI Workflows
                     </h2>
-                    <p className="text-slate-400 max-w-2xl mx-auto">
+                    <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
                         Linggen removes the friction of managing AI context, so you can focus on building features.
                     </p>
                 </div>
@@ -84,18 +84,18 @@ function Features() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="p-8 bg-obsidian-800 rounded-2xl border border-dev-border hover:border-jade-500/50 transition-colors shadow-sm flex-1 flex flex-col"
+                                className="p-8 bg-slate-50 dark:bg-obsidian-800 rounded-2xl border border-slate-200 dark:border-dev-border hover:border-jade-500/50 transition-colors shadow-sm flex-1 flex flex-col"
                             >
                                 <div className="text-4xl mb-6">{feature.icon}</div>
-                                <h3 className="text-xl font-bold text-white mb-4 font-display">
+                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 font-display">
                                     {feature.title}
                                 </h3>
-                                <p className="text-slate-400 mb-6 text-sm leading-relaxed flex-1">
+                                <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed flex-1">
                                     {feature.description}
                                 </p>
                                 <ul className="space-y-3">
                                     {feature.items.map((item, i) => (
-                                        <li key={i} className="flex items-start gap-3 text-xs text-slate-400">
+                                        <li key={i} className="flex items-start gap-3 text-xs text-slate-600 dark:text-slate-400">
                                             <span className="text-jade-500 mt-0.5">✶</span>
                                             {item}
                                         </li>

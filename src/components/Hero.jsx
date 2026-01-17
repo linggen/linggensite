@@ -27,35 +27,35 @@ function Hero() {
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     {/* Left: Headline & Subtitle */}
                     <div className="flex-1 text-center lg:text-left">
-                            <motion.h1 
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5 }}
-                                className="text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-8 text-white"
-                            >
-                                Enjoy the AI.<br />
-                                <span className="text-jade-500">Leave the rest to Linggen.</span>
-                            </motion.h1>
-                        <motion.p 
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-8 text-slate-900 dark:text-white"
+                        >
+                            Enjoy the AI.<br />
+                            <span className="text-jade-500">Leave the rest to Linggen.</span>
+                        </motion.h1>
+                        <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.1 }}
-                            className="text-xl md:text-2xl text-slate-400 leading-relaxed max-w-2xl mb-12"
+                            className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mb-12"
                         >
-                            Linggen is your AI Tutor, Mentor, and Spec Holder. 
+                            Linggen is your AI Tutor, Mentor, and Spec Holder.
                             It manages context, skills, and history in the background—so you can focus on the <strong>What</strong> and the <strong>Why</strong>.
                         </motion.p>
 
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                             className="flex flex-wrap justify-center lg:justify-start gap-4"
                         >
-                            <a href="#get-started" className="px-8 py-4 bg-white text-obsidian-900 font-bold rounded-lg hover:scale-105 transition-transform">
+                            <a href="#get-started" className="px-8 py-4 bg-obsidian-900 text-white dark:bg-white dark:text-obsidian-900 font-bold rounded-lg hover:scale-105 transition-transform">
                                 Get Started
                             </a>
-                            <a href="https://github.com/linggen/linggen" className="px-8 py-4 border border-dev-border font-bold rounded-lg hover:bg-obsidian-800 transition-colors text-white">
+                            <a href="https://github.com/linggen/linggen" className="px-8 py-4 border border-slate-300 dark:border-dev-border font-bold rounded-lg hover:bg-slate-100 dark:hover:bg-obsidian-800 transition-colors text-slate-900 dark:text-white">
                                 View Source
                             </a>
                         </motion.div>
@@ -63,7 +63,7 @@ function Hero() {
 
                     {/* Right: Terminal & Interactive Demo */}
                     <div className="flex-1 w-full max-w-2xl">
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5, delay: 0.3 }}
@@ -81,48 +81,47 @@ function Hero() {
                             </div>
 
                             {/* Terminal Content */}
-                                <div className="p-6 space-y-4">
-                                    <div className="space-y-2">
-                                        <div className="text-slate-500"># 1. Install CLI</div>
-                                        <div className="flex items-center justify-between gap-4 group/cmd">
-                                            <div className="flex items-center gap-2 overflow-hidden">
-                                                <span className="text-jade-500 flex-shrink-0">❯</span>
-                                                <code className="text-jade-500 font-bold break-all truncate">{INSTALL_ONE_LINER}</code>
-                                            </div>
-                                            <button 
-                                                onClick={copyToClipboard}
-                                                className={`flex-shrink-0 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tighter transition-all flex items-center gap-1.5 ${
-                                                    copied 
-                                                        ? 'bg-jade-500 text-white opacity-100' 
-                                                        : 'bg-obsidian-700 text-slate-400 hover:bg-obsidian-600 opacity-50 hover:opacity-100'
+                            <div className="p-6 space-y-4">
+                                <div className="space-y-2">
+                                    <div className="text-slate-500"># 1. Install CLI</div>
+                                    <div className="flex items-center justify-between gap-4 group/cmd">
+                                        <div className="flex items-center gap-2 overflow-hidden">
+                                            <span className="text-jade-500 flex-shrink-0">❯</span>
+                                            <code className="text-jade-500 font-bold break-all truncate">{INSTALL_ONE_LINER}</code>
+                                        </div>
+                                        <button
+                                            onClick={copyToClipboard}
+                                            className={`flex-shrink-0 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tighter transition-all flex items-center gap-1.5 ${copied
+                                                ? 'bg-jade-500 text-white opacity-100'
+                                                : 'bg-obsidian-700 text-slate-400 hover:bg-obsidian-600 opacity-50 hover:opacity-100'
                                                 }`}
-                                            >
-                                                {copied ? (
-                                                    <>
-                                                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
-                                                        Copied
-                                                    </>
-                                                ) : (
-                                                    <>
-                                                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                                                        Copy
-                                                    </>
-                                                )}
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="space-y-2">
-                                        <div className="text-slate-500"># 2. Start Orchestrator</div>
-                                        <div className="flex items-center gap-2">
-                                            <span className="text-jade-500">❯</span>
-                                            <code className="text-white font-bold">linggen</code>
-                                        </div>
+                                        >
+                                            {copied ? (
+                                                <>
+                                                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
+                                                    Copied
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                                    Copy
+                                                </>
+                                            )}
+                                        </button>
                                     </div>
                                 </div>
+                                <div className="space-y-2">
+                                    <div className="text-slate-500"># 2. Start Orchestrator</div>
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-jade-500">❯</span>
+                                        <code className="text-white font-bold">linggen</code>
+                                    </div>
+                                </div>
+                            </div>
                         </motion.div>
 
                         {/* Feature Preview Card */}
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.4 }}
