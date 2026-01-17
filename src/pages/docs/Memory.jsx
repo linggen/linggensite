@@ -85,7 +85,7 @@ function Memory() {
                     {/* Tip 2: Existing Code */}
                     <div className="p-6 bg-jade-500/5 border-l-4 border-jade-500 rounded-r-2xl space-y-4">
                         <h4 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                            <span className="text-jade-500">🪄</span> The "Gentle Wind" Workflow
+                            <span className="text-jade-500">🪄</span> The "Gentle Breeze" Workflow
                         </h4>
                         <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                             Add a memory pin directly above an existing code block, then tell your AI:
@@ -94,7 +94,7 @@ function Memory() {
                             "Review and improve this code based on the anchored memory."
                         </div>
                         <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                            The AI will automatically find the related documentation and follow your specific rules. No messy trial-and-error, no repeated explanations—just clean, accurate code that follows your standards, <strong>easy like a gentle wind.</strong>
+                            The AI will automatically find the related documentation and follow your specific rules. No messy trial-and-error, no repeated explanations—just clean, accurate code that follows your standards, <strong>smooth and effortless as a gentle breeze.</strong>
                         </p>
                     </div>
                 </div>

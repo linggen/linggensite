@@ -60,16 +60,51 @@ function VSCodeExtension() {
                 <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">AI Orchestration (Cursor)</h2>
                 <div className="p-6 bg-jade-500/5 border border-jade-500/20 rounded-2xl">
                     <p className="text-sm text-slate-700 dark:text-slate-400 leading-relaxed">
-                        If you're using <strong>Cursor</strong>, Linggen automatically orchestrates the connection. 
+                        If you're using <strong>Cursor</strong>, Linggen automatically orchestrates the connection.
                         No manual MCP configuration needed—it handles the technical handshake instantly.
                     </p>
                 </div>
             </section>
 
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">Extension Settings</h2>
+                <div className="space-y-6">
+                    <div className="p-6 bg-slate-50 dark:bg-obsidian-800/30 rounded-2xl border border-slate-200 dark:border-dev-border">
+                        <h4 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2 text-sm">
+                            <span className="text-jade-500">🌐</span> Backend: Http Url
+                        </h4>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            Defaults to <code>http://localhost:8787</code> for local development.
+                        </p>
+                        <div className="p-4 bg-slate-900 dark:bg-obsidian-900 rounded-xl border border-dev-border/50">
+                            <p className="text-[11px] text-slate-200 dark:text-slate-400 leading-relaxed">
+                                <strong className="text-jade-400 dark:text-jade-500 font-bold uppercase tracking-widest mr-2">Team Mode:</strong>
+                                If your team uses a centralized Linggen server, change this to the remote IP or domain of your central instance to share knowledge across the team.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="p-6 bg-slate-50 dark:bg-obsidian-800/30 rounded-2xl border border-slate-200 dark:border-dev-border">
+                        <h4 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2 text-sm">
+                            <span className="text-amber-500">🔌</span> Mcp: Enabled (Legacy Mode)
+                        </h4>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            A legacy compatibility mode for standard MCP support.
+                        </p>
+                        <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/10 border-l-4 border-amber-500 rounded-r-xl">
+                            <p className="text-[11px] text-amber-900 dark:text-amber-200/80 leading-relaxed font-medium">
+                                <strong className="uppercase tracking-widest mr-2">Compatibility:</strong>
+                                Use this if your AI assistant struggles with the modern Skills-based workflow. While it costs more tokens, it provides broader compatibility with standard MCP clients.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section className="space-y-6 text-center pt-8">
-                <a 
-                    href={VSCODE_EXTENSION_URL} 
-                    target="_blank" 
+                <a
+                    href={VSCODE_EXTENSION_URL}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-8 py-3 bg-obsidian-900 text-white dark:bg-white dark:text-obsidian-900 rounded-xl font-bold hover:scale-105 transition-transform"
                 >
