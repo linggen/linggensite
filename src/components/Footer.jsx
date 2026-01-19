@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function Footer() {
     return (
         <footer className="py-12 border-t border-slate-200 dark:border-dev-border bg-white dark:bg-obsidian-900 transition-colors">
@@ -11,14 +13,15 @@ function Footer() {
                             Local-first design alignment for AI coding. Built with Rust.
                         </p>
                     </div>
-                    
+
                     <div className="flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400">
                         <a href="https://github.com/linggen/linggen" target="_blank" rel="noopener noreferrer" className="hover:text-jade-500 transition-colors">GitHub</a>
                         <a href="mailto:linggen77@gmail.com" className="hover:text-jade-500 transition-colors">Contact</a>
-                        <a href="/docs" className="hover:text-jade-500 transition-colors">Docs</a>
+                        <Link to="/wiki" className="hover:text-jade-500 transition-colors">Wiki</Link>
+                        <Link to="/docs" className="hover:text-jade-500 transition-colors">Docs</Link>
                     </div>
                 </div>
-                
+
                 <div className="mt-12 pt-8 border-t border-slate-200/80 dark:border-dev-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-[10px] uppercase tracking-widest text-slate-500 dark:text-obsidian-700 font-bold font-mono">
                         © 2026 Linggen ecosystem

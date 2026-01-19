@@ -23,7 +23,11 @@ function Hero() {
 
     return (
         <section className="relative pt-32 pb-20 overflow-hidden" id="home">
-            <div className="container mx-auto px-6">
+            {/* Background Blobs */}
+            <div className="bg-blob top-[-100px] left-[-100px] opacity-50" />
+            <div className="bg-blob bottom-[-100px] right-[-100px] bg-jade-500/5" />
+            
+            <div className="container mx-auto px-6 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     {/* Left: Headline & Subtitle */}
                     <div className="flex-1 text-center lg:text-left">
@@ -31,135 +35,146 @@ function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.05] tracking-tight mb-8 text-slate-900 dark:text-white max-w-[20ch] mx-auto lg:mx-0"
+                            className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] tracking-tight mb-8 text-slate-900 dark:text-white max-w-[20ch] mx-auto lg:mx-0"
                         >
-                            You define what the code should become.
-                            <span className="text-jade-500 block mt-2">Linggen makes it stay that way.</span>
+                            You define the intent.
+                            <span className="bg-gradient-to-r from-jade-500 to-emerald-500 bg-clip-text text-transparent block mt-2">
+                                Linggen makes it stay.
+                            </span>
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.1 }}
-                            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mb-12"
+                            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl mb-12 mx-auto lg:mx-0"
                         >
-                            Linggen anchors design decisions, rules, and intent directly into your codebase—so humans and AI can evolve it without drifting from the original design.
+                            Linggen is the <strong>alignment layer</strong> for AI coding. Anchor your design decisions directly into your codebase so humans and AI can evolve it without losing its original shape.
                         </motion.p>
 
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="flex flex-wrap justify-center lg:justify-start gap-4"
+                            className="flex flex-wrap justify-center lg:justify-start gap-5"
                         >
-                            <a href="#get-started" className="px-8 py-4 bg-obsidian-900 text-white dark:bg-white dark:text-obsidian-900 font-bold rounded-lg hover:scale-105 transition-transform">
-                                Get Started
+                            <a href="#get-started" className="group relative px-8 py-4 bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold rounded-2xl transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-jade-500/20 overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-jade-500/0 via-jade-500/20 to-jade-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                                <span className="relative">Get Started</span>
                             </a>
-                            <a href="/docs" className="px-8 py-4 border border-slate-300 dark:border-dev-border font-bold rounded-lg hover:bg-slate-100 dark:hover:bg-obsidian-800 transition-colors text-slate-900 dark:text-white">
+                            <a href="/docs" className="px-8 py-4 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 font-bold rounded-2xl hover:bg-white dark:hover:bg-slate-800 transition-all text-slate-700 dark:text-slate-300 hover:border-jade-500/50">
                                 Read Docs
                             </a>
                         </motion.div>
                     </div>
 
                     {/* Right: Terminal & Interactive Demo */}
-                    <div className="flex-1 w-full max-w-2xl">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                            className="bg-obsidian-900 rounded-xl border border-dev-border shadow-2xl overflow-hidden font-mono text-sm"
-                        >
-                            {/* Terminal Header */}
-                            <div className="bg-obsidian-800 px-4 py-3 border-b border-dev-border flex items-center justify-between text-slate-400">
-                                <div className="flex gap-2">
-                                    <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-                                    <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-                                    <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+                    <div className="flex-1 w-full max-w-2xl relative">
+                        <div className="absolute -left-8 top-1/2 bottom-0 w-px bg-gradient-to-b from-jade-500/20 via-jade-500/5 to-transparent hidden xl:block" />
+                        
+                        <div className="relative group">
+                            <div className="absolute -inset-2 bg-gradient-to-r from-jade-500/20 to-emerald-500/20 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition duration-1000"></div>
+                            
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.98 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.6, delay: 0.3 }}
+                                className="relative bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden font-mono text-sm"
+                            >
+                                {/* Terminal Header */}
+                                <div className="bg-slate-800/50 backdrop-blur-md px-5 py-4 border-b border-slate-800 flex items-center justify-between text-slate-400">
+                                    <div className="flex gap-2.5">
+                                        <div className="w-3 h-3 rounded-full bg-[#ff5f57] shadow-lg shadow-red-500/20" />
+                                        <div className="w-3 h-3 rounded-full bg-[#febc2e] shadow-lg shadow-yellow-500/20" />
+                                        <div className="w-3 h-3 rounded-full bg-[#28c840] shadow-lg shadow-green-500/20" />
+                                    </div>
+                                    <div className="text-[10px] uppercase tracking-[0.2em] font-black text-slate-500">bash — installation</div>
+                                    <div className="w-12" />
                                 </div>
-                                <div className="text-[10px] uppercase tracking-widest font-bold">bash — installation</div>
-                                <div className="w-12" />
-                            </div>
 
-                            {/* Terminal Content */}
-                            <div className="p-6 space-y-4">
-                                <div className="space-y-2">
-                                    <div className="text-slate-500"># 1. Install CLI</div>
-                                    <div className="flex items-center justify-between gap-4 group/cmd">
-                                        <div className="flex items-center gap-2 overflow-hidden">
-                                            <span className="text-jade-500 flex-shrink-0">❯</span>
-                                            <code className="text-jade-500 font-bold break-all truncate">{INSTALL_ONE_LINER}</code>
+                                {/* Terminal Content */}
+                                <div className="p-8 space-y-6">
+                                    <div className="space-y-3">
+                                        <div className="text-slate-300 text-[10px] font-bold uppercase tracking-widest"># Step 1: Install Linggen Core</div>
+                                        <div className="flex items-center justify-between gap-4 group/cmd">
+                                            <div className="flex items-center gap-3 overflow-hidden">
+                                                <span className="text-jade-300 flex-shrink-0 font-bold">❯</span>
+                                                <code className="text-jade-300 font-bold break-all selection:bg-jade-500 selection:text-slate-900">{INSTALL_ONE_LINER}</code>
+                                            </div>
+                                            <button
+                                                onClick={copyToClipboard}
+                                                className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-2 shadow-inner ${copied
+                                                    ? 'bg-jade-500 text-white'
+                                                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'
+                                                    }`}
+                                            >
+                                                {copied ? 'Copied' : 'Copy'}
+                                            </button>
                                         </div>
-                                        <button
-                                            onClick={copyToClipboard}
-                                            className={`flex-shrink-0 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tighter transition-all flex items-center gap-1.5 ${copied
-                                                ? 'bg-jade-500 text-white opacity-100'
-                                                : 'bg-obsidian-700 text-slate-400 hover:bg-obsidian-600 opacity-50 hover:opacity-100'
-                                                }`}
-                                        >
-                                            {copied ? (
-                                                <>
-                                                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
-                                                    Copied
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                                                    Copy
-                                                </>
-                                            )}
-                                        </button>
+                                    </div>
+                                    <div className="space-y-3">
+                                        <div className="text-slate-300 text-[10px] font-bold uppercase tracking-widest"># Step 2: Initialize</div>
+                                        <div className="flex items-center gap-3 overflow-hidden">
+                                            <span className="text-jade-300 font-bold">❯</span>
+                                            <code className="text-white font-bold selection:bg-jade-500 selection:text-slate-900">linggen init</code>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="space-y-2">
-                                    <div className="text-slate-500"># 2. Start Orchestrator</div>
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-jade-500">❯</span>
-                                        <code className="text-white font-bold">linggen</code>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
+                            </motion.div>
+                        </div>
 
                         {/* Feature Preview Card */}
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.4 }}
-                            className="mt-6 p-6 bg-obsidian-800 rounded-xl border border-dev-border shadow-xl relative overflow-hidden"
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                            className="mt-8 p-8 bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden group"
                         >
-                            <div className="flex items-center justify-between mb-6">
-                                <div className="flex items-center gap-3">
-                                    <span className="p-2 bg-jade-500/20 rounded-lg text-jade-500">⚓</span>
-                                    <span className="font-bold text-white text-lg">Design Anchors</span>
-                                </div>
-                                <span className="text-[10px] text-slate-500 font-mono">.linggen/memory/auth-flow.md</span>
+                            <div className="absolute top-0 right-0 p-4 opacity-10 transition-opacity">
+                                <span className="text-8xl text-white">⚓</span>
                             </div>
 
-                            <div className="space-y-4">
-                                <div className="p-3 bg-obsidian-900/50 rounded-lg border border-jade-500/30 relative group">
-                                    <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-1 h-8 bg-jade-500 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
+                            <div className="flex items-center justify-between mb-8 relative z-10">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 bg-jade-500 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-jade-500/20 transition-transform group-hover:scale-110">
+                                        <span className="text-xl font-bold">⚓</span>
+                                    </div>
+                                    <div>
+                                        <h3 className="font-bold text-white text-xl tracking-tight leading-none mb-1">Design Anchors</h3>
+                                        <p className="text-[10px] text-jade-300 font-mono font-bold uppercase tracking-widest">Memory Context</p>
+                                    </div>
+                                </div>
+                                <div className="text-[10px] text-jade-300 font-mono bg-jade-500/20 px-3 py-1.5 rounded-full border border-jade-500/40 backdrop-blur-md">
+                                    auth-flow.md
+                                </div>
+                            </div>
+
+                            <div className="space-y-6 relative z-10">
+                                <div className="p-5 bg-slate-950 rounded-2xl border border-slate-800 relative overflow-hidden">
+                                    <div className="absolute left-0 top-0 bottom-0 w-[4px] bg-gradient-to-b from-jade-400 to-emerald-600 shadow-[0_0_20px_rgba(0,212,170,0.4)]"></div>
                                     
-                                    <div className="flex items-center gap-2 mb-2 opacity-50">
-                                        <span className="text-jade-500 text-xs">⚓</span>
-                                        <span className="text-[10px] font-bold text-jade-400 uppercase tracking-widest">Design Anchor</span>
+                                    <div className="flex items-center gap-2 mb-4">
+                                        <div className="text-[10px] font-black text-jade-300 uppercase tracking-[0.3em]">Active Intent Layer</div>
                                     </div>
                                     
-                                    <div className="text-sm text-slate-300 italic font-mono truncate pl-6">
+                                    <div className="text-sm text-jade-300 font-mono leading-relaxed pl-2 selection:bg-jade-500 selection:text-slate-900">
                                         {anchoredMemoryExample}
                                     </div>
                                 </div>
                                 
-                                <p className="text-sm text-slate-400 leading-relaxed">
-                                    Your assistant sees the same intent your team does—right next to the code.
+                                <p className="text-base text-slate-300 leading-relaxed px-1 font-medium">
+                                    Your assistant sees the <strong className="text-white">original design intent</strong> right next to the code, preventing refactor drift.
                                 </p>
                                 
-                                <ul className="space-y-2 text-xs text-slate-500">
-                                    <li className="flex items-center gap-2">
-                                        <span className="text-jade-500">✶</span> Fewer repeats, better output
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <span className="text-jade-500">✶</span> Prevents AI “code drift”
-                                    </li>
-                                </ul>
+                                <div className="flex flex-wrap gap-5 px-1">
+                                    <div className="flex items-center gap-3 text-[11px] text-slate-400 font-bold uppercase tracking-widest">
+                                        <span className="w-2 h-2 rounded-full bg-jade-500 shadow-[0_0_10px_rgba(0,212,170,0.8)]" />
+                                        Team Ready
+                                    </div>
+                                    <div className="flex items-center gap-3 text-[11px] text-slate-400 font-bold uppercase tracking-widest">
+                                        <span className="w-2 h-2 rounded-full bg-jade-500 shadow-[0_0_10px_rgba(0,212,170,0.8)]" />
+                                        Local First
+                                    </div>
+                                </div>
                             </div>
                         </motion.div>
                     </div>

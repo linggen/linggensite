@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import DocsLayout from './pages/DocsLayout'
 import PricingPage from './pages/PricingPage'
+import ArticlesIndex from './pages/ArticlesIndex'
+import ArticlePage from './pages/ArticlePage'
+import WritePage from './pages/WritePage'
 
 function AppContent() {
   const location = useLocation()
@@ -54,6 +57,9 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/docs/*" element={<DocsLayout />} />
+        <Route path="/wiki" element={<ArticlesIndex />} />
+        <Route path="/wiki/:slug" element={<ArticlePage />} />
+        <Route path="/wiki/new" element={<WritePage />} />
         <Route path="/pricing" element={<PricingPage />} />
       </Routes>
     </div>

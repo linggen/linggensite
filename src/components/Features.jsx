@@ -3,101 +3,103 @@ import { motion } from 'framer-motion'
 function Features() {
     const features = [
         {
-            icon: '🔒',
-            title: 'Privacy-First & Local',
-            description: 'Your code stays on your machine. No cloud, no telemetry, no data leaving your device.',
+            icon: '🎯',
+            title: 'Design-Led Development',
+            description: 'In the era of AI coding, your role shifts from implementer to architect. Linggen helps you manage that transition by focusing on intent.',
             items: [
-                'Fast Rust backend (local-first)',
-                'Local vector database',
-                'macOS & Linux versions published'
+                'Captures organizational product specs',
+                'Aligns code to follow design intent',
+                'Prevents "vibe coding" drift'
             ]
         },
         {
-            icon: '🔗',
-            title: 'Design Anchor (Memory)',
-            description: 'Stop fighting fragmented AI rule files. Anchor your original design intent directly in code, ensuring the AI stays aligned with your vision.',
+            icon: '⚓',
+            title: 'Anchored Intent',
+            description: 'Stop fighting fragmented rule files. Anchor decisions directly in code, backed by versioned Markdown that both humans and AI follow.',
             items: [
-                'Versioned specs for your features',
-                'Alignment: prevent "code drift" during AI refactors',
-                'Human-readable (CodeLens + inline anchors)'
-            ]
-        },
-        {
-            icon: '🧩',
-            title: 'AI Mentor & Skills',
-            description: 'Teach your assistant how your team builds. Token-efficient guidance that captures your repo’s “way of working”.',
-            items: [
-                'Less prompt boilerplate, more signal',
-                'Guidance aligned to your repo structure',
-                'Share curated packs from Linggen Library'
-            ]
-        },
-        {
-            icon: '🔌',
-            title: 'Advanced Integrations (Optional)',
-            description: 'Connect Linggen to more assistants when you need it. Kept optional so the default experience stays fast and simple.',
-            items: [
-                'Enable in extension settings',
-                'Works with Cursor, Zed, and Windsurf',
-                'Standards-based integration (MCP supported)'
+                'Human-readable CodeLens anchors',
+                'Versioned specs for every feature',
+                'No repeated prompting required'
             ]
         },
         {
             icon: '🧠',
-            title: 'Cross-Project Context',
-            description: 'Maintain separate context for each project. Switch codebases without losing relevant info.',
+            title: 'Team Intelligence',
+            description: 'Turn tribal knowledge into actionable skills. Teach your assistant how your team builds, then let it implement within those boundaries.',
             items: [
-                'Separate project context per workspace',
-                'Automatic context switching',
-                'Fast local vector retrieval'
+                'Shared skills across the team',
+                'Consistent architectural patterns',
+                'Reduced implementation friction'
+            ]
+        },
+        {
+            icon: '🔒',
+            title: 'Privacy-First & Local',
+            description: 'Your design and code stay on your machine. No cloud, no telemetry, no data leaving your device. Built with fast Rust.',
+            items: [
+                'Fast local Rust backend',
+                'Local vector database',
+                'macOS & Linux support'
             ]
         },
         {
             icon: '🗺️',
-            title: 'Graph View',
-            description: 'Explore a dependency graph to understand “what depends on what” before refactors or onboarding.',
+            title: 'Visual System Map',
+            description: 'Explore a dependency graph to understand impact before refactors. See which files relate to your design decisions.',
             items: [
                 'File/module dependency graph',
-                'Visual system map for large codebases',
+                'Automatic context discovery',
                 'Jump to code from graph nodes'
+            ]
+        },
+        {
+            icon: '🔌',
+            title: 'Seamless Ecosystem',
+            description: 'Works with your existing AI tools. Optional MCP support for advanced users who need full context retrieval.',
+            items: [
+                'Cursor, Zed, and Windsurf support',
+                'VS Code extension included',
+                'Zero-config orchestration'
             ]
         }
     ]
 
     return (
-        <section className="py-24 bg-white dark:bg-obsidian-900" id="get-started">
+        <section className="py-24 bg-slate-50 dark:bg-slate-900/50 transition-colors" id="get-started">
             <div className="container mx-auto px-6">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold font-display text-slate-900 dark:text-white mb-4">
+                <div className="text-center mb-20">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-slate-900 dark:text-white mb-6 tracking-tight">
                         Built for design-led development with AI
                     </h2>
-                    <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
                         Anchor intent, teach conventions, and keep your assistant aligned as the codebase evolves.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                     {features.map((feature, index) => (
                         <div key={index} className="flex">
                             <motion.div 
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="p-8 bg-slate-50 dark:bg-obsidian-800 rounded-2xl border border-slate-200 dark:border-dev-border hover:border-jade-500/50 transition-colors shadow-sm flex-1 flex flex-col"
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                className="p-10 bg-white dark:bg-slate-800 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 hover:border-jade-500/40 transition-all duration-500 group shadow-sm hover:shadow-xl hover:shadow-jade-500/5 flex-1 flex flex-col"
                             >
-                                <div className="text-4xl mb-6">{feature.icon}</div>
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 font-display">
+                                <div className="w-16 h-16 bg-jade-500/10 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 group-hover:bg-jade-500 transition-all duration-500 shadow-inner">
+                                    {feature.icon}
+                                </div>
+                                <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-6 tracking-tight font-display">
                                     {feature.title}
                                 </h3>
-                                <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed flex-1">
+                                <p className="text-slate-600 dark:text-slate-400 mb-8 text-sm leading-relaxed flex-1 font-medium">
                                     {feature.description}
                                 </p>
-                                <ul className="space-y-3">
+                                <ul className="space-y-4">
                                     {feature.items.map((item, i) => (
-                                        <li key={i} className="flex items-start gap-3 text-xs text-slate-600 dark:text-slate-400">
-                                            <span className="text-jade-500 mt-0.5">✶</span>
-                                            {item}
+                                        <li key={i} className="flex items-start gap-4 text-[13px] text-slate-600 dark:text-slate-400 font-bold group/item">
+                                            <span className="text-jade-500 mt-1 transition-transform group-hover/item:scale-125">✶</span>
+                                            <span className="group-hover/item:text-slate-900 dark:group-hover/item:text-slate-200 transition-colors">{item}</span>
                                         </li>
                                     ))}
                                 </ul>

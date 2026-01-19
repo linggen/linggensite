@@ -3,6 +3,7 @@ import Hero from '../components/Hero'
 import Compatibility from '../components/Compatibility'
 import Advantage from '../components/Advantage'
 import Features from '../components/Features'
+import WhyLinggen from '../components/WhyLinggen'
 import Footer from '../components/Footer'
 
 function HomePage() {
@@ -12,6 +13,7 @@ function HomePage() {
             <Hero />
             <Compatibility />
             <Advantage />
+            <WhyLinggen />
             <Features />
             <Footer />
         </>
