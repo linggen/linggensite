@@ -43,12 +43,6 @@ function ArticlesIndex({ type = 'wiki' }) {
                         <h1 className="text-4xl md:text-5xl font-bold font-display text-slate-900 dark:text-white">
                             {title}
                         </h1>
-                        <Link
-                            to={`${basePath}/new`}
-                            className="px-4 py-2 bg-jade-500/10 text-jade-500 border border-jade-500/20 rounded-lg text-sm font-bold hover:bg-jade-500 hover:text-white transition-all"
-                        >
-                            + Write
-                        </Link>
                     </div>
                     <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-10 max-w-2xl">
                         {subtitle}
