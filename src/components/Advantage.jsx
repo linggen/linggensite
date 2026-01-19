@@ -70,7 +70,7 @@ function Advantage() {
                                 {[
                                     'Zero-config Skill-based retrieval',
                                     'Accurate "blast-radius" analysis via Graph',
-                                    'Persistent Spec Holder for design decisions',
+                                    'Persistent Design Anchors for alignment',
                                     'Team Mode: Shared truth for everyone'
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-center gap-3 text-slate-800 dark:text-slate-200 text-sm font-semibold">

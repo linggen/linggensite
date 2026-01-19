@@ -6,10 +6,10 @@ function Memory() {
                     <span className="p-1 bg-jade-500/10 rounded">🧠</span> Core Concepts
                 </div>
                 <h1 className="text-4xl font-bold font-display text-slate-900 dark:text-white">
-                    Spec Holder (Memory)
+                    Design Anchor (Memory)
                 </h1>
                 <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
-                    Persistent memory allows Linggen to capture architectural decisions, conventions, 
+                    Persistent memory allows Linggen to capture architectural decisions, design intent, 
                     and tribal knowledge anchored directly in your code.
                 </p>
             </header>

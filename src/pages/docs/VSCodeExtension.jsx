@@ -11,7 +11,7 @@ function VSCodeExtension() {
                     VS Code Extension
                 </h1>
                 <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
-                    Linggen is your AI Tutor and Orchestrator. The VS Code extension automates context management, skill configuration, and project knowledge.
+                    Linggen is your AI Mentor and Orchestrator. The VS Code extension automates context management, skill configuration, and project knowledge.
                 </p>
             </header>
 

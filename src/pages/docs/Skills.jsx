@@ -6,11 +6,11 @@ function Skills() {
                     <span className="p-1 bg-jade-500/10 rounded">🧩</span> Core Concepts
                 </div>
                 <h1 className="text-4xl font-bold font-display text-slate-900 dark:text-white">
-                    AI Tutor & Skills
+                    AI Mentor & Skills
                 </h1>
                 <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
                     Skills are the default way to use Linggen. They provide project-scoped instruction sets 
-                    that tell your AI assistant how to work in this repo, acting as an AI Tutor while saving tokens.
+                    that act as an AI Mentor, teaching your assistant the "way we work" here while hiding technical complexity.
                 </p>
             </header>
 

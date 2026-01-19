@@ -14,8 +14,8 @@ function Features() {
         },
         {
             icon: '🧩',
-            title: 'AI Tutor & Skills',
-            description: 'The default way to use Linggen. Faster, token-efficient instruction sets that define your repo’s “way of working”.',
+            title: 'AI Mentor & Skills',
+            description: 'The default way to use Linggen. Faster, token-efficient instruction sets that act as a mentor for your repo’s “way of working”.',
             items: [
                 'Saves tokens by providing targeted context',
                 'AI Mentor: guides you through project architecture',
@@ -24,11 +24,11 @@ function Features() {
         },
         {
             icon: '🔗',
-            title: 'Spec Holder (Memory)',
-            description: 'Stop fighting fragmented AI rule files. Anchor decisions and specs directly in code, backed by versioned Markdown.',
+            title: 'Design Anchor (Memory)',
+            description: 'Stop fighting fragmented AI rule files. Anchor your original design intent directly in code, ensuring the AI stays aligned with your vision.',
             items: [
                 'Versioned specs for your features',
-                'Team Mode: share decisions across developers',
+                'Alignment: prevent "code drift" during AI refactors',
                 'Human-readable (CodeLens + inline anchors)'
             ]
         },

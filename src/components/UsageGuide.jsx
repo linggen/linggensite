@@ -53,36 +53,36 @@ function UsageGuide() {
             ]
         },
         mcp: {
-            title: 'Optional MCP Setup',
+            title: 'Advanced AI Orchestration',
             sections: [
                 {
-                    heading: 'Enabling MCP',
-                    content: `By default, Linggen uses Skills for a faster, token-saving experience. If you need full MCP integration, you can enable it in the VS Code extension settings.`,
+                    heading: 'Hiding Complexity',
+                    content: `By default, Linggen handles all the technical complexity of RAG, MCP, and Skills orchestration, allowing you to focus purely on product and design.`,
                     code: null
                 },
                 {
-                    heading: 'Automatic Connection',
-                    content: `Once enabled, the Linggen extension registers the server automatically with Cursor/Zed via the MCP API.`,
+                    heading: 'Optional MCP Setup',
+                    content: `For advanced users: you can explicitly expose Linggen's context to IDE assistants via MCP by enabling it in the extension settings.`,
                     code: null
                 },
                 {
                     heading: 'Manual Connection',
-                    content: `Add Linggen manually to your IDE's MCP settings:`,
+                    content: `Connect Linggen manually to your IDE's MCP settings if needed:`,
                     code: `URL: http://localhost:8787/mcp/sse`
                 }
             ]
         },
         memory: {
-            title: 'Persistent Memory & Library',
+            title: 'Design Anchors & Library',
             sections: [
                 {
-                    heading: 'Spec Holder (Memory)',
-                    content: `Pin important code snippets to create "anchors". These are stored as Markdown in .linggen/memory and linked via code comments.`,
-                    code: `// linggen memory: auth-flow.md | Auth rules`
+                    heading: 'Design Anchor (Memory)',
+                    content: `Pin important code snippets to create "anchors". These ensure your AI assistant remains aligned with your original design intent, even as the project evolves.`,
+                    code: `// linggen memory: auth-flow.md | Design intent`
                 },
                 {
                     heading: 'Library (Skills & Policies)',
-                    content: `Browse curated packs and install them into your repo via the Command Palette.`,
+                    content: `Browse curated packs and install them into your repo. These act as an AI Tutor, teaching your assistant the "way we work" here.`,
                     code: `🌀 Linggen: Library`
                 }
             ]

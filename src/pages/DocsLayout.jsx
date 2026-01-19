@@ -21,8 +21,8 @@ const NAV_GROUPS = [
     {
         title: 'Core Concepts',
         items: [
-            { id: 'skills', label: 'AI Tutor & Skills', path: '/docs/skills' },
-            { id: 'memory', label: 'Spec Holder (Memory)', path: '/docs/memory' },
+            { id: 'skills', label: 'AI Mentor & Skills', path: '/docs/skills' },
+            { id: 'memory', label: 'Design Anchor (Memory)', path: '/docs/memory' },
             { id: 'sources', label: 'Managing Sources', path: '/docs/sources' },
         ]
     },

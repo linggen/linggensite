@@ -19,7 +19,7 @@ function Hero() {
         { role: "User", text: "Apply our team's style to this component." },
         { role: "Linggen", text: "Applying Skills from .linggen/skills/react-style.md..." }
     ]
-    const anchoredMemoryExample = `// linggen memory: rust-conventions.md | Project Coding Rules`
+    const anchoredMemoryExample = `// linggen memory: auth-flow.md | Authentication Logic Spec`
 
     return (
         <section className="relative pt-32 pb-20 overflow-hidden" id="home">
@@ -33,8 +33,8 @@ function Hero() {
                             transition={{ duration: 0.5 }}
                             className="text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-8 text-slate-900 dark:text-white"
                         >
-                            Enjoy the AI.<br />
-                            <span className="text-jade-500">Leave the rest to Linggen.</span>
+                            Design the Product.<br />
+                            <span className="text-jade-500">Linggen aligns the AI.</span>
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -42,8 +42,8 @@ function Hero() {
                             transition={{ duration: 0.5, delay: 0.1 }}
                             className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mb-12"
                         >
-                            Linggen is your AI Tutor, Mentor, and Spec Holder.
-                            It manages context, skills, and history in the background—so you can focus on the <strong>What</strong> and the <strong>Why</strong>.
+                            Linggen is your <strong>AI Mentor</strong> that hides the complexity of AI orchestration. 
+                            It anchors your design intent directly to the codebase, ensuring your assistant follows your vision—not just its training data.
                         </motion.p>
 
                         <motion.div
@@ -125,23 +125,51 @@ function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.4 }}
-                            className="mt-6 p-6 bg-obsidian-800 rounded-xl border border-dev-border shadow-xl"
+                            className="mt-6 p-6 bg-obsidian-800 rounded-xl border border-dev-border shadow-xl relative overflow-hidden"
                         >
-                            <div className="flex items-center gap-3 mb-4">
-                                <span className="p-2 bg-jade-500/10 rounded-lg text-jade-500">🧠</span>
-                                <span className="font-bold text-white">Spec Holder Workflow</span>
+                            {/* Visual representation of "Hiding Complexity" */}
+                            <div className="absolute top-0 right-0 p-2 opacity-5 font-mono text-[8px] text-jade-500 select-none whitespace-pre pointer-events-none">
+                                MCP_SERVER_LOADED...{"\n"}
+                                RAG_QUERY_INIT...{"\n"}
+                                SKILLS_INJECTED...
                             </div>
-                            <div className="bg-obsidian-900 p-3 rounded-lg font-mono text-xs text-jade-600 mb-4 border border-dev-border">
-                                {anchoredMemoryExample}
+
+                            <div className="flex items-center justify-between mb-6">
+                                <div className="flex items-center gap-3">
+                                    <span className="p-2 bg-jade-500/20 rounded-lg text-jade-500">🎓</span>
+                                    <span className="font-bold text-white text-lg">AI Mentor Guidance</span>
+                                </div>
+                                <span className="text-[10px] text-slate-500 font-mono">.linggen/memory/auth-flow.md</span>
                             </div>
-                            <ul className="space-y-2 text-sm text-slate-400">
-                                <li className="flex items-center gap-2">
-                                    <span className="text-jade-500">✶</span> Zero-config: AI retrieves context automatically
-                                </li>
-                                <li className="flex items-center gap-2">
-                                    <span className="text-jade-500">✶</span> Team Mode: Shared truth for the entire team
-                                </li>
-                            </ul>
+
+                            <div className="space-y-4">
+                                <div className="p-3 bg-obsidian-900/50 rounded-lg border border-jade-500/30 relative group">
+                                    <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-1 h-8 bg-jade-500 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
+                                    
+                                    <div className="flex items-center gap-2 mb-2 opacity-50">
+                                        <span className="text-jade-500 text-xs">⚓</span>
+                                        <span className="text-[10px] font-bold text-jade-400 uppercase tracking-widest">Design Anchor</span>
+                                    </div>
+                                    
+                                    <div className="text-sm text-slate-300 italic font-mono truncate pl-6">
+                                        {anchoredMemoryExample}
+                                    </div>
+                                </div>
+                                
+                                <p className="text-sm text-slate-400 leading-relaxed">
+                                    While you focus on the product, Linggen silently guides the AI to respect your 
+                                    <strong> architectural standards</strong> and <strong>original design intent</strong>.
+                                </p>
+                                
+                                <ul className="space-y-2 text-xs text-slate-500">
+                                    <li className="flex items-center gap-2">
+                                        <span className="text-jade-500">✶</span> Hides RAG & MCP complexity
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <span className="text-jade-500">✶</span> Prevents AI "code drift"
+                                    </li>
+                                </ul>
+                            </div>
                         </motion.div>
                     </div>
                 </div>
