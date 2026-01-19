@@ -31,19 +31,18 @@ function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-8 text-slate-900 dark:text-white"
+                            className="text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.05] tracking-tight mb-8 text-slate-900 dark:text-white max-w-[20ch] mx-auto lg:mx-0"
                         >
-                            Design the Product.<br />
-                            <span className="text-jade-500">Linggen aligns the AI.</span>
+                            You define what the code should become.
+                            <span className="text-jade-500 block mt-2">Linggen makes it stay that way.</span>
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.1 }}
-                            className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mb-12"
+                            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mb-12"
                         >
-                            Linggen is your <strong>AI Mentor</strong> that hides the complexity of AI orchestration. 
-                            It anchors your design intent directly to the codebase, ensuring your assistant follows your vision—not just its training data.
+                            Linggen anchors design decisions, rules, and intent directly into your codebase—so humans and AI can evolve it without drifting from the original design.
                         </motion.p>
 
                         <motion.div
@@ -55,8 +54,8 @@ function Hero() {
                             <a href="#get-started" className="px-8 py-4 bg-obsidian-900 text-white dark:bg-white dark:text-obsidian-900 font-bold rounded-lg hover:scale-105 transition-transform">
                                 Get Started
                             </a>
-                            <a href="https://github.com/linggen/linggen" className="px-8 py-4 border border-slate-300 dark:border-dev-border font-bold rounded-lg hover:bg-slate-100 dark:hover:bg-obsidian-800 transition-colors text-slate-900 dark:text-white">
-                                View Source
+                            <a href="/docs" className="px-8 py-4 border border-slate-300 dark:border-dev-border font-bold rounded-lg hover:bg-slate-100 dark:hover:bg-obsidian-800 transition-colors text-slate-900 dark:text-white">
+                                Read Docs
                             </a>
                         </motion.div>
                     </div>
@@ -127,17 +126,10 @@ function Hero() {
                             transition={{ duration: 0.5, delay: 0.4 }}
                             className="mt-6 p-6 bg-obsidian-800 rounded-xl border border-dev-border shadow-xl relative overflow-hidden"
                         >
-                            {/* Visual representation of "Hiding Complexity" */}
-                            <div className="absolute top-0 right-0 p-2 opacity-5 font-mono text-[8px] text-jade-500 select-none whitespace-pre pointer-events-none">
-                                MCP_SERVER_LOADED...{"\n"}
-                                RAG_QUERY_INIT...{"\n"}
-                                SKILLS_INJECTED...
-                            </div>
-
                             <div className="flex items-center justify-between mb-6">
                                 <div className="flex items-center gap-3">
-                                    <span className="p-2 bg-jade-500/20 rounded-lg text-jade-500">🎓</span>
-                                    <span className="font-bold text-white text-lg">AI Mentor Guidance</span>
+                                    <span className="p-2 bg-jade-500/20 rounded-lg text-jade-500">⚓</span>
+                                    <span className="font-bold text-white text-lg">Design Anchors</span>
                                 </div>
                                 <span className="text-[10px] text-slate-500 font-mono">.linggen/memory/auth-flow.md</span>
                             </div>
@@ -157,16 +149,15 @@ function Hero() {
                                 </div>
                                 
                                 <p className="text-sm text-slate-400 leading-relaxed">
-                                    While you focus on the product, Linggen silently guides the AI to respect your 
-                                    <strong> architectural standards</strong> and <strong>original design intent</strong>.
+                                    Your assistant sees the same intent your team does—right next to the code.
                                 </p>
                                 
                                 <ul className="space-y-2 text-xs text-slate-500">
                                     <li className="flex items-center gap-2">
-                                        <span className="text-jade-500">✶</span> Hides RAG & MCP complexity
+                                        <span className="text-jade-500">✶</span> Fewer repeats, better output
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-jade-500">✶</span> Prevents AI "code drift"
+                                        <span className="text-jade-500">✶</span> Prevents AI “code drift”
                                     </li>
                                 </ul>
                             </div>

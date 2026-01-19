@@ -8,7 +8,7 @@ function Footer() {
                             <span className="text-jade-500 text-sm">✶</span> Linggen
                         </span>
                         <p className="text-xs text-slate-600 dark:text-slate-400 font-mono">
-                            Local-first AI orchestration layer. Built with Rust.
+                            Local-first design alignment for AI coding. Built with Rust.
                         </p>
                     </div>
                     

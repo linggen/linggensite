@@ -13,16 +13,6 @@ function Features() {
             ]
         },
         {
-            icon: '🧩',
-            title: 'AI Mentor & Skills',
-            description: 'The default way to use Linggen. Faster, token-efficient instruction sets that act as a mentor for your repo’s “way of working”.',
-            items: [
-                'Saves tokens by providing targeted context',
-                'AI Mentor: guides you through project architecture',
-                'Share curated packs from Linggen Library'
-            ]
-        },
-        {
             icon: '🔗',
             title: 'Design Anchor (Memory)',
             description: 'Stop fighting fragmented AI rule files. Anchor your original design intent directly in code, ensuring the AI stays aligned with your vision.',
@@ -33,13 +23,23 @@ function Features() {
             ]
         },
         {
+            icon: '🧩',
+            title: 'AI Mentor & Skills',
+            description: 'Teach your assistant how your team builds. Token-efficient guidance that captures your repo’s “way of working”.',
+            items: [
+                'Less prompt boilerplate, more signal',
+                'Guidance aligned to your repo structure',
+                'Share curated packs from Linggen Library'
+            ]
+        },
+        {
             icon: '🔌',
-            title: 'Optional MCP Setup',
-            description: 'For advanced users: expose Linggen context to IDE assistants via MCP. Disabled by default to save resources.',
+            title: 'Advanced Integrations (Optional)',
+            description: 'Connect Linggen to more assistants when you need it. Kept optional so the default experience stays fast and simple.',
             items: [
                 'Enable in extension settings',
                 'Works with Cursor, Zed, and Windsurf',
-                'Extensible for custom MCP clients'
+                'Standards-based integration (MCP supported)'
             ]
         },
         {
@@ -69,10 +69,10 @@ function Features() {
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold font-display text-slate-900 dark:text-white mb-4">
-                        Built for Production AI Workflows
+                        Built for design-led development with AI
                     </h2>
                     <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-                        Linggen removes the friction of managing AI context, so you can focus on building features.
+                        Anchor intent, teach conventions, and keep your assistant aligned as the codebase evolves.
                     </p>
                 </div>
 

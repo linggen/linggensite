@@ -6,10 +6,10 @@ function Advantage() {
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold font-display text-slate-900 dark:text-white mb-4">
-                        The Linggen Advantage
+                        Keep code true to the design
                     </h2>
                     <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto italic font-mono text-sm">
-                        "Focus on the What and the Why — Linggen handles the How."
+                        "You define the direction — Linggen helps the AI follow it."
                     </p>
                 </div>
                 
@@ -61,17 +61,17 @@ function Advantage() {
                                 Linggen Way
                             </div>
                             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 font-display flex items-center gap-3">
-                                <span className="text-jade-500">✶</span> AI Orchestration
+                                <span className="text-jade-500">✶</span> Anchored Alignment
                             </h3>
                             <p className="text-slate-700 dark:text-slate-300 mb-8 font-medium">
-                                AI has a persistent, searchable map of your entire ecosystem.
+                                AI can follow your team’s rules and intent without repeated prompting.
                             </p>
                             <ul className="space-y-4 mb-10">
                                 {[
-                                    'Zero-config Skill-based retrieval',
-                                    'Accurate "blast-radius" analysis via Graph',
-                                    'Persistent Design Anchors for alignment',
-                                    'Team Mode: Shared truth for everyone'
+                                    'Design Anchors keep intent close to the code',
+                                    'Skills capture your team’s “way of working”',
+                                    'Dependency graph helps you see impact before changes',
+                                    'Team Mode: one shared source of truth'
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-center gap-3 text-slate-800 dark:text-slate-200 text-sm font-semibold">
                                         <span className="text-jade-500">✓</span> {item}
