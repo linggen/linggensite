@@ -68,6 +68,28 @@ function QuickStart() {
                         </p>
                     </div>
                 </div>
+
+                <div className="space-y-4">
+                    <h3 className="text-xl font-bold flex items-center gap-3 text-slate-900 dark:text-white">
+                        <span className="w-8 h-8 rounded-full bg-obsidian-900 text-white dark:bg-white dark:text-obsidian-900 flex items-center justify-center text-sm font-mono font-bold">4</span>
+                        Linux Server Management
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400">
+                        For Linux server deployments, use systemd to manage the service:
+                    </p>
+                    <div className="bg-obsidian-900 rounded-xl border border-dev-border overflow-hidden">
+                        <div className="bg-obsidian-800 px-4 py-2 text-[10px] uppercase font-bold text-obsidian-700 font-mono">Restart Service</div>
+                        <pre className="p-6 text-sm font-mono text-jade-500 font-bold">
+                            sudo systemctl restart linggen-server
+                        </pre>
+                    </div>
+                    <p className="text-slate-600 dark:text-slate-400">
+                        Access the Web UI by opening your browser to:
+                    </p>
+                    <div className="bg-obsidian-900 rounded-xl border border-dev-border p-6 text-sm font-mono text-white leading-relaxed">
+                        <span className="text-jade-500">🌐</span> http://server_ip:8787
+                    </div>
+                </div>
             </section>
 
             <section className="p-8 bg-jade-500/5 rounded-3xl border border-jade-500/20">
@@ -75,9 +97,9 @@ function QuickStart() {
                 <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
                     Install the official extension to unlock Graph View and one-click "Pin to Memory" features.
                 </p>
-                <a 
-                    href={VSCODE_EXTENSION_URL} 
-                    target="_blank" 
+                <a
+                    href={VSCODE_EXTENSION_URL}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-2.5 bg-jade-500 text-white rounded-lg font-bold text-sm hover:scale-105 transition-transform"
                 >
