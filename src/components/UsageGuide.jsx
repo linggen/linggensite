@@ -21,14 +21,14 @@ function UsageGuide() {
                     code: `curl -fsSL https://linggen.dev/install-cli.sh | bash\nlinggen install`
                 },
                 {
-                    heading: '2. Start the Server',
+                    heading: '2. Install andStart the Server',
                     content: `Start the Linggen backend server. On first run, it will download the embedding model (~100MB).`,
-                    code: `linggen serve`
+                    code: `sudo linggen install && linggen`
                 },
                 {
                     heading: '3. Add Your First Source',
                     content: `Index a project directory to start building the local vector index.`,
-                    code: `linggen index .`
+                    code: `sudo linggen index .`
                 }
             ]
         },
@@ -109,18 +109,17 @@ function UsageGuide() {
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
-                                className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-200 ${
-                                    activeTab === tab.id
+                                className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-200 ${activeTab === tab.id
                                         ? 'bg-jade-500 text-white shadow-lg shadow-jade-500/20'
                                         : 'bg-slate-50 dark:bg-obsidian-800 text-slate-500 hover:text-slate-900 dark:hover:text-white'
-                                }`}
+                                    }`}
                             >
                                 {tab.label}
                             </button>
                         ))}
                     </div>
 
-                    <motion.div 
+                    <motion.div
                         key={activeTab}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -130,7 +129,7 @@ function UsageGuide() {
                         <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 font-display">
                             {currentContent.title}
                         </h3>
-                        
+
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {currentContent.sections.map((section, index) => (
                                 <div key={index} className="space-y-4">
@@ -141,7 +140,7 @@ function UsageGuide() {
                                     <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                                         {section.content}
                                     </p>
-                                    
+
                                     {section.list && (
                                         <ul className="space-y-2">
                                             {section.list.map((item, i) => (
@@ -151,7 +150,7 @@ function UsageGuide() {
                                             ))}
                                         </ul>
                                     )}
-                                    
+
                                     {section.code && (
                                         <div className="bg-obsidian-900 rounded-xl p-4 border border-dev-border font-mono text-xs overflow-x-auto shadow-inner">
                                             <code className="text-jade-500 leading-relaxed whitespace-pre-wrap">

@@ -26,7 +26,7 @@ function Hero() {
             {/* Background Blobs */}
             <div className="bg-blob top-[-100px] left-[-100px] opacity-50" />
             <div className="bg-blob bottom-[-100px] right-[-100px] bg-jade-500/5" />
-            
+
             <div className="container mx-auto px-6 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     {/* Left: Headline & Subtitle */}
@@ -70,10 +70,10 @@ function Hero() {
                     {/* Right: Terminal & Interactive Demo */}
                     <div className="flex-1 w-full max-w-2xl relative">
                         <div className="absolute -left-8 top-1/2 bottom-0 w-px bg-gradient-to-b from-jade-500/20 via-jade-500/5 to-transparent hidden xl:block" />
-                        
+
                         <div className="relative group">
                             <div className="absolute -inset-2 bg-gradient-to-r from-jade-500/20 to-emerald-500/20 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition duration-1000"></div>
-                            
+
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.98 }}
                                 animate={{ opacity: 1, scale: 1 }}
@@ -112,10 +112,10 @@ function Hero() {
                                         </div>
                                     </div>
                                     <div className="space-y-3">
-                                        <div className="text-slate-300 text-[10px] font-bold uppercase tracking-widest"># Step 2: Initialize</div>
+                                        <div className="text-slate-300 text-[10px] font-bold uppercase tracking-widest"># Step 2: install and start</div>
                                         <div className="flex items-center gap-3 overflow-hidden">
                                             <span className="text-jade-300 font-bold">❯</span>
-                                            <code className="text-white font-bold selection:bg-jade-500 selection:text-slate-900">linggen init</code>
+                                            <code className="text-white font-bold selection:bg-jade-500 selection:text-slate-900">sudo linggen install && linggen</code>
                                         </div>
                                     </div>
                                 </div>
@@ -151,20 +151,20 @@ function Hero() {
                             <div className="space-y-6 relative z-10">
                                 <div className="p-5 bg-slate-950 rounded-2xl border border-slate-800 relative overflow-hidden">
                                     <div className="absolute left-0 top-0 bottom-0 w-[4px] bg-gradient-to-b from-jade-400 to-emerald-600 shadow-[0_0_20px_rgba(0,212,170,0.4)]"></div>
-                                    
+
                                     <div className="flex items-center gap-2 mb-4">
                                         <div className="text-[10px] font-black text-jade-300 uppercase tracking-[0.3em]">Active Intent Layer</div>
                                     </div>
-                                    
+
                                     <div className="text-sm text-jade-300 font-mono leading-relaxed pl-2 selection:bg-jade-500 selection:text-slate-900">
                                         {anchoredMemoryExample}
                                     </div>
                                 </div>
-                                
+
                                 <p className="text-base text-slate-300 leading-relaxed px-1 font-medium">
                                     Your assistant sees the <strong className="text-white">original design intent</strong> right next to the code, preventing refactor drift.
                                 </p>
-                                
+
                                 <div className="flex flex-wrap gap-5 px-1">
                                     <div className="flex items-center gap-3 text-[11px] text-slate-400 font-bold uppercase tracking-widest">
                                         <span className="w-2 h-2 rounded-full bg-jade-500 shadow-[0_0_10px_rgba(0,212,170,0.8)]" />
