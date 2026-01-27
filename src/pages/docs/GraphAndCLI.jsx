@@ -43,10 +43,13 @@ function GraphAndCLI() {
                 <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">CLI Reference</h2>
                 <div className="space-y-4">
                     {[
-                        { cmd: 'linggen', desc: 'Start the background orchestration service' },
+                        { cmd: 'linggen', desc: 'Start the background orchestration server' },
+                        { cmd: 'linggen stop', desc: 'Stop the running server gracefully' },
+                        { cmd: 'linggen restart', desc: 'Restart the server for updates or configuration changes' },
                         { cmd: 'sudo linggen install', desc: 'Install or update the core runtime' },
                         { cmd: 'sudo linggen index .', desc: 'Index the current directory manually' },
-                        { cmd: 'linggen status', desc: 'Check health and indexing progress' }
+                        { cmd: 'linggen status', desc: 'Check server health and indexing progress' },
+                        { cmd: 'linggen skills add <repo>', desc: 'Install a skill from a GitHub repository' }
                     ].map((item, i) => (
                         <div key={i} className="flex items-center justify-between p-4 bg-slate-50 dark:bg-obsidian-800/50 rounded-xl border border-slate-200 dark:border-dev-border group hover:bg-slate-100 dark:hover:bg-obsidian-800 transition-colors">
                             <code className="text-sm font-mono text-jade-500 font-bold">{item.cmd}</code>

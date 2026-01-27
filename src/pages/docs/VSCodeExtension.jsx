@@ -46,6 +46,7 @@ function VSCodeExtension() {
                         { cmd: 'Linggen: Explain Across Projects', desc: 'Context-aware markdown explanations.' },
                         { cmd: 'Linggen: Pin to Memory', desc: 'Anchor code to architectural decisions.' },
                         { cmd: 'Linggen: Library', desc: 'Install skills or policies.' },
+                        { cmd: 'Linggen: Browse Online Skills', desc: 'Browse, search, and install community skills from GitHub.' },
                         { cmd: 'Linggen: Show Graph', desc: 'Visualize dependencies.' }
                     ].map((item, i) => (
                         <div key={i} className="p-4 bg-slate-50 dark:bg-obsidian-800/50 rounded-xl border border-slate-200 dark:border-dev-border group hover:bg-slate-100 dark:hover:bg-obsidian-800 transition-colors">
@@ -53,6 +54,25 @@ function VSCodeExtension() {
                             <p className="text-xs text-slate-600 dark:text-slate-400 italic">{item.desc}</p>
                         </div>
                     ))}
+                </div>
+            </section>
+
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">Online Skills Registry</h2>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Browse, search, and install community skills directly from the extension. The online skills registry
+                    provides access to a growing collection of skills hosted on GitHub.
+                </p>
+                <div className="p-6 bg-slate-50 dark:bg-obsidian-800/30 rounded-2xl border border-slate-200 dark:border-dev-border">
+                    <h4 className="font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2 text-sm">
+                        <span className="text-jade-500">🌀</span> How It Works
+                    </h4>
+                    <div className="space-y-2 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        <p>• Browse the public registry from the VS Code command palette or web UI</p>
+                        <p>• Install skills with automatic version tracking and dependency management</p>
+                        <p>• Skills are downloaded to <code className="px-1.5 py-0.5 bg-slate-100 dark:bg-obsidian-800 rounded font-mono text-[10px]">.claude/skills/</code> in your workspace</p>
+                        <p>• The registry is a catalog snapshot—skills remain hosted on GitHub, not by Linggen</p>
+                    </div>
                 </div>
             </section>
 

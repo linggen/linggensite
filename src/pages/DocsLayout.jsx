@@ -9,6 +9,7 @@ import Memory from './docs/Memory'
 import Skills from './docs/Skills'
 import Library from './docs/Library'
 import VSCodeExtension from './docs/VSCodeExtension'
+import Architecture from './docs/Architecture'
 
 const NAV_GROUPS = [
     {
@@ -21,6 +22,7 @@ const NAV_GROUPS = [
     {
         title: 'Core Concepts',
         items: [
+            { id: 'architecture', label: 'Architecture', path: '/docs/architecture' },
             { id: 'skills', label: 'AI Mentor & Skills', path: '/docs/skills' },
             { id: 'memory', label: 'Design Anchor (Memory)', path: '/docs/memory' },
             { id: 'sources', label: 'Managing Sources', path: '/docs/sources' },
@@ -124,6 +126,7 @@ function DocsLayout() {
                             <Route index element={<Navigate to="quick-start" replace />} />
                             <Route path="quick-start" element={<QuickStart />} />
                             <Route path="graph-cli" element={<GraphAndCLI />} />
+                            <Route path="architecture" element={<Architecture />} />
                             <Route path="skills" element={<Skills />} />
                             <Route path="memory" element={<Memory />} />
                             <Route path="sources" element={<Sources />} />

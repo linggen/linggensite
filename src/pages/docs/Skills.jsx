@@ -44,10 +44,10 @@ function Skills() {
             <section className="space-y-6">
                 <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">The Linggen Library</h2>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                    Linggen provides a centralized <strong>Library</strong>—a store for curated Skills and Policies designed for individual and team users. 
+                    Linggen provides a centralized <strong>Library</strong>—a store for curated Skills and Policies designed for individual and team users.
                     Using the VS Code extension, you can browse official skills, find what fits your workflow, and install them into your project with a single click.
                 </p>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="p-6 bg-slate-50 dark:bg-obsidian-800/30 rounded-2xl border border-slate-200 dark:border-dev-border">
                         <h4 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
@@ -65,6 +65,40 @@ function Skills() {
                             Create your own custom skills and share them across your organization to ensure every developer (and AI) follows the same project conventions.
                         </p>
                     </div>
+                </div>
+            </section>
+
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">Online Skills Registry</h2>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Discover and install community skills directly from GitHub repositories. The online registry serves as a catalog
+                    of available skills—Linggen doesn't host the skills themselves, but provides a snapshot registry that points to their sources.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="p-6 bg-slate-50 dark:bg-obsidian-800/30 rounded-2xl border border-slate-200 dark:border-dev-border">
+                        <h4 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                            <span className="text-jade-500">🌐</span> Browse & Install
+                        </h4>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Use the VS Code extension or web UI to browse the registry, search for skills, and install them with automatic version tracking.
+                        </p>
+                    </div>
+                    <div className="p-6 bg-slate-50 dark:bg-obsidian-800/30 rounded-2xl border border-slate-200 dark:border-dev-border">
+                        <h4 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                            <span className="text-jade-500">⚡</span> CLI Installation
+                        </h4>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Use <code className="px-1.5 py-0.5 bg-slate-100 dark:bg-obsidian-800 rounded font-mono text-[10px]">linggen skills add</code> to install skills from GitHub repositories directly via command line.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="p-4 bg-jade-500/5 border-l-4 border-jade-500 rounded-r-xl">
+                    <p className="text-sm text-jade-400 font-medium">
+                        <strong>How it works:</strong> Skills are downloaded to your local <code className="px-1.5 py-0.5 bg-jade-500/10 rounded font-mono text-xs">.claude/skills/</code> directory
+                        and tracked in the registry. The registry is a snapshot catalog, not a hosting service—skills remain on GitHub.
+                    </p>
                 </div>
             </section>
 

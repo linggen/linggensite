@@ -72,22 +72,35 @@ function QuickStart() {
                 <div className="space-y-4">
                     <h3 className="text-xl font-bold flex items-center gap-3 text-slate-900 dark:text-white">
                         <span className="w-8 h-8 rounded-full bg-obsidian-900 text-white dark:bg-white dark:text-obsidian-900 flex items-center justify-center text-sm font-mono font-bold">4</span>
-                        Linux Server Management
+                        Server Management & Web UI
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400">
-                        For Linux server deployments, use systemd to manage the service:
+                        Manage the Linggen server with CLI commands for all platforms:
                     </p>
-                    <div className="bg-obsidian-900 rounded-xl border border-dev-border overflow-hidden">
-                        <div className="bg-obsidian-800 px-4 py-2 text-[10px] uppercase font-bold text-obsidian-700 font-mono">Restart Service</div>
-                        <pre className="p-6 text-sm font-mono text-jade-500 font-bold">
-                            sudo systemctl restart linggen-server
-                        </pre>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="bg-obsidian-900 rounded-xl border border-dev-border overflow-hidden">
+                            <div className="bg-obsidian-800 px-4 py-2 text-[10px] uppercase font-bold text-obsidian-700 font-mono">Stop Server</div>
+                            <pre className="p-4 text-sm font-mono text-jade-500 font-bold">
+                                linggen stop
+                            </pre>
+                        </div>
+                        <div className="bg-obsidian-900 rounded-xl border border-dev-border overflow-hidden">
+                            <div className="bg-obsidian-800 px-4 py-2 text-[10px] uppercase font-bold text-obsidian-700 font-mono">Restart Server</div>
+                            <pre className="p-4 text-sm font-mono text-jade-500 font-bold">
+                                linggen restart
+                            </pre>
+                        </div>
                     </div>
                     <p className="text-slate-600 dark:text-slate-400">
                         Access the Web UI by opening your browser to:
                     </p>
                     <div className="bg-obsidian-900 rounded-xl border border-dev-border p-6 text-sm font-mono text-white leading-relaxed">
-                        <span className="text-jade-500">🌐</span> http://server_ip:8787
+                        <span className="text-jade-500">🌐</span> http://localhost:8787
+                    </div>
+                    <div className="p-4 bg-jade-500/5 border-l-4 border-jade-500 rounded-r-xl">
+                        <p className="text-xs text-jade-400">
+                            <strong>macOS users:</strong> Access the web UI instead of a desktop app. For Linux server deployments, use <code className="px-1.5 py-0.5 bg-jade-500/10 rounded font-mono text-[10px]">sudo systemctl restart linggen-server</code> with systemd.
+                        </p>
                     </div>
                 </div>
             </section>
