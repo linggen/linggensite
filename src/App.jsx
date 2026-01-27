@@ -6,6 +6,8 @@ import PricingPage from './pages/PricingPage'
 import ArticlesIndex from './pages/ArticlesIndex'
 import ArticlePage from './pages/ArticlePage'
 import WritePage from './pages/WritePage'
+import SkillsPage from './pages/SkillsPage'
+import SkillDetailPage from './pages/SkillDetailPage'
 
 function AppContent() {
   const location = useLocation()
@@ -57,6 +59,8 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/docs/*" element={<DocsLayout />} />
+        <Route path="/skills" element={<SkillsPage />} />
+        <Route path="/skills/:owner/:repo/:skillName" element={<SkillDetailPage />} />
         <Route path="/wiki" element={<ArticlesIndex />} />
         <Route path="/wiki/:slug" element={<ArticlePage />} />
         <Route path="/wiki/new" element={<WritePage />} />

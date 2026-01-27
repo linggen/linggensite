@@ -41,6 +41,7 @@ function Navigation() {
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.2em]">
                     <Link to="/wiki" className="text-slate-500 dark:text-slate-400 hover:text-jade-500 transition-colors">Wiki</Link>
+                    <Link to="/skills" className="text-slate-500 dark:text-slate-400 hover:text-jade-500 transition-colors">Skills</Link>
                     <Link to="/docs" className="text-slate-500 dark:text-slate-400 hover:text-jade-500 transition-colors">Docs</Link>
                     <Link to="/pricing" className="text-slate-500 dark:text-slate-400 hover:text-jade-500 transition-colors">Pricing</Link>
                     <a
@@ -66,6 +67,7 @@ function Navigation() {
             {mobileMenuOpen && (
                 <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 dark:bg-obsidian-800/95 backdrop-blur-xl border-b border-slate-200 dark:border-dev-border p-6 flex flex-col gap-4 shadow-xl animate-in fade-in slide-in-from-top-4">
                     <Link to="/wiki" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-slate-900 dark:text-white border-b border-slate-100 dark:border-dev-border pb-2">Wiki</Link>
+                    <Link to="/skills" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-slate-900 dark:text-white border-b border-slate-100 dark:border-dev-border pb-2">Skills</Link>
                     <Link to="/docs" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-slate-900 dark:text-white border-b border-slate-100 dark:border-dev-border pb-2">Docs</Link>
                     <Link to="/pricing" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-slate-900 dark:text-white border-b border-slate-100 dark:border-dev-border pb-2">Pricing</Link>
                     <a href="https://github.com/linggen/linggen" className="text-lg font-bold text-jade-500">GitHub ↗</a>
