@@ -4,22 +4,23 @@ function Features() {
     const features = [
         {
             icon: '🎯',
-            title: 'Design-Led Development',
-            description: 'In the era of AI coding, your role shifts from implementer to architect. Linggen helps you manage that transition by focusing on intent.',
+            title: 'Documentation-Led Development',
+            description: 'In the era of AI coding, your role shifts from implementer to architect. Linggen helps you manage that transition by focusing on documentation.',
             items: [
-                'Captures organizational product specs',
-                'Aligns code to follow design intent',
-                'Prevents "vibe coding" drift'
+                'Capture organizational product specifications',
+                'Align code to follow product specifications',
+                'Prevent "vibe coding" drift'
             ]
         },
         {
             icon: '⚓',
-            title: 'Anchored Intent',
-            description: 'Stop fighting fragmented rule files. Anchor decisions directly in code, backed by versioned Markdown that both humans and AI follow.',
+            title: 'Anchored Memory',
+            description: 'Anchor decisions directly in code, backed by versioned Markdown that both humans and AI follow.',
             items: [
-                'Human-readable CodeLens anchors',
-                'Versioned specs for every feature',
-                'No repeated prompting required'
+                'Human-readable CodeLens anchors with inline documentation',
+                'Versioned specs for every feature and decision',
+                'No repeated prompting required (Linggen does it for you)',
+                'Access to the entire codebase and tribal knowledge'
             ]
         },
         {
@@ -43,13 +44,13 @@ function Features() {
             ]
         },
         {
-            icon: '🗺️',
-            title: 'Visual System Map',
-            description: 'Explore a dependency graph to understand impact before refactors. See which files relate to your design decisions.',
+            icon: '📚',
+            title: 'Skill Library',
+            description: 'Browse a curated collection of Skills and Policies to instantly upgrade your AI Mentor\'s capabilities.',
             items: [
-                'File/module dependency graph',
-                'Automatic context discovery',
-                'Jump to code from graph nodes'
+                'Access high-quality, pre-built skills for common frameworks, coding standards, and documentation workflows maintained by the Linggen team.',
+                'Install Skills directly into your project with a single click.',
+                'Share Skills across projects to maintain consistency and efficiency.'
             ]
         },
         {
@@ -79,7 +80,7 @@ function Features() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                     {features.map((feature, index) => (
                         <div key={index} className="flex">
-                            <motion.div 
+                            <motion.div
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
