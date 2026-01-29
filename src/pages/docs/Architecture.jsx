@@ -56,6 +56,13 @@ function Architecture() {
                             <li>• Web UI hosting for team collaboration</li>
                         </ul>
                     </div>
+                    <div className="p-4 bg-slate-50 dark:bg-obsidian-800/30 rounded-xl border border-slate-200 dark:border-dev-border">
+                        <h4 className="font-bold text-slate-900 dark:text-white mb-2 text-sm">Index a Repo</h4>
+                        <div className="text-xs text-slate-600 dark:text-slate-400 space-y-2 font-mono">
+                            <div>cd your_repo</div>
+                            <div>sudo linggen index</div>
+                        </div>
+                    </div>
                     <div className="p-4 bg-jade-500/5 border-l-4 border-jade-500 rounded-r-xl">
                         <p className="text-sm text-jade-400 font-medium">
                             <strong>Access:</strong> Web UI at <code className="px-1.5 py-0.5 bg-jade-500/10 rounded font-mono text-xs">http://localhost:8787</code> or your team's server IP

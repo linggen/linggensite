@@ -29,7 +29,7 @@ function QuickStart() {
                 <div className="space-y-4">
                     <h3 className="text-xl font-bold flex items-center gap-3 text-slate-900 dark:text-white">
                         <span className="w-8 h-8 rounded-full bg-obsidian-900 text-white dark:bg-white dark:text-obsidian-900 flex items-center justify-center text-sm font-mono font-bold">2</span>
-                        CLI Setup (3 Steps)
+                        Terminal Setup (3 Steps)
                     </h3>
                     <div className="space-y-5">
                         <div>
@@ -59,7 +59,7 @@ function QuickStart() {
                         VS Code Setup (2 Steps)
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400">
-                        Preferred if you live inside VS Code.
+                        Preferred if you live inside VS Code or Cursor.
                     </p>
                     <div className="space-y-5">
                         <div>

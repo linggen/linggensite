@@ -15,6 +15,19 @@ function Sources() {
             </header>
 
             <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">Index via CLI</h2>
+                <div className="p-6 bg-slate-50 dark:bg-obsidian-800/50 rounded-2xl border border-slate-200 dark:border-dev-border">
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Run indexing directly from your repo root using the Linggen CLI.
+                    </p>
+                    <div className="mt-4 space-y-2 font-mono text-xs text-slate-600 dark:text-slate-400">
+                        <div>cd your_repo</div>
+                        <div>sudo linggen index</div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="space-y-6">
                 <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">File Patterns</h2>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                     Control which files get indexed using glob patterns. Linggen automatically respects 

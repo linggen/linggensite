@@ -77,16 +77,6 @@ function VSCodeExtension() {
             </section>
 
             <section className="space-y-6">
-                <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">AI Orchestration (Cursor)</h2>
-                <div className="p-6 bg-jade-500/5 border border-jade-500/20 rounded-2xl">
-                    <p className="text-sm text-slate-700 dark:text-slate-400 leading-relaxed">
-                        If you're using <strong>Cursor</strong>, Linggen automatically orchestrates the connection.
-                        No manual MCP configuration needed—it handles the technical handshake instantly.
-                    </p>
-                </div>
-            </section>
-
-            <section className="space-y-6">
                 <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">Extension Settings</h2>
                 <div className="space-y-6">
                     <div className="p-6 bg-slate-50 dark:bg-obsidian-800/30 rounded-2xl border border-slate-200 dark:border-dev-border">
@@ -121,16 +111,6 @@ function VSCodeExtension() {
                 </div>
             </section>
 
-            <section className="space-y-6 text-center pt-8">
-                <a
-                    href={VSCODE_EXTENSION_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-3 bg-obsidian-900 text-white dark:bg-white dark:text-obsidian-900 rounded-xl font-bold hover:scale-105 transition-transform"
-                >
-                    Install from Marketplace ❯
-                </a>
-            </section>
         </div>
     )
 }
