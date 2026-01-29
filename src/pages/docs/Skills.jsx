@@ -6,20 +6,20 @@ function Skills() {
                     <span className="p-1 bg-jade-500/10 rounded">🧩</span> Core Concepts
                 </div>
                 <h1 className="text-4xl font-bold font-display text-slate-900 dark:text-white">
-                    AI Mentor & Skills
+                    Skill is all you need
                 </h1>
                 <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
-                    Skills are the default way to use Linggen. They provide project-scoped instruction sets 
-                    that act as an AI Mentor, teaching your assistant the "way we work" here while hiding technical complexity.
+                    Skills are how Linggen helps your coding AI start faster and stay aligned with your project.
+                    Linggen itself ships as a core skill, and you can add more skills to teach your assistant how to work in your repo.
                 </p>
             </header>
 
             <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
-                    { title: 'Token Efficiency', desc: 'Targeted instructions reduce the overhead of massive context windows.' },
-                    { title: 'Instant Speed', desc: 'No complex MCP queries; skills are injected directly into the orchestration layer.' },
-                    { title: 'Zero Config', desc: 'Works out of the box in v0.6.0 without manual MCP setup.' },
-                    { title: 'AI Mentor', desc: 'Skills capture "how we work" here, helping the AI guide you through the project.' }
+                    { title: 'Fast Onboarding', desc: 'Teach a coding AI how your project works without re-explaining everything each session.' },
+                    { title: 'Aligned Output', desc: 'Skills anchor conventions, constraints, and “how we do things here” so changes fit.' },
+                    { title: 'Composable', desc: 'Install only what you need (e.g. code review, framework best practices, docs standards).' },
+                    { title: 'Team-Shareable', desc: 'Customize skills for your repo and share them with teammates for consistent AI behavior.' }
                 ].map((item, i) => (
                     <div key={i} className="p-6 bg-slate-50 dark:bg-obsidian-800/50 rounded-2xl border border-slate-200 dark:border-dev-border">
                         <h3 className="font-bold text-slate-900 dark:text-white mb-2">{item.title}</h3>
@@ -31,74 +31,111 @@ function Skills() {
             <section className="space-y-6">
                 <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">What is a Skill?</h2>
                 <p className="text-slate-600 dark:text-slate-400">
-                    A skill is a Markdown file under <code className="px-1.5 py-0.5 bg-slate-100 dark:bg-obsidian-800 rounded font-mono text-sm text-slate-900 dark:text-white border border-slate-200 dark:border-dev-border">.linggen/skills/</code>. 
-                    Linggen automatically prioritizes these skills to guide the AI's behavior and context retrieval.
+                    A skill is a Markdown instruction set that your AI loads during a session. By default, Linggen installs its core skill to
+                    <code className="px-1.5 py-0.5 bg-slate-100 dark:bg-obsidian-800 rounded font-mono text-sm text-slate-900 dark:text-white border border-slate-200 dark:border-dev-border">.claude/skills/</code>
+                    so your assistant can use Linggen features (search, memory, policies, and more) without you managing any plumbing.
                 </p>
                 <div className="p-4 bg-jade-500/5 border-l-4 border-jade-500 rounded-r-xl">
                     <p className="text-sm text-jade-400 font-medium">
-                        <strong>Rule of thumb:</strong> Skills improve process quality (how it works), while your request defines what to build.
+                        <strong>Rule of thumb:</strong> Your request defines what to do. Skills define how to do it in this project.
                     </p>
                 </div>
             </section>
 
             <section className="space-y-6">
-                <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">The Linggen Library</h2>
+                <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">Set Up (CLI or VS Code)</h2>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                    Linggen provides a centralized <strong>Library</strong>—a store for curated Skills and Policies designed for individual and team users.
-                    Using the VS Code extension, you can browse official skills, find what fits your workflow, and install them into your project with a single click.
+                    You can set up skills from the terminal, or let the VS Code extension automatically set everything up for you.
                 </p>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="p-6 bg-slate-50 dark:bg-obsidian-800/30 rounded-2xl border border-slate-200 dark:border-dev-border">
                         <h4 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-                            <span className="text-jade-500">🏛️</span> Official Skills
+                            <span className="text-jade-500">⌨️</span> Terminal (CLI-first)
+                        </h4>
+                        <div className="space-y-4">
+                            <div className="bg-obsidian-900 rounded-xl border border-dev-border p-4 text-xs font-mono text-jade-500 font-bold">
+                                curl -fsSL https://linggen.dev/install-cli.sh | bash
+                            </div>
+                            <div className="bg-obsidian-900 rounded-xl border border-dev-border p-4 text-xs font-mono text-white">
+                                <span className="text-jade-500">❯</span> linggen init
+                            </div>
+                        </div>
+                    </div>
+                    <div className="p-6 bg-slate-50 dark:bg-obsidian-800/30 rounded-2xl border border-slate-200 dark:border-dev-border">
+                        <h4 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                            <span className="text-jade-500">🧩</span> VS Code (recommended)
                         </h4>
                         <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                            Access high-quality, pre-built skills for common frameworks, coding standards, and documentation workflows maintained by the Linggen team.
+                            Install the Linggen VS Code extension. It automatically configures skills and keeps them in sync for your AI sessions.
+                        </p>
+                       
+                    </div>
+                </div>
+            </section>
+
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">How Skills Get Used</h2>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Once Linggen is installed, you can simply tell your AI to use it. Your assistant loads the available skills and applies them during the session.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="p-6 bg-slate-50 dark:bg-obsidian-800/30 rounded-2xl border border-slate-200 dark:border-dev-border">
+                        <h4 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                            <span className="text-jade-500">▶</span> Start Linggen
+                        </h4>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Ask your AI: <span className="font-mono text-jade-500">"start linggen"</span> or <span className="font-mono text-jade-500">"install linggen"</span>.
                         </p>
                     </div>
                     <div className="p-6 bg-slate-50 dark:bg-obsidian-800/30 rounded-2xl border border-slate-200 dark:border-dev-border">
                         <h4 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-                            <span className="text-jade-500">👥</span> Team Sharing
+                            <span className="text-jade-500">🧠</span> Keep Sessions Consistent
                         </h4>
                         <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                            Create your own custom skills and share them across your organization to ensure every developer (and AI) follows the same project conventions.
+                            Skills teach your assistant your repo’s conventions, constraints, and workflows so answers stay consistent across sessions.
                         </p>
                     </div>
                 </div>
             </section>
 
             <section className="space-y-6">
-                <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">Online Skills Registry</h2>
+                <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">Example: Install a Code Review Skill</h2>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                    Discover and install community skills directly from GitHub repositories. The online registry serves as a catalog
-                    of available skills—Linggen doesn't host the skills themselves, but provides a snapshot registry that points to their sources.
+                    You can “ask for a skill” in natural language. Your AI searches the Linggen skill registry, shows options, then installs the one you choose.
+                </p>
+                <div className="bg-obsidian-900 rounded-2xl border border-dev-border p-6 text-sm font-mono text-white space-y-2">
+                    <div><span className="text-jade-500">You</span>: Lookup a code review skill by Linggen</div>
+                    <div><span className="text-jade-500">AI</span>: I found a few options. Which one do you want to install?</div>
+                    <div><span className="text-jade-500">You</span>: the first one</div>
+                    <div><span className="text-jade-500">AI</span>: Installed. Say “review code” and I’ll use it.</div>
+                </div>
+            </section>
+
+            <section className="space-y-6">
+                <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">Customize & Share Skills</h2>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Skills are just Markdown, so you can edit them to fit your project and share them with your team.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="p-6 bg-slate-50 dark:bg-obsidian-800/30 rounded-2xl border border-slate-200 dark:border-dev-border">
                         <h4 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-                            <span className="text-jade-500">🌐</span> Browse & Install
+                            <span className="text-jade-500">🧰</span> Library UI (Local)
                         </h4>
-                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                            Use the VS Code extension or web UI to browse the registry, search for skills, and install them with automatic version tracking.
+                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
+                            Open <code className="px-1.5 py-0.5 bg-slate-100 dark:bg-obsidian-800 rounded font-mono text-[10px]">http://localhost:8787</code>, click <strong>Library</strong>,
+                            then download a skill, edit it, and share it with your team.
                         </p>
                     </div>
                     <div className="p-6 bg-slate-50 dark:bg-obsidian-800/30 rounded-2xl border border-slate-200 dark:border-dev-border">
                         <h4 className="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-                            <span className="text-jade-500">⚡</span> CLI Installation
+                            <span className="text-jade-500">🧩</span> VS Code Library
                         </h4>
                         <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                            Use <code className="px-1.5 py-0.5 bg-slate-100 dark:bg-obsidian-800 rounded font-mono text-[10px]">linggen skills add</code> to install skills from GitHub repositories directly via command line.
+                            In VS Code, run <code className="px-1.5 py-0.5 bg-slate-100 dark:bg-obsidian-800 rounded font-mono text-[10px]">Linggen: Library</code> to browse skills, policies,
+                            and project documents—a simple way to keep a team’s tooling and conventions consistent.
                         </p>
                     </div>
-                </div>
-
-                <div className="p-4 bg-jade-500/5 border-l-4 border-jade-500 rounded-r-xl">
-                    <p className="text-sm text-jade-400 font-medium">
-                        <strong>How it works:</strong> Skills are downloaded to your local <code className="px-1.5 py-0.5 bg-jade-500/10 rounded font-mono text-xs">.claude/skills/</code> directory
-                        and tracked in the registry. The registry is a snapshot catalog, not a hosting service—skills remain on GitHub.
-                    </p>
                 </div>
             </section>
 
@@ -130,9 +167,9 @@ function Skills() {
                 <h2 className="text-2xl font-bold font-display text-slate-900 dark:text-white">How to Use</h2>
                 <div className="space-y-4">
                     {[
-                        'Install the Linggen VS Code extension.',
-                        'The extension automatically creates and manages your .linggen/skills/ directory.',
-                        'Ask your AI to "follow the project skills" for any task, or install Packs from the Library.'
+                        'Install Linggen (CLI: `linggen init`, or VS Code extension for automatic setup).',
+                        'Tell your AI to start Linggen and follow the project skills.',
+                        'Ask for a skill when you need one (e.g. “lookup a code review skill”), pick an option, then use it (e.g. “review code”).'
                     ].map((step, i) => (
                         <div key={i} className="flex gap-4">
                             <span className="flex-shrink-0 w-6 h-6 rounded-full bg-jade-500 text-white text-xs font-bold flex items-center justify-center">

@@ -3,12 +3,17 @@ import { Link } from 'react-router-dom'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 
+const REGISTRY_URL = 'https://linggen-analytics.liangatbc.workers.dev'
+const SKILLS_SH_URL = import.meta.env.DEV
+    ? '/skills-sh/api/search'
+    : 'https://skills.sh/api/search'
+
 function SkillsPage() {
     const [skills, setSkills] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [searchQuery, setSearchQuery] = useState('')
-    const [copiedIndex, setCopiedIndex] = useState(null)
+    const [copiedId, setCopiedId] = useState(null)
 
     useEffect(() => {
         const fetchSkills = async () => {
@@ -16,15 +21,13 @@ function SkillsPage() {
                 setLoading(true)
                 setError(null)
 
+                const isSearching = Boolean(searchQuery.trim())
+                const query = searchQuery.trim()
+
                 // Use different endpoints based on search query
-                let url
-                if (searchQuery.trim()) {
-                    // Use search API when user is searching
-                    url = `https://linggen-analytics.liangatbc.workers.dev/skills/search?q=${encodeURIComponent(searchQuery)}`
-                } else {
-                    // Use list all API when no search query
-                    url = 'https://linggen-analytics.liangatbc.workers.dev/skills'
-                }
+                const url = isSearching
+                    ? `${REGISTRY_URL}/skills/search?q=${encodeURIComponent(query)}`
+                    : `${REGISTRY_URL}/skills`
 
                 const response = await fetch(url)
 
@@ -41,6 +44,19 @@ function SkillsPage() {
                     skillsArray = data.skills || data.data || data.results || []
                 }
 
+                const parseFrontmatter = (content) => {
+                    if (!content) return { name: null, description: '' }
+                    const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/)
+                    if (!frontmatterMatch) return { name: null, description: '' }
+                    const frontmatter = frontmatterMatch[1]
+                    const nameMatch = frontmatter.match(/^name:\s*(.+)$/m)
+                    const descMatch = frontmatter.match(/^description:\s*(.+)$/m)
+                    return {
+                        name: nameMatch ? nameMatch[1].trim() : null,
+                        description: descMatch ? descMatch[1].trim() : '',
+                    }
+                }
+
                 // Transform API fields to match UI expectations
                 const normalizedSkills = skillsArray.map(skill => {
                     // Parse name and description from content YAML frontmatter
@@ -48,16 +64,9 @@ function SkillsPage() {
                     let description = ''
 
                     if (skill.content) {
-                        // Extract YAML frontmatter between --- markers
-                        const frontmatterMatch = skill.content.match(/^---\n([\s\S]*?)\n---/)
-                        if (frontmatterMatch) {
-                            const frontmatter = frontmatterMatch[1]
-                            const nameMatch = frontmatter.match(/^name:\s*(.+)$/m)
-                            const descMatch = frontmatter.match(/^description:\s*(.+)$/m)
-
-                            if (nameMatch) name = nameMatch[1].trim()
-                            if (descMatch) description = descMatch[1].trim()
-                        }
+                        const parsed = parseFrontmatter(skill.content)
+                        if (parsed.name) name = parsed.name
+                        description = parsed.description || ''
                     }
 
                     return {
@@ -69,11 +78,57 @@ function SkillsPage() {
                         version: skill.ref || 'main',
                         skillName: skill.skill,
                         repoUrl: skill.url,
-                        url: skill.url
+                        url: skill.url,
+                        source: 'linggen',
                     }
                 })
 
-                setSkills(normalizedSkills)
+                let combinedSkills = normalizedSkills
+
+                // skills.sh fallback when the registry has sparse search results
+                if (isSearching && normalizedSkills.length < 10) {
+                    try {
+                        const skillsShUrl = `${SKILLS_SH_URL}?q=${encodeURIComponent(query)}&limit=10`
+                        const skillsShResp = await fetch(skillsShUrl)
+                        if (skillsShResp.ok) {
+                            const skillsShData = await skillsShResp.json()
+                            const skillsShArray = skillsShData?.skills || skillsShData?.data || skillsShData?.results || []
+
+                            const linggenKeys = new Set(
+                                normalizedSkills.map(s => `${(s.repoUrl || '').toLowerCase()}::${(s.skillName || '').toLowerCase()}`)
+                            )
+
+                            const normalizedSkillsSh = skillsShArray
+                                .map(s => {
+                                    const repoUrl = `https://github.com/${s.topSource}`
+                                    const owner = s.topSource ? s.topSource.split('/')[0] : null
+                                    return {
+                                        id: `skillsSh-${s.topSource}-${s.id}`,
+                                        name: s.name || s.id,
+                                        description: '',
+                                        author: owner,
+                                        installCount: s.installs || 0,
+                                        version: 'main',
+                                        skillName: s.id,
+                                        repoUrl: repoUrl,
+                                        url: repoUrl,
+                                        source: 'github',
+                                    }
+                                })
+                                .filter(s => {
+                                    const key = `${(s.repoUrl || '').toLowerCase()}::${(s.skillName || '').toLowerCase()}`
+                                    return !linggenKeys.has(key)
+                                })
+
+                            combinedSkills = normalizedSkills.concat(normalizedSkillsSh)
+                        }
+                    } catch (e) {
+                        // best-effort fallback; do not fail the page on skills.sh issues
+                        console.warn('skills.sh fallback failed:', e)
+                    }
+                }
+
+                setSkills(combinedSkills)
             } catch (err) {
                 console.error('Error fetching skills:', err)
                 setError(err.message)
@@ -93,7 +148,12 @@ function SkillsPage() {
 
     // API already handles filtering, just sort by install count
     const sortedSkills = Array.isArray(skills)
-        ? [...skills].sort((a, b) => (b.installCount || 0) - (a.installCount || 0))
+        ? [...skills].sort((a, b) => {
+            const sourceRankA = a.source === 'linggen' ? 0 : 1
+            const sourceRankB = b.source === 'linggen' ? 0 : 1
+            if (sourceRankA !== sourceRankB) return sourceRankA - sourceRankB
+            return (b.installCount || 0) - (a.installCount || 0)
+        })
         : []
 
     return (
@@ -163,6 +223,7 @@ function SkillsPage() {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {sortedSkills.map((skill, index) => {
+                                    const isGithub = skill.source === 'github'
                                     const detailUrl = skill.author && skill.skillName
                                         ? `/skills/${skill.author}/${skill.repoUrl?.split('/').pop() || 'repo'}/${skill.skillName}`
                                         : '#'
@@ -171,16 +232,21 @@ function SkillsPage() {
                                         if (skill.repoUrl && skill.skillName) {
                                             const command = `linggen skills add ${skill.repoUrl} --skill ${skill.skillName}`
                                             navigator.clipboard.writeText(command)
-                                            setCopiedIndex(index)
-                                            setTimeout(() => setCopiedIndex(null), 2000)
+                                            setCopiedId(skill.id)
+                                            setTimeout(() => setCopiedId(null), 2000)
                                         }
                                     }
 
                                     return (
                                         <div
                                             key={skill.id || index}
-                                            className="group p-6 bg-slate-50 dark:bg-obsidian-800 border border-slate-200 dark:border-dev-border rounded-2xl hover:border-jade-500/50 hover:shadow-xl hover:shadow-jade-500/5 transition-all duration-300"
+                                            className="group relative p-6 bg-slate-50 dark:bg-obsidian-800 border border-slate-200 dark:border-dev-border rounded-2xl hover:border-jade-500/50 hover:shadow-xl hover:shadow-jade-500/5 transition-all duration-300"
                                         >
+                                        {isGithub && (
+                                            <div className="absolute top-4 right-4 text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-full bg-jade-500/10 text-jade-600 dark:text-jade-400 border border-jade-500/20">
+                                                GitHub
+                                            </div>
+                                        )}
                                         {/* Rank Badge */}
                                         {index < 3 && !searchQuery && (
                                             <div className="mb-3">
@@ -197,11 +263,25 @@ function SkillsPage() {
                                         {/* Skill Info */}
                                         <div className="space-y-3">
                                             <div>
-                                                <Link to={detailUrl}>
-                                                    <h3 className="text-lg font-bold text-slate-900 dark:text-white hover:text-jade-500 transition-colors cursor-pointer">
-                                                        {skill.name || 'Unnamed Skill'}
-                                                    </h3>
-                                                </Link>
+                                                {isGithub ? (
+                                                    <a
+                                                        href={skill.url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="block"
+                                                        onClick={(e) => e.stopPropagation()}
+                                                    >
+                                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white hover:text-jade-500 transition-colors cursor-pointer">
+                                                            {skill.name || 'Unnamed Skill'}
+                                                        </h3>
+                                                    </a>
+                                                ) : (
+                                                    <Link to={detailUrl}>
+                                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white hover:text-jade-500 transition-colors cursor-pointer">
+                                                            {skill.name || 'Unnamed Skill'}
+                                                        </h3>
+                                                    </Link>
+                                                )}
                                                 {skill.author && (
                                                     <p className="text-xs text-slate-500 dark:text-slate-500 font-mono">
                                                         by {skill.author}
@@ -240,7 +320,7 @@ function SkillsPage() {
                                                             onClick={copyInstallCommand}
                                                             className="absolute top-2 right-2 px-2 py-1 bg-jade-500 hover:bg-jade-600 text-white text-[10px] font-bold rounded transition-colors"
                                                         >
-                                                            {copiedIndex === index ? '✓' : 'Copy'}
+                                                            {copiedId === skill.id ? '✓' : 'Copy'}
                                                         </button>
                                                     </div>
                                                 </div>

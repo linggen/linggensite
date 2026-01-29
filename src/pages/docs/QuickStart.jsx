@@ -19,88 +19,67 @@ function QuickStart() {
                 <div className="space-y-4">
                     <h3 className="text-xl font-bold flex items-center gap-3 text-slate-900 dark:text-white">
                         <span className="w-8 h-8 rounded-full bg-obsidian-900 text-white dark:bg-white dark:text-obsidian-900 flex items-center justify-center text-sm font-mono font-bold">1</span>
-                        Install Linggen CLI
+                        Choose Your Setup
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400">
-                        The easiest way is using the VS Code extension. Open the Command Palette (<kbd className="font-mono text-xs bg-slate-100 dark:bg-obsidian-800 px-1 py-0.5 rounded border border-slate-200 dark:border-dev-border">Cmd/Ctrl+Shift+P</kbd>) and run:
-                    </p>
-                    <div className="bg-obsidian-900 rounded-xl border border-dev-border overflow-hidden">
-                        <div className="bg-obsidian-800 px-4 py-2 text-[10px] uppercase font-bold text-obsidian-700 font-mono">VS Code Command</div>
-                        <pre className="p-6 text-sm font-mono text-jade-500 font-bold">
-                            Linggen: Install Linggen CLI
-                        </pre>
-                    </div>
-                    <p className="text-xs text-obsidian-700 italic">
-                        Or use the one-liner: <code className="text-jade-500/80">curl -fsSL https://linggen.dev/install-cli.sh | bash</code>
+                        Pick the path that matches how you work: CLI-first or VS Code-first.
                     </p>
                 </div>
 
                 <div className="space-y-4">
                     <h3 className="text-xl font-bold flex items-center gap-3 text-slate-900 dark:text-white">
                         <span className="w-8 h-8 rounded-full bg-obsidian-900 text-white dark:bg-white dark:text-obsidian-900 flex items-center justify-center text-sm font-mono font-bold">2</span>
-                        Start the Service
+                        CLI Setup (3 Steps)
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
-                        Open your terminal and start the Linggen orchestration service:
-                    </p>
-                    <div className="bg-obsidian-900 rounded-xl border border-dev-border p-6 text-sm font-mono text-white leading-relaxed">
-                        <span className="text-jade-500">❯</span> linggen
+                    <div className="space-y-5">
+                        <div>
+                            <p className="text-slate-600 dark:text-slate-400 mb-2">Step 1</p>
+                            <div className="bg-obsidian-900 rounded-xl border border-dev-border p-6 text-sm font-mono text-jade-500 font-bold">
+                                curl -fsSL https://linggen.dev/install-cli.sh | bash
+                            </div>
+                        </div>
+                        <div>
+                            <p className="text-slate-600 dark:text-slate-400 mb-2">Step 2</p>
+                            <div className="bg-obsidian-900 rounded-xl border border-dev-border p-6 text-sm font-mono text-white">
+                                <span className="text-jade-500">❯</span> linggen init
+                            </div>
+                        </div>
+                        <div>
+                            <p className="text-slate-600 dark:text-slate-400 mb-2">Step 3 (example)</p>
+                            <div className="bg-obsidian-900 rounded-xl border border-dev-border p-6 text-sm font-mono text-white">
+                                Ask your AI: <span className="text-jade-500">"install linggen"</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div className="space-y-4">
                     <h3 className="text-xl font-bold flex items-center gap-3 text-slate-900 dark:text-white">
                         <span className="w-8 h-8 rounded-full bg-obsidian-900 text-white dark:bg-white dark:text-obsidian-900 flex items-center justify-center text-sm font-mono font-bold">3</span>
-                        Index & Explore
+                        VS Code Setup (2 Steps)
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400">
-                        In VS Code, run the indexer to build your project's knowledge map:
+                        Preferred if you live inside VS Code.
                     </p>
-                    <div className="space-y-3">
-                        <div className="bg-obsidian-900 rounded-xl border border-dev-border overflow-hidden">
-                            <div className="bg-obsidian-800 px-4 py-2 text-[10px] uppercase font-bold text-obsidian-700 font-mono">VS Code Command</div>
-                            <pre className="p-4 text-sm font-mono text-white">
-                                Linggen: Index Current Project
-                            </pre>
+                    <div className="space-y-5">
+                        <div>
+                            <p className="text-slate-600 dark:text-slate-400 mb-2">Step 1</p>
+                            <div className="bg-obsidian-900 rounded-xl border border-dev-border p-6 text-sm font-mono text-white">
+                                Install the Linggen extension
+                            </div>
                         </div>
-                        <p className="text-sm text-slate-600 dark:text-slate-400">
-                            Then right-click any file and select <span className="text-jade-500 font-bold">Linggen: Open Graph</span> to see your architecture.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="space-y-4">
-                    <h3 className="text-xl font-bold flex items-center gap-3 text-slate-900 dark:text-white">
-                        <span className="w-8 h-8 rounded-full bg-obsidian-900 text-white dark:bg-white dark:text-obsidian-900 flex items-center justify-center text-sm font-mono font-bold">4</span>
-                        Server Management & Web UI
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
-                        Manage the Linggen server with CLI commands for all platforms:
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="bg-obsidian-900 rounded-xl border border-dev-border overflow-hidden">
-                            <div className="bg-obsidian-800 px-4 py-2 text-[10px] uppercase font-bold text-obsidian-700 font-mono">Stop Server</div>
-                            <pre className="p-4 text-sm font-mono text-jade-500 font-bold">
-                                linggen stop
-                            </pre>
+                        <div>
+                            <p className="text-slate-600 dark:text-slate-400 mb-2">Step 2</p>
+                            <div className="bg-obsidian-900 rounded-xl border border-dev-border overflow-hidden">
+                                <div className="bg-obsidian-800 px-4 py-2 text-[10px] uppercase font-bold text-obsidian-700 font-mono">VS Code Command</div>
+                                <pre className="p-4 text-sm font-mono text-white">
+                                    Linggen: Install/update linggen(local)
+                                </pre>
+                            </div>
+                            <p className="text-xs text-obsidian-700 italic mt-2">
+                                Or tell your AI: <span className="text-jade-500/80">install linggen</span>
+                            </p>
                         </div>
-                        <div className="bg-obsidian-900 rounded-xl border border-dev-border overflow-hidden">
-                            <div className="bg-obsidian-800 px-4 py-2 text-[10px] uppercase font-bold text-obsidian-700 font-mono">Restart Server</div>
-                            <pre className="p-4 text-sm font-mono text-jade-500 font-bold">
-                                linggen restart
-                            </pre>
-                        </div>
-                    </div>
-                    <p className="text-slate-600 dark:text-slate-400">
-                        Access the Web UI by opening your browser to:
-                    </p>
-                    <div className="bg-obsidian-900 rounded-xl border border-dev-border p-6 text-sm font-mono text-white leading-relaxed">
-                        <span className="text-jade-500">🌐</span> http://localhost:8787
-                    </div>
-                    <div className="p-4 bg-jade-500/5 border-l-4 border-jade-500 rounded-r-xl">
-                        <p className="text-xs text-jade-400">
-                            <strong>macOS users:</strong> Access the web UI instead of a desktop app. For Linux server deployments, use <code className="px-1.5 py-0.5 bg-jade-500/10 rounded font-mono text-[10px]">sudo systemctl restart linggen-server</code> with systemd.
-                        </p>
                     </div>
                 </div>
             </section>

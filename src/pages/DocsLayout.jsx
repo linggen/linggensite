@@ -23,7 +23,7 @@ const NAV_GROUPS = [
         title: 'Core Concepts',
         items: [
             { id: 'architecture', label: 'Architecture', path: '/docs/architecture' },
-            { id: 'skills', label: 'AI Mentor & Skills', path: '/docs/skills' },
+            { id: 'skills', label: 'Skill is all you need', path: '/docs/skills' },
             { id: 'memory', label: 'Design Anchor (Memory)', path: '/docs/memory' },
             { id: 'sources', label: 'Managing Sources', path: '/docs/sources' },
         ]

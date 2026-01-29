@@ -37,9 +37,9 @@ function Hero() {
                             transition={{ duration: 0.5 }}
                             className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] tracking-tight mb-8 text-slate-900 dark:text-white max-w-[20ch] mx-auto lg:mx-0"
                         >
-                            You define the intent.
+                            Fast start.
                             <span className="bg-gradient-to-r from-jade-500 to-emerald-500 bg-clip-text text-transparent block mt-2">
-                                Linggen makes it stay.
+                                Long-term alignment.
                             </span>
                         </motion.h1>
                         <motion.p
@@ -48,7 +48,8 @@ function Hero() {
                             transition={{ duration: 0.5, delay: 0.1 }}
                             className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl mb-12 mx-auto lg:mx-0"
                         >
-                            Linggen is the <strong>alignment layer</strong> for AI coding. Anchor your design decisions directly into your codebase so humans and AI can evolve it without losing its original shape.
+                            Linggen helps coding AIs understand your project from day one, and keep your design intent anchored as the code evolves.<br/>
+                            Sub-agent? MCP? Plugin? Skills? No. Linggen sets it up, you focus on building.
                         </motion.p>
 
                         <motion.div
@@ -57,13 +58,13 @@ function Hero() {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             className="flex flex-wrap justify-center lg:justify-start gap-5"
                         >
-                            <a href="#get-started" className="group relative px-8 py-4 bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold rounded-2xl transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-jade-500/20 overflow-hidden">
+                            <a href="/docs" className="group relative px-8 py-4 bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold rounded-2xl transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-jade-500/20 overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-r from-jade-500/0 via-jade-500/20 to-jade-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                                 <span className="relative">Get Started</span>
                             </a>
-                            <a href="/docs" className="px-8 py-4 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 font-bold rounded-2xl hover:bg-white dark:hover:bg-slate-800 transition-all text-slate-700 dark:text-slate-300 hover:border-jade-500/50">
+                            {/* <a href="/docs" className="px-8 py-4 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 font-bold rounded-2xl hover:bg-white dark:hover:bg-slate-800 transition-all text-slate-700 dark:text-slate-300 hover:border-jade-500/50">
                                 Read Docs
-                            </a>
+                            </a> */}
                         </motion.div>
                     </div>
 
@@ -94,7 +95,7 @@ function Hero() {
                                 {/* Terminal Content */}
                                 <div className="p-8 space-y-6">
                                     <div className="space-y-3">
-                                        <div className="text-slate-300 text-[10px] font-bold uppercase tracking-widest"># Step 1: Install Linggen Core</div>
+                                        <div className="text-slate-300 text-[10px] font-bold uppercase tracking-widest"># Quick Start</div>
                                         <div className="flex items-center justify-between gap-4 group/cmd">
                                             <div className="flex items-center gap-3 overflow-hidden">
                                                 <span className="text-jade-300 flex-shrink-0 font-bold">❯</span>
@@ -111,13 +112,7 @@ function Hero() {
                                             </button>
                                         </div>
                                     </div>
-                                    <div className="space-y-3">
-                                        <div className="text-slate-300 text-[10px] font-bold uppercase tracking-widest"># Step 2: install and start</div>
-                                        <div className="flex items-center gap-3 overflow-hidden">
-                                            <span className="text-jade-300 font-bold">❯</span>
-                                            <code className="text-white font-bold selection:bg-jade-500 selection:text-slate-900">sudo linggen install && linggen</code>
-                                        </div>
-                                    </div>
+                               
                                 </div>
                             </motion.div>
                         </div>

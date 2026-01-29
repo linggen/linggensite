@@ -10,5 +10,13 @@ export default defineConfig({
   server: {
     port: 5174,
     strictPort: true,
+    proxy: {
+      '/skills-sh': {
+        target: 'https://skills.sh',
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/skills-sh/, ''),
+      },
+    },
   },
 })
